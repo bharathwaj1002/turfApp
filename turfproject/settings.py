@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-pkw#b7dcc$4^ej#qb!4lf*&z4b9qyjxgnyz1rdq=!pbiz==a(9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -55,6 +55,8 @@ MIDDLEWARE = [
 CSRF_TRUSTED_ORIGINS = [
     "https://psm-sports-village-production.up.railway.app"
 ]
+
+LOGIN_REDIRECT_URL = 'index'
 
 ROOT_URLCONF = 'turfproject.urls'
 

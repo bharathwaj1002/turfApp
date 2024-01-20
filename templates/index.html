@@ -75,6 +75,7 @@
           </nav>
         </div>
       </header>
+
       <section class="section">
         <div class="shell-wide">
           <div class="range range-30 range-xs-center">
@@ -130,12 +131,18 @@
                 <h3>Book a Match</h3>
                 <!-- RD Mailform-->
                 <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="check_availability">
+                  {% csrf_token %}
                   <div class="range range-sm-bottom spacing-20">
                     <div class="cell-lg-12 cell-md-4">
                       <p class="text-uppercase">Your Name</p>
                       <div class="form-wrap">
                         <input class="form-input" id="contact-first-name" type="text" name="name" data-constraints="@Required">
                         <label class="form-label" for="contact-first-name">Your Full Name</label>
+                      </div>
+                      <p class="text-uppercase">Mobile Number</p>
+                      <div class="form-wrap">
+                        <input class="form-input" id="contact-mobile-number" type="text" name="mobile_number" data-constraints="@Required" pattern="\d{1,10}">
+                        <label class="form-label" for="contact-mobile-number">Mobile number</label>
                       </div>
                     </div>
                     <div class="cell-lg-12 cell-md-4 cell-sm-6">
@@ -292,6 +299,26 @@
                       </li>
                     </ul>
                   </div>
+                </div>
+                <div style="position:relative;left:2cm;top:1cm;">
+                  <div class="login-button-container">
+                    {% if user.is_authenticated and user.is_staff %}
+                        <!-- If the user is authenticated and is a staff member (admin) -->
+                        <a href="view_bookings" class="button button-effect-ujarak button-lg button-primary button-square">
+                            <span>Admin Dashboard</span>
+                        </a>
+                    {% else %}
+                        <!-- If the user is not authenticated or is not a staff member -->
+                        <a href="{% url 'admin:login' %}" class="button button-effect-ujarak button-lg button-secondary button-square">
+                            <span>Login as Admin</span>
+                        </a>
+                    {% endif %}
+                </div>
+            <div>
+                {% if user.is_authenticated and user.is_staff%}
+                <a href="logout" class="btn btn-link" ><button id="logout" type="submit" class="btn btn-link">Logout</button></a>
+                {% endif %}
+            </div>
                 </div>
               </div>
             </div>

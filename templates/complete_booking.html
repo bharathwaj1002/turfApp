@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+<head>
+    <style>
+        .booking-confirmation {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .confirmation-heading {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .booking-details {
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .continue-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .continue-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="booking-confirmation">
+        <div class="confirmation-heading">Booking Confirmed!</div>
+        <div class="booking-details">
+            Thank you for booking. Your booking details are as follows:<br>
+            <strong>Name:</strong> {{ booking.name }}<br>
+            <strong>Date:</strong> {{ booking.date }}<br>
+            <strong>Session:</strong> {{ booking.session }}<br>
+            <strong>Mobile Number:</strong> {{ booking.mobile_number }}
+        </div>
+        
+        <img src="{{ qr_img.url }}" alt="Booking QR Code">
+
+        <a href="/" class="continue-button">Continue</a>
+    </div>
+</body>
+</html>

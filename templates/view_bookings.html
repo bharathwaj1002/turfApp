@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bookings</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        p {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Bookings</h2>
+
+{% if bookings %}
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Session</th>
+                <th>Mobile Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.name }}</td>
+                    <td>{{ booking.date }}</td>
+                    <td>{{ booking.session }}</td>
+                    <td>{{ booking.mobile_number }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No bookings available.</p>
+{% endif %}
+
+</body>
+</html>

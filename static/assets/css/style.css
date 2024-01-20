@@ -82,6 +82,19 @@ html *:last-child {
 	left: 37.5%;
 }
 
+#logout {
+  color: #000;
+  text-decoration: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#logout:hover {
+  color:#fff;
+  background-color: #bd2130;
+}
+
+
 body {
 	font-family: "Lato", Helvetica, Arial, sans-serif;
 	font-size: 14px;

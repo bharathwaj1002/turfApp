@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookings</title>
+    <style>
+      .confirm-booking-container {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 20px;
+        background-color: #f8f8f8;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .confirm-booking-container h2 {
+        color: #333;
+      }
+
+      .confirm-booking-container p {
+        margin: 10px 0;
+        color: #555;
+      }
+
+      .booking-form {
+        margin-top: 20px;
+      }
+
+      .confirm-button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .cancel-button {
+        display: inline-block;
+        margin-top: 10px;
+        color: #fff;
+        background-color: #d9534f;
+        padding: 8px 15px;
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .cancel-button:hover {
+        background-color: #c9302c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="confirm-booking-container">
+      <h2>Hurray!!! Your Date is Available</h2>
+      <p>Name: {{ name }}</p>
+      <p>Date: {{ date }}</p>
+      <p>Session: {{ session }}</p>
+      <p>Mobile Number: {{ mobile_number }}</p>
+
+      <form method="post" action="{% if booking and booking.pk %}{% url 'complete_booking' booking_id=booking.pk %}{% else %}{% url 'confirm_booking' name=name date=date session=session mobile_number=mobile_number %}{% endif %}" class="booking-form">
+        {% csrf_token %}
+        <button type="submit" class="confirm-button">Confirm Booking</button>
+    </form>    
+
+      <form method="post" action="{% url 'cancel_booking' %}">
+        {% csrf_token %}
+        <button type="submit" class="cancel-button">Cancel</button>
+      </form>
+    </div>
+  </body>
+</html>
