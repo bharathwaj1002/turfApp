@@ -11,5 +11,5 @@ urlpatterns = [
     path('index',views.index,name='index'),
     path('about-us',views.about,name='about-us'),
     path('contacts',views.contacts,name='contacts'),
-    path('typography',views.typography,name='typography')
+    path('check_availability', views.check_availability, name='check_availability')
 ]
