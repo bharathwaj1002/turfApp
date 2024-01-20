@@ -58,6 +58,16 @@ CSRF_TRUSTED_ORIGINS = [
 
 LOGIN_REDIRECT_URL = 'index'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'b22203005@gmail.com'
+EMAIL_HOST_PASSWORD = 'wannacumdamapla'
+
+DEFAULT_FROM_EMAIL = 'your_email@gmail.com'
+SERVER_EMAIL = 'your_email@gmail.com'
+
 ROOT_URLCONF = 'turfproject.urls'
 
 TEMPLATES = [

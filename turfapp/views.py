@@ -8,6 +8,9 @@ from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from .forms import BookingForm
 from io import BytesIO
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 from django.core.files import File
 import qrcode
 
@@ -63,21 +66,36 @@ def complete_booking(request, booking_id):
     # Generate QR code
     qr = qrcode.QRCode(
         version=1,
-        error_correction=qrcode.constants.ERROR_CORRECT_L,
         box_size=10,
-        border=4,
+        border=5,
     )
-    qr.add_data(f"Name: {booking.name}\nDate: {booking.date}\nSession: {booking.session}\nMobile Number: {booking.mobile_number}")
+    qr.add_data(f"Booking ID: {booking.id}")
     qr.make(fit=True)
-    img = qr.make_image(fill_color="black", back_color="white")
+    qr_img = qr.make_image(fill_color="black", back_color="white")
 
-    # Save QR code image to in-memory buffer
-    buffer = BytesIO()
-    img.save(buffer)
-    buffer.seek(0)
+    # Convert the QR code image to BytesIO for attaching to the email
+    from io import BytesIO
+    qr_img_io = BytesIO()
+    qr_img.save(qr_img_io, format='PNG')
+    qr_img_io.seek(0)
 
-    # Update the Booking model with the QR code
-    booking.qr_code.save(f'qr_code_{booking.id}.png', File(buffer), save=True)
+    # Create and send email
+    subject = 'Booking Confirmation'
+    to_email = [booking.email]  # Replace with the actual field name storing the customer's email
+
+    # Render email template
+    html_message = render_to_string('booking_confirmation_email.html', {'booking': booking})
+    plain_message = strip_tags(html_message)
+
+    # Create email
+    email = EmailMessage(subject, plain_message, to=to_email)
+    email.attach_alternative(html_message, "text/html")
+
+    # Attach QR code to email
+    email.attach('booking_qr.png', qr_img_io.read(), 'image/png')
+
+    # Send email
+    email.send()
 
     return render(request, 'complete_booking.html', {'booking': booking})
 
