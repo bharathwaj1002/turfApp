@@ -48,11 +48,11 @@
             <strong>Name:</strong> {{ booking.name }}<br>
             <strong>Date:</strong> {{ booking.date }}<br>
             <strong>Session:</strong> {{ booking.session }}<br>
-            <strong>Mobile Number:</strong> {{ booking.mobile_number }}
+            <strong>Mobile Number:</strong> {{ booking.mobile_number }}<br>
+            {% if booking.qr_code %}
+                <img src="{{ booking.qr_code.url }}" alt="QR Code">
+            {% endif %}
         </div>
-        
-        <img src="{{ qr_img.url }}" alt="Booking QR Code">
-
         <a href="/" class="continue-button">Continue</a>
     </div>
 </body>

@@ -7,6 +7,8 @@ from django.views.decorators.http import require_POST
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from .forms import BookingForm
+from io import BytesIO
+from django.core.files import File
 import qrcode
 
 # Create your views here.
@@ -57,18 +59,27 @@ def confirm_booking(request, name, date, session, mobile_number):
 
 def complete_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
+
+    # Generate QR code
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_L,
         box_size=10,
         border=4,
     )
-    booking_details = f"Name: {booking.name}\nDate: {booking.date}\nSession: {booking.session}\nMobile Number: {booking.mobile_number}"
-    qr.add_data(booking_details)
+    qr.add_data(f"Name: {booking.name}\nDate: {booking.date}\nSession: {booking.session}\nMobile Number: {booking.mobile_number}")
     qr.make(fit=True)
-    qr_img = qr.make_image(fill_color="black", back_color="white")
-    qr_img.save(f"booking_qr_{booking_id}.png")
-    return render(request, 'complete_booking.html', {'booking': booking, 'qr_img': qr_img})
+    img = qr.make_image(fill_color="black", back_color="white")
+
+    # Save QR code image to in-memory buffer
+    buffer = BytesIO()
+    img.save(buffer)
+    buffer.seek(0)
+
+    # Update the Booking model with the QR code
+    booking.qr_code.save(f'qr_code_{booking.id}.png', File(buffer), save=True)
+
+    return render(request, 'complete_booking.html', {'booking': booking})
 
 
 
