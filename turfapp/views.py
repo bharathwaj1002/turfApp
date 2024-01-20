@@ -36,27 +36,28 @@ def check_availability(request):
     date = request.POST.get('date')
     session = request.POST.get('session')
     mobile_number = request.POST.get('mobile_number')
+    email = request.POST.get('email')
 
     # Convert the date string to a datetime object
     selected_date = datetime.strptime(date, '%Y-%m-%d').date()
 
     if not Booking.objects.filter(date=selected_date, session=session).exists():
         # Redirect to the confirm_booking page with the input data
-        return redirect('confirm_booking', name=name, date=selected_date, session=session, mobile_number=mobile_number)
+        return redirect('confirm_booking', name=name, date=selected_date, session=session, mobile_number=mobile_number, email=email)
     else:
         return HttpResponse(f"Sorry, the turf is not available for {name} on {date} ({session}).")
 
 
 
-def confirm_booking(request, name, date, session, mobile_number):
+def confirm_booking(request, name, date, session, mobile_number, email):
     selected_date = datetime.strptime(date, '%Y-%m-%d').date()
     booking = None
 
     if request.method == 'POST':
-        booking = Booking.objects.create(name=name, date=selected_date, session=session, mobile_number=mobile_number)
+        booking = Booking.objects.create(name=name, date=selected_date, session=session, mobile_number=mobile_number, email=email)
         return redirect('complete_booking', booking_id=booking.pk)
 
-    return render(request, 'confirm_booking.html', {'booking': booking, 'name': name, 'date': date, 'session': session, 'mobile_number': mobile_number})
+    return render(request, 'confirm_booking.html', {'booking': booking, 'name': name, 'date': date, 'session': session, 'mobile_number': mobile_number, 'email':email})
 
 
 
@@ -89,7 +90,6 @@ def complete_booking(request, booking_id):
 
     # Create email
     email = EmailMessage(subject, plain_message, to=to_email)
-    email.attach_alternative(html_message, "text/html")
 
     # Attach QR code to email
     email.attach('booking_qr.png', qr_img_io.read(), 'image/png')

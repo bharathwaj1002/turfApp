@@ -56,14 +56,20 @@
     <div class="confirm-booking-container">
       <h2>Hurray!!! Your Date is Available</h2>
       <p>Name: {{ name }}</p>
+      <p>Email: {{ email }}</p>
       <p>Date: {{ date }}</p>
       <p>Session: {{ session }}</p>
       <p>Mobile Number: {{ mobile_number }}</p>
+      <strong>Verify your email as you get your tickets only there!!!</strong>
 
-      <form method="post" action="{% if booking and booking.pk %}{% url 'complete_booking' booking_id=booking.pk %}{% else %}{% url 'confirm_booking' name=name date=date session=session mobile_number=mobile_number %}{% endif %}" class="booking-form">
+      <form
+        method="post"
+        action="{% if booking and booking.pk %}{% url 'complete_booking' booking_id=booking.pk %}{% else %}{% url 'confirm_booking' name=name date=date session=session mobile_number=mobile_number email=email %}{% endif %}"
+        class="booking-form"
+      >
         {% csrf_token %}
         <button type="submit" class="confirm-button">Confirm Booking</button>
-    </form>    
+      </form>
 
       <form method="post" action="{% url 'cancel_booking' %}">
         {% csrf_token %}

@@ -14,7 +14,7 @@ urlpatterns = [
     path('check_availability', views.check_availability, name='check_availability'),    
     
     
-    path('confirm_booking/<str:name>/<slug:date>/<str:session>/<str:mobile_number>', views.confirm_booking, name='confirm_booking'),
+    path('confirm_booking/<str:name>/<slug:date>/<str:session>/<str:mobile_number>/<str:email>', views.confirm_booking, name='confirm_booking'),
     path('complete_booking/<int:booking_id>', views.complete_booking, name='complete_booking'),
     
     
