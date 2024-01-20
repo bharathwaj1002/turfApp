@@ -95,7 +95,7 @@ def complete_booking(request, booking_id):
     email.attach('booking_qr.png', qr_img_io.read(), 'image/png')
 
     # Send email
-    email.send()
+    #email.send()
 
     return render(request, 'complete_booking.html', {'booking': booking})
 
