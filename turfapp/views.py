@@ -72,22 +72,6 @@ def complete_booking(request, booking_id):
 
 
 
-def generate_barcode(request, booking_id):
-    booking = get_object_or_404(Booking, id=booking_id)
-
-    # Generate barcode
-    code = barcode.get('code128', str(booking.id), writer=ImageWriter(), add_checksum=False)
-    barcode_path = 'path/to/your/static/barcodes/{}.png'.format(booking.id)
-    code.save(barcode_path)
-
-    # Save the barcode image path to the Booking model
-    booking.barcode_image = 'barcodes/{}.png'.format(booking.id)
-    booking.save()
-
-    return redirect('complete_booking', booking_id=booking_id)
-
-
-
 def cancel_booking(request):
     return redirect('index')
 
