@@ -52,6 +52,27 @@
         .continue-button:hover {
             background-color: #2980b9;
         }
+        form {
+            margin-top: 20px;
+        }
+    
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            background-color: #27ae60; /* Use a color that complements your overall design */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    
+        button:hover {
+            background-color: #218c53; /* Adjust the hover color */
+        }
     </style>
 </head>
 <body>
@@ -66,7 +87,7 @@
                 <p>Mobile Number: {{ booking.mobile_number }}</p>
                 <!-- Add more details as needed -->
             </div>
-            <a href="/" class="continue-button">Continue</a>
+            <a href="index" class="continue-button">Continue</a>
         {% else %}
             <p>Invalid Booking ID. Please try again.</p>
         {% endif %}
