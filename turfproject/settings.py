@@ -57,14 +57,14 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.tutanota.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'b22203021@gmail.com'
-EMAIL_HOST_PASSWORD = 'wannacumdamapla'
+EMAIL_HOST_USER = 'bharathwaj11a@tutanota.com'
+EMAIL_HOST_PASSWORD = 'Luvuammu@23'
 
-DEFAULT_FROM_EMAIL = 'b22203021@gmail.com'
-SERVER_EMAIL = 'b22203021@gmail.com'
+DEFAULT_FROM_EMAIL = 'bharathwaj11a@tutanota.com'
+SERVER_EMAIL = 'bharathwaj11a@tutanota.com'
 
 ROOT_URLCONF = 'turfproject.urls'
 

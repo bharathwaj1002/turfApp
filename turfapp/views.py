@@ -37,12 +37,8 @@ def check_availability(request):
     session = request.POST.get('session')
     mobile_number = request.POST.get('mobile_number')
     email = request.POST.get('email')
-
-    # Convert the date string to a datetime object
     selected_date = datetime.strptime(date, '%Y-%m-%d').date()
-
     if not Booking.objects.filter(date=selected_date, session=session).exists():
-        # Redirect to the confirm_booking page with the input data
         return redirect('confirm_booking', name=name, date=selected_date, session=session, mobile_number=mobile_number, email=email)
     else:
         return HttpResponse(f"Sorry, the turf is not available for {name} on {date} ({session}).")
@@ -95,7 +91,7 @@ def complete_booking(request, booking_id):
     email.attach('booking_qr.png', qr_img_io.read(), 'image/png')
 
     # Send email
-    #email.send()
+    email.send()
 
     return render(request, 'complete_booking.html', {'booking': booking})
 
@@ -109,6 +105,8 @@ def cancel_booking(request):
 def is_superuser(user):
     return user.is_superuser
 
+
+
 @user_passes_test(is_superuser)
 def view_bookings(request):
     bookings = Booking.objects.all()
@@ -118,11 +116,9 @@ def view_bookings(request):
 
 @login_required
 def admin_home(request):
-    # Redirect authenticated admin users to the home page
     if request.user.is_staff:
-        return redirect('index')  # Update 'home' with the actual URL name for your home page
+        return redirect('index')
     else:
-        # Redirect non-admin users to an appropriate page or handle as needed
         return redirect('index')
     
     
