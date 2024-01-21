@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #000;
             margin: 0;
             padding: 0;
             display: flex;
@@ -70,6 +70,11 @@
         {% else %}
             <p>Invalid Booking ID. Please try again.</p>
         {% endif %}
+
+        <form method="get" action="{% url 'turf_incharge_verification' %}">
+            <button type="submit">Scan Other</button>
+        </form>
+
     </div>
 </body>
 </html>
