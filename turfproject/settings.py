@@ -58,7 +58,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp-relay.brevo.com'
-EMAIL_PORT = 587  # Use port 587 for TLS
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'bharathwaj11a@gmail.com'
 EMAIL_HOST_PASSWORD = 'GMPCDdBY7fN5Lvzj'
