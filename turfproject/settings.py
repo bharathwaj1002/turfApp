@@ -57,14 +57,14 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.tutanota.com'
-EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.protonmail.com'
+EMAIL_PORT = 587  # Use port 587 for TLS
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'bharathwaj11a@tutanota.com'
-EMAIL_HOST_PASSWORD = 'Luvuammu@23'
+EMAIL_HOST_USER = 'Bharathwaj11a@protonmail.com'
+EMAIL_HOST_PASSWORD = 'Bharathwaj11a@protonmail.com'
 
-DEFAULT_FROM_EMAIL = 'bharathwaj11a@tutanota.com'
-SERVER_EMAIL = 'bharathwaj11a@tutanota.com'
+DEFAULT_FROM_EMAIL = 'Bharathwaj11a@protonmail.com'
+SERVER_EMAIL = 'Bharathwaj11a@protonmail.com'
 
 ROOT_URLCONF = 'turfproject.urls'
 
