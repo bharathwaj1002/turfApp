@@ -37,7 +37,7 @@
             margin-bottom: 20px;
         }
 
-        .continue-button {
+        #continue-button {
             display: inline-block;
             padding: 10px 20px;
             font-size: 16px;
@@ -49,14 +49,14 @@
             transition: background-color 0.3s;
         }
 
-        .continue-button:hover {
+        #continue-button:hover {
             background-color: #2980b9;
         }
         form {
             margin-top: 20px;
         }
     
-        button {
+        #scan-other {
             display: inline-block;
             padding: 10px 20px;
             font-size: 16px;
@@ -70,7 +70,7 @@
             transition: background-color 0.3s;
         }
     
-        button:hover {
+        #scan-other {
             background-color: #218c53; /* Adjust the hover color */
         }
     </style>
@@ -87,13 +87,15 @@
                 <p>Mobile Number: {{ booking.mobile_number }}</p>
                 <!-- Add more details as needed -->
             </div>
-            <a href="index" class="continue-button">Continue</a>
+            <form id="continue-form" method="get" action="{% url 'index' %}">
+                <button type="submit" id="continue-button">Scan Other</button>
+            </form>
         {% else %}
             <p>Invalid Booking ID. Please try again.</p>
         {% endif %}
 
-        <form method="get" action="{% url 'turf_incharge_verification' %}">
-            <button type="submit">Scan Other</button>
+        <form id="scan-form" method="get" action="{% url 'turf_incharge_verification' %}">
+            <button type="submit" id="scan-other">Scan Other</button>
         </form>
 
     </div>
