@@ -61,20 +61,66 @@
       <p>Session: {{ session }}</p>
       <p>Mobile Number: {{ mobile_number }}</p>
       <strong>Verify your email as you get your tickets only there!!!</strong>
-
+    
       <form
         method="post"
         action="{% if booking and booking.pk %}{% url 'complete_booking' booking_id=booking.pk %}{% else %}{% url 'confirm_booking' name=name date=date session=session mobile_number=mobile_number email=email %}{% endif %}"
         class="booking-form"
-      >
+        id="booking-form"  >
         {% csrf_token %}
-        <button type="submit" class="confirm-button">Confirm Booking</button>
+        <input type="text" name="otp" id="otp" placeholder="Enter OTP">
+        <button type="button" class="send-otp-button">Send OTP</button>
+        <button type="submit" class="confirm-button" disabled>Confirm Booking</button>
+    
+        {% if otp_error %}
+          <p class="error-message">Invalid OTP. Please try again.</p>
+        {% endif %}
       </form>
-
+    
       <form method="post" action="{% url 'cancel_booking' %}">
         {% csrf_token %}
         <button type="submit" class="cancel-button">Cancel</button>
       </form>
     </div>
+    
+    <script>
+      sendOtpButton.addEventListener('click', () => {
+        // Generate a random 6-digit OTP
+        const OTP_SECRET = '{{ OTP_SECRET }}';
+        const totp = new TOTP(OTP_SECRET);  // Replace with your actual secret
+        const otp = totp.now();
+      
+        // Store the generated OTP temporarily (e.g., in session)
+        fetch('store_otp', {
+          method: 'POST',
+          body: JSON.stringify({ otp: otp }),
+          headers: { 'Content-Type': 'application/json' }
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            // Send OTP via Brevo API
+            api_instance = SibApiV3Sdk.TransactionalSMSApi(default_client)
+            send_transac_sms = SibApiV3Sdk.SendTransacSms(
+              to="+USER_PHONE_NUMBER",  // Replace with the user's phone number
+              message=f"Your OTP code is {otp}.",
+              from_="PSM SPORTS VILLAGE"  // Optional sender name
+            )
+            try:
+              api_instance.send_transac_sms(send_transac_sms)
+              // Display a success message
+            except ApiException as e:
+              // Handle API errors
+            } else {
+              // Handle OTP storage error
+            }
+          })
+          .catch(error => {
+            // Handle fetch errors
+          });
+      });
+      
+    </script>
+    
   </body>
 </html>

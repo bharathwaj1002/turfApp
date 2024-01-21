@@ -26,9 +26,9 @@
                 <div class="left-side">
                   <div class="group"><span class="text-italic">Follow Us:</span>
                     <ul class="list-inline">
-                      <li><a class="icon icon-sm icon-secondary-5 fa fa-instagram" href="https://www.instagram.com/psm_sports_village"></a></li>
-                      <li><a class="icon icon-sm icon-secondary-5 fa fa-facebook" href="#"></a></li>
-                      <li><a class="icon icon-sm icon-secondary-5 fa fa-youtube" href="https://www.youtube.com/@psmsportsvillage"></a></li>
+                      <li><a class="icon icon-sm icon-secondary-5 fa fa-instagram" target="_blank" href="https://www.instagram.com/psm_sports_village"></a></li>
+                      <li><a class="icon icon-sm icon-secondary-5 fa fa-facebook" target="_blank" href="#"></a></li>
+                      <li><a class="icon icon-sm icon-secondary-5 fa fa-youtube" target="_blank" href="https://www.youtube.com/@psmsportsvillage"></a></li>
                     </ul>
                   </div>
                 </div>
@@ -320,6 +320,15 @@
                         </a>
                     {% endif %}
                 </div>
+                
+                <br>
+                <div style="position:relative;left:1.25cm;">
+                {% if user.is_authenticated and user.is_superuser %}
+                <a href="{% url 'turf_incharge_verification' %}" class="button button-effect-ujarak button-lg button-primary button-square">
+                <span>Scan QR</span></a>
+                {% endif %}
+                </div>
+
             <div>
                 {% if user.is_authenticated and user.is_staff%}
                 <a href="logout" class="btn btn-link" ><button id="logout" type="submit" class="btn btn-link">Logout</button></a>
