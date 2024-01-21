@@ -13,8 +13,6 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.core.files import File
 import qrcode
-from pyotp import TOTP
-from brevo import SibApiV3Sdk
 
 # Create your views here.
 def index(request):
@@ -50,38 +48,12 @@ def check_availability(request):
 def confirm_booking(request, name, date, session, mobile_number, email):
     selected_date = datetime.strptime(date, '%Y-%m-%d').date()
     booking = None
-    otp_error = False  # Flag to indicate OTP validation errors
 
     if request.method == 'POST':
-        entered_otp = request.POST.get('otp')
-        stored_otp = request.session.get('otp')
+        booking = Booking.objects.create(name=name, date=selected_date, session=session, mobile_number=mobile_number, email=email)
+        return redirect('complete_booking', booking_id=booking.pk)
 
-        if entered_otp == stored_otp:
-            # OTP is valid, proceed with booking creation
-            booking = Booking.objects.create(name=name, date=selected_date, session=session, mobile_number=mobile_number, email=email)
-            del request.session['otp']  # Remove OTP from session after verification
-            return redirect('complete_booking', booking_id=booking.pk)
-        else:
-            # Invalid OTP, display an error message
-            otp_error = True
-
-    # If not a POST request or OTP validation failed, render the confirmation page
-    return render(request, 'confirm_booking.html', {
-        'booking': booking,  # Pass booking object if already created
-        'name': name, 'date': date, 'session': session, 'mobile_number': mobile_number, 'email': email,
-        'otp_error': otp_error  # Pass the error flag for template rendering
-    })
-
-
-
-
-def store_otp(request):
-  if request.method == 'POST':
-    otp = request.POST.get('otp')
-    request.session['otp'] = otp
-    return JsonResponse({'success': True})
-  else:
-    return JsonResponse({'success': False}, status=405)
+    return render(request, 'confirm_booking.html', {'booking': booking, 'name': name, 'date': date, 'session': session, 'mobile_number': mobile_number, 'email':email})
 
 
 
