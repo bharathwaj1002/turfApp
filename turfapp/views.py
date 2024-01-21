@@ -97,6 +97,18 @@ def complete_booking(request, booking_id):
 
 
 
+def turf_incharge_verification(request):
+    return render(request, 'turf_incharge_verification.html')
+
+
+
+def verify_booking(request, booking_data):
+    booking_id = int(booking_data.split(":")[1].strip())
+    booking = get_object_or_404(Booking, id=booking_id)
+    return render(request, 'verification_result.html', {'booking': booking})
+
+
+
 def cancel_booking(request):
     return redirect('index')
 

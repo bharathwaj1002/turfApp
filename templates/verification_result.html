@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .verification-container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .verification-heading {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .booking-details {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .continue-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .continue-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="verification-container">
+        <h2 class="verification-heading">Verification Result</h2>
+        {% if booking %}
+            <div class="booking-details">
+                <p>Booking ID: {{ booking.id }}</p>
+                <p>Name: {{ booking.name }}</p>
+                <p>Date: {{ booking.date }}</p>
+                <p>Session: {{ booking.session }}</p>
+                <p>Mobile Number: {{ booking.mobile_number }}</p>
+                <!-- Add more details as needed -->
+            </div>
+            <a href="/" class="continue-button">Continue</a>
+        {% else %}
+            <p>Invalid Booking ID. Please try again.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
