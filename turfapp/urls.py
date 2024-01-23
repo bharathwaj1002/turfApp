@@ -18,7 +18,5 @@ urlpatterns = [
     path('verify_booking/<str:booking_data>/', views.verify_booking, name='verify_booking'),
     path('cancel_booking', views.cancel_booking, name='cancel_booking'),
     path('view_bookings', views.view_bookings, name='view_bookings'),
-    path('logout', views.logout, name='logout'),
-    handler500 = handler_500
-    
+    path('logout', views.logout, name='logout')
 ]
