@@ -19,7 +19,7 @@ def index(request):
     return render(request,'index.html')
 
 
-s
+
 def about(request):
     return render(request,'about-us.html')
 
