@@ -1,62 +1,70 @@
 {% load static %}
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
-<head>
+  <head>
     <style>
-        .booking-confirmation {
-            margin-top: 50px;
-            padding: 20px;
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
+      body {
+        background-color: #121212;
+        color: #fff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
 
-        .confirmation-heading {
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
+      .booking-confirmation {
+        margin-top: 50px;
+        padding: 20px;
+        background-color: #2c2c2c;
+        border: 1px solid #333;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
 
-        .booking-details {
-            color: #555;
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-        
-        .continue-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            text-align: center;
-            text-decoration: none;
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
+      .confirmation-heading {
+        color: #64ffda;
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
 
-        .continue-button:hover {
-            background-color: #0056b3;
-        }
+      .booking-details {
+        color: #bdbdbd;
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .continue-button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        background-color: #00e676;
+        color: #121212;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .continue-button:hover {
+        background-color: #00b248;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="booking-confirmation">
-        <div class="confirmation-heading">Booking Confirmed!</div>
-        <div class="booking-details">
-            Thank you for booking. Your booking details are as follows:<br>
-            <strong>Name:</strong> {{ booking.name }}<br>
-            <strong>Date:</strong> {{ booking.date }}<br>
-            <strong>Session:</strong> {{ booking.session }}<br>
-            <strong>Mobile Number:</strong> {{ booking.mobile_number }}<br>
-            {% if booking.qr_code %}
-                <img src="{{ booking.qr_code.url }}" alt="QR Code">
-            {% endif %}
-        </div>
-        <form action="{% url 'index' %}">
-        <button type="submit" class="continue-button" >Continue</button>
-        </form>
-
+      <div class="confirmation-heading">Booking Confirmed!</div>
+      <div class="booking-details">
+        Thank you for booking. Your booking details are as follows:<br />
+        <strong>Name:</strong> {{ booking.name }}<br />
+        <strong>Date:</strong> {{ booking.date }}<br />
+        <strong>Session:</strong> {{ booking.session }}<br />
+        <strong>Mobile Number:</strong> {{ booking.mobile_number }}<br />
+        {% if booking.qr_code %}
+        <img src="{{ booking.qr_code.url }}" alt="QR Code" />
+        {% endif %}
+      </div>
+      <form action="{% url 'index' %}">
+        {% csrf_token %}
+        <button type="submit" class="continue-button">Continue</button>
+      </form>
     </div>
-</body>
+  </body>
 </html>

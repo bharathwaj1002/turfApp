@@ -4,51 +4,72 @@
   <head>
     <title>Bookings</title>
     <style>
+      body {
+        background-color: #121212;
+        color: #fff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display:flex;
+        justify-content:center;
+        align-content:center;
+      }
+
       .confirm-booking-container {
         max-width: 600px;
         margin: 0 auto;
         text-align: center;
         padding: 20px;
-        background-color: #f8f8f8;
+        background: linear-gradient(135deg, #1f1f1f, #2c2c2c);
         border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+      }
+
+      .confirm-booking-container:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       }
 
       .confirm-booking-container h2 {
-        color: #333;
+        color: #64ffda;
       }
 
       .confirm-booking-container p {
         margin: 10px 0;
-        color: #555;
+        color: #bdbdbd;
       }
 
       .booking-form {
         margin-top: 20px;
       }
 
-      .confirm-button {
-        background-color: #4caf50;
-        color: #fff;
+      .confirm-button,
+      .cancel-button {
+        display: inline-block;
         padding: 10px 20px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .confirm-button {
+        background-color: #00e676;
+        color: #121212;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .confirm-button:hover {
+        background-color: #00b248;
       }
 
       .cancel-button {
-        display: inline-block;
-        margin-top: 10px;
-        color: #fff;
-        background-color: #d9534f;
-        padding: 8px 15px;
-        text-decoration: none;
-        border-radius: 5px;
-        cursor: pointer;
+        background-color: #ff5252;
+        color: #121212;
+        margin-left: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
       .cancel-button:hover {
-        background-color: #c9302c;
+        background-color: #ff1744;
       }
     </style>
   </head>
