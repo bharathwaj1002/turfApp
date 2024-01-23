@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmic Glitch: 500 Error</title>
+  <style>
+    body {
+        background-color: #222;
+        font-family: "Roboto", sans-serif;
+        color: #eee;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .cosmic-glitch {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .portal-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 50px;
+      }
+      
+      .glitching-portal {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        animation: flicker 2s infinite;
+      }
+      
+      .portal-container img {
+        width: 100%;
+        height: 100%;
+      }
+      
+      .glitching-effects {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.3;
+        animation: glitch 2s infinite;
+      }
+      
+      .crackle {
+        background-image: url("crackle.png");
+        background-size: cover;
+        animation: crackle-move 5s infinite;
+      }
+      
+      .sparks {
+        background-image: url("sparks.png");
+        background-size: cover;
+        animation: sparkle 1s infinite;
+      }
+      
+      .data-fragments {
+        background-image: url("data-fragments.png");
+        background-size: cover;
+        animation: fade-fragments 2s infinite;
+      }
+      
+      @keyframes flicker {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.8;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      
+      @keyframes glitch {
+        0% {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        2      
+  </style>
+
+</head>
+<body>
+  <div class="cosmic-glitch">
+    <div class="portal-container">
+      <div class="glitching-portal">
+        <img src="portal.png" alt="Portal">
+        <div class="glitching-effects">
+          <div class="crackle"></div>
+          <div class="sparks"></div>
+          <div class="data-fragments"></div>
+        </div>
+      </div>
+      <div class="error-message">
+        <h1>Uh oh, the cosmos just hiccupped!</h1>
+        <p>Seems like the space server crashed with a case of the cosmic blues. But fear not, intrepid explorer!</p>
+      </div>
+    </div>
+    <div class="navigation">
+      <div class="cosmic-repair-kit">
+        <h2>Cosmic Repair Kit</h2>
+        <button>Refresh the Page</button>
+        <button>Check Your Connection</button>
+        <button>Contact Support</button>
+      </div>
+      <div class="mini-map">
+        <img src="map.png" alt="Website map">
+        <span class="distorted-text">Map malfunctioning... Engage alternate navigation!</span>
+      </div>
+      <p class="distorted-quote">“Just remember, when you’re feeling very small and insignificant, remember something enormous is at work in you all the time: your DNA code. Each molecule is a piece of a star story.” - Neil deGrasse Tyson</p>
+    </div>
+  </div>
+</body>
+</html>
