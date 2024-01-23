@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmic Decoder Error: 400</title>
+  <style>
+    .cosmic-decoder {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      /* Reuse existing portal code from 500 page */
+      .glitching-portal, .portal-container img, .glitching-effects, .crackle, .sparks, .data-fragments {
+        /* Adapt styles as needed for a different look */
+      }
+      
+      .navigation {
+        /* Same styling as previous pages */
+      }
+      
+      @keyframes portal-pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      
+      .glitching-portal {
+        animation: portal-pulse 2s infinite;
+      }      
+  </style>
+  
+</head>
+<body>
+  <div class="cosmic-decoder">
+    <div class="portal-container">
+      <div class="glitching-portal">
+        <img src="portal.png" alt="Portal">
+        <div class="glitching-effects">
+          <div class="crackle"></div>
+          <div class="sparks"></div>
+          <div class="data-fragments"></div>
+        </div>
+      </div>
+      <div class="error-message">
+        <h1>Whoops, your cosmic decoder malfunctioned!</h1>
+        <p>We couldn't understand your request. Try rephrasing or exploring other routes.</p>
+      </div>
+    </div>
+    <div class="navigation">
+      <a href="/">Return to the Homepage</a>
+      <a href="/search">Refine Your Search</a>
+      <a href="/help">Cosmic Decoder Help Guide</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -4,7 +4,7 @@ from .import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.conf.urls.static import static
-
+from django.conf.urls import handler400, handler403, handler404, handler500
 
 urlpatterns = [
     path('',views.index,name='index'),
@@ -18,6 +18,7 @@ urlpatterns = [
     path('verify_booking/<str:booking_data>/', views.verify_booking, name='verify_booking'),
     path('cancel_booking', views.cancel_booking, name='cancel_booking'),
     path('view_bookings', views.view_bookings, name='view_bookings'),
-    path('logout', views.logout, name='logout')
+    path('logout', views.logout, name='logout'),
+    handler500 = handler_500
     
 ]
