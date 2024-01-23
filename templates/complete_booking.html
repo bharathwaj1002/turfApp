@@ -53,8 +53,8 @@
                 <img src="{{ booking.qr_code.url }}" alt="QR Code">
             {% endif %}
         </div>
-        <form action="index">
-        <input type="submit" class="continue-button" >Continue</input>
+        <form action="{% url 'index' %}">
+        <button type="submit" class="continue-button" >Continue</button>
         </form>
 
     </div>
