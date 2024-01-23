@@ -31,7 +31,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 
-LOGIN_REDIRECT_URL = 'admin/login/'
+LOGIN_REDIRECT_URL = 'index'
 
 
 # Application definition
