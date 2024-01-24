@@ -13,10 +13,51 @@
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700,400italic%7CPoppins:300,400,500,700">
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css'%}">
     <link rel="stylesheet" href="{% static 'assets/css/style.css'%}">
-    <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
+    <style>body {
+      background-color: #1a1a1a;
+      color: #ffffff;
+  }
+  .rd-navbar-top-panel, .rd-navbar-top-panel-inner, .rd-navbar-inner, .rd-navbar-aside-right, .rd-navbar, .rd-navbar-original, .rd-navbar-fullwidth{
+    background-color: #2b2b2b;
+  }
+  .rd-navbar-brand.fullwidth-brand a {
+      color: #00ffcc;
+  }
+  .swiper-slide {
+      background-color: #000000;
+      color: #00ffcc;
+  }
+  .hotel-booking-form {
+      background-color: #2b2b2b;
+      color: #ffffff;
+  }
+  .form-input,
+  .form-label {
+      color: #ffffff;
+  }
+  .button.button-primary {
+      background-color: #00ffcc;
+      color: #000000;
+  }
+  .section {
+      background-color: #1a1a1a;
+      color: #ffffff;
+  }
+  .page-footer-minimal,.page-footer-minimal-inner,.shell-wide {
+      background-color: #2b2b2b;
+      color: #ffffff;
+  }
+  a {
+      color: #00ffcc;
+  }
+  a:hover {
+      color: #ffcc00;
+  }
+  .icon {
+      color: #00ffcc;
+  }</style>
   </head>
   <body>
-    <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="{% static 'assets/images/ie8-panel/warning_bar_0000_us.jpg'%}" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
       <header class="page-header" style="padding-bottom: 24px">
         <!-- RD Navbar-->
         <div class="rd-navbar-wrap">
@@ -24,7 +65,7 @@
             <div class="rd-navbar-top-panel rd-navbar-collapse">
               <div class="rd-navbar-top-panel-inner">
                 <div class="left-side">
-                  <div class="group"><span class="text-italic">Follow Us:</span>
+                  <div style="color:white;" class="group"><span class="text-italic">Follow Us:</span>
                     <ul class="list-inline">
                       <li><a class="icon icon-sm icon-secondary-5 fa fa-instagram" href="https://www.instagram.com/psm_sports_village"></a></li>
                       <li><a class="icon icon-sm icon-secondary-5 fa fa-facebook" href="#"></a></li>
@@ -41,7 +82,7 @@
                   <div class="contact-info">
                     <div class="unit unit-middle unit-horizontal unit-spacing-xs">
                       <div class="unit__left"><span class="icon icon-primary text-middle mdi mdi-phone"></span></div>
-                      <div class="unit__body"><a class="text-middle" href="tel:#">+1 (409) 987–5874</a></div>
+                      <div class="unit__body"><a style="color:white;" class="text-middle" href="tel:#">+1 (409) 987–5874</a></div>
                     </div>
                   </div>
                 </div>
@@ -61,11 +102,11 @@
                 <div class="rd-navbar-nav-wrap">
                   <div class="rd-navbar-nav-scroll-holder">
                     <ul class="rd-navbar-nav">
-                      <li><a href="index">Home</a>
+                      <li><a style="color:white;" href="index">Home</a>
                       </li>
                       <li class="active"><a href="about-us">About Us</a>
                       </li>
-                      <li><a href="contacts">Contacts</a>
+                      <li><a style="color:white;" href="contacts">Contacts</a>
                       </li>
                     </ul>
                   </div>
@@ -80,7 +121,7 @@
         <div class="shell shell-fluid">
           <div class="range range-xs-center">
             <div class="cell-xs-12 cell-xl-11">
-              <h2 class="text-white">About Us</h2>
+              <h2 style="color:white;" class="text-white">About Us</h2>
               <ul class="breadcrumbs-custom">
                 <li><a href="index">Home</a></li>
                 <li class="active">About Us</li>
@@ -100,7 +141,7 @@
               </div>
             </div>
             <div class="cell-sm-6 cell-md-5 wow fadeInUp" data-wow-delay=".2s">
-              <h3>A Few Words About Us</h3>
+              <h3 style="color:white;">A Few Words About Us</h3>
               <p>Lorem ipsum dolor sit amet. 33 esse ducimus in ratione similique hic placeat minus non eligendi itaque. Qui reprehenderit facere ea voluptas nostrum ut quos pariatur ut ipsum odio et repudiandae quia non omnis beatae est maxime consequatur. Eum fuga blanditiis ut tenetur consequatur ut quam expedita ea voluptatum iste in molestias dolore ad enim iure id aliquam voluptatem.</p>
               <p>Aut iusto voluptas id error vitae et consequatur nulla. Aut provident vero non ducimus nihil non perspiciatis facere ex eveniet dolor et placeat facere vel incidunt possimus sed praesentium reprehenderit. Eos reiciendis ullam ut quidem ipsa eos accusantium consequatur?</p>
             </div>
@@ -111,7 +152,7 @@
       
       <section class="section section-md bg-white">
         <div class="shell">
-          <h2>Our Team</h2>
+          <h2 style="color:white;">Our Team</h2>
           <div class="range range-xs-center range-75">
             <!--team member 1-->
             <div class="cell-sm-6 cell-md-4 wow fadeInUp" data-wow-delay=".1s">
@@ -125,7 +166,7 @@
                     </ul>
                   </div>
                 </div>
-                <div class="team-caption"><a class="link team-title" href="#">Theresa Smith</a><span>General Manager</span></div>
+                <div  class="team-caption"><a style="color:white;" class="link team-title" href="#">Theresa Smith</a><span>General Manager</span></div>
               </div>
             </div>
             <!--team member 2-->
@@ -140,7 +181,7 @@
                     </ul>
                   </div>
                 </div>
-                <div class="team-caption"><a class="link team-title" href="#">Albert Mills</a><span>Cosmetologist</span></div>
+                <div class="team-caption"><a style="color:white;" class="link team-title" href="#">Albert Mills</a><span>Cosmetologist</span></div>
               </div>
             </div>
             <!--team member 3-->
@@ -155,7 +196,7 @@
                     </ul>
                   </div>
                 </div>
-                <div class="team-caption"><a class="link team-title" href="#">Sandra Adams</a><span>Receptionist</span></div>
+                <div class="team-caption"><a style="color:white;" class="link team-title" href="#">Sandra Adams</a><span>Receptionist</span></div>
               </div>
             </div>
           </div>
@@ -169,7 +210,7 @@
               <div class="range range-50">
                 <div class="cell-sm-6 cell-md-3 cell-lg-4 wow fadeInUp" data-wow-delay=".1s">
                   <div class="page-footer-minimal-inner">
-                    <h4>Opening Hours</h4>
+                    <h4 style="color:white;">Opening Hours</h4>
                     <ul class="list-unstyled">
                       <li>
                         <div class="group-xs"> 
@@ -192,18 +233,18 @@
                 </div>
                 <div class="cell-sm-6 cell-md-5 cell-lg-4 wow fadeInUp" data-wow-delay=".2s">
                   <div class="page-footer-minimal-inner">
-                    <h4>Address</h4>
+                    <h4 style="color:white;">Address</h4>
                     <ul class="list-unstyled">
                       <li>
                         <dl class="list-desc">
                           <dt><span class="icon icon-sm mdi mdi-map-marker"></span></dt>
-                          <dd><a class="link link-gray-darker" href="https://maps.app.goo.gl/PZvvBL7A1nSfoHb28">No:88, PSM Garden, Pothur, Pammadukulam, Post, Red Hills, Chennai, Tamil Nadu 600052</a></dd>
+                          <dd><a style="color:white;" class="link link-gray-darker" href="https://maps.app.goo.gl/PZvvBL7A1nSfoHb28">No:88, PSM Garden, Pothur, Pammadukulam, Post, Red Hills, Chennai, Tamil Nadu 600052</a></dd>
                         </dl>
                       </li>
                       <li>
                         <dl class="list-desc">
                           <dt><span class="icon icon-sm mdi mdi-phone"></span></dt>
-                          <dd class="text-gray-darker">Call Us: <a class="link link-gray-darker" href="tel:#">+1 (409) 987–5874</a>
+                          <dd class="text-gray-darker">Call Us: <a style="color:white;" class="link link-gray-darker" href="tel:#">+1 (409) 987–5874</a>
                           </dd>
                         </dl>
                       </li>

@@ -13,83 +13,53 @@
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700,400italic%7CPoppins:300,400,500,700">
     <link rel="stylesheet" href="{%static 'assets/css/bootstrap.css'%}">
     <link rel="stylesheet" href="{%static 'assets/css/style.css'%}">
-    <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}
-      /* General Styles */
+    <style>
 body {
     background-color: #1a1a1a;
     color: #ffffff;
 }
-
-/* Header Styles */
-header.page-header {
-    background-color: #2b2b2b;
+.rd-navbar-top-panel, .rd-navbar-top-panel-inner, .rd-navbar-inner, .rd-navbar-aside-right, .rd-navbar, .rd-navbar-original, .rd-navbar-fullwidth{
+  background-color: #2b2b2b;
 }
-
 .rd-navbar-brand.fullwidth-brand a {
     color: #00ffcc;
 }
-
-/* Slider Styles */
 .swiper-slide {
     background-color: #000000;
     color: #00ffcc;
 }
-
-/* Form Styles */
 .hotel-booking-form {
     background-color: #2b2b2b;
     color: #ffffff;
 }
-
 .form-input,
 .form-label {
     color: #ffffff;
 }
-
 .button.button-primary {
     background-color: #00ffcc;
     color: #000000;
 }
-
-/* Section Styles */
 .section {
     background-color: #1a1a1a;
     color: #ffffff;
 }
-
-/* Footer Styles */
-footer.page-footer {
+.page-footer-minimal,.page-footer-minimal-inner,.shell-wide {
     background-color: #2b2b2b;
     color: #ffffff;
 }
-
-/* Link Styles */
 a {
     color: #00ffcc;
 }
-
 a:hover {
     color: #ffcc00;
 }
-
-/* Additional Element Styles */
-img {
-    
-}
-
 .icon {
     color: #00ffcc;
 }
-
-/* Add specific styles for button effects, if needed */
-.button.button-effect-ujarak {
-    /* Add specific styles for button effects */
-}
-
     </style>
   </head>
   <body>
-    <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="{%static 'assets/images/ie8-panel/warning_bar_0000_us.jpg'%}" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
       <header class="page-header">
         <!-- RD Navbar-->
         <div class="rd-navbar-wrap">
@@ -97,7 +67,7 @@ img {
             <div class="rd-navbar-top-panel rd-navbar-collapse">
               <div class="rd-navbar-top-panel-inner">
                 <div class="left-side">
-                  <div class="group"><span class="text-italic">Follow Us:</span>
+                  <div style="color:white;" class="group"><span class="text-italic">Follow Us:</span>
                     <ul class="list-inline">
                       <li><a class="icon icon-sm icon-secondary-5 fa fa-instagram" target="_blank" href="https://www.instagram.com/psm_sports_village"></a></li>
                       <li><a class="icon icon-sm icon-secondary-5 fa fa-facebook" target="_blank" href="#"></a></li>
@@ -114,7 +84,7 @@ img {
                   <div class="contact-info">
                     <div class="unit unit-middle unit-horizontal unit-spacing-xs">
                       <div class="unit__left"><span class="icon icon-primary text-middle mdi mdi-phone"></span></div>
-                      <div class="unit__body"><a class="text-middle" href="tel:#">+1 (409) 987–5874</a></div>
+                      <div class="unit__body"><a style="color:white;" class="text-middle" href="tel:#">+1 (409) 987–5874</a></div>
                     </div>
                   </div>
                 </div>
@@ -136,9 +106,9 @@ img {
                     <ul class="rd-navbar-nav">
                       <li class="active"><a href="index">Home</a>
                       </li>
-                      <li><a href="about-us">About Us</a>
+                      <li><a style="color:white;" href="about-us">About Us</a>
                       </li> 
-                      <li><a href="contacts">Contacts</a>
+                      <li><a style="color:white;" href="contacts">Contacts</a>
                       </li>
                     </ul>
                   </div>
@@ -244,7 +214,7 @@ img {
                       </div>
               
                       <div class="cell-lg-12 cell-md-4">
-                          <button class="button button-primary button-square button-block button-effect-ujarak" type="submit"><span>check availability</span></button>
+                          <button style="color:white;" class="button button-primary button-square button-block button-effect-ujarak" type="submit"><span>Check Availability</span></button>
                       </div>
                   </div>
               </form>
@@ -292,9 +262,8 @@ img {
         <div class="shell-wide">
           <div class="range range-10 range-middle">
             <div class="cell-sm-6">
-              <h3>Our Gallery</h3>
+              <h3 style="color:white;">Our Gallery</h3>
             </div>
-            <div class="cell-sm-6 text-sm-right"><a class="heading-link link-gray-darker" href="#">See All Photos</a></div>
           </div>
           <hr>
           <div class="isotope-wrap">
@@ -338,7 +307,7 @@ img {
               <div class="range range-50">
                 <div class="cell-sm-6 cell-md-3 cell-lg-4 wow fadeInUp" data-wow-delay=".1s">
                   <div class="page-footer-minimal-inner">
-                    <h4>Opening Hours</h4>
+                    <h4 style="color:white;">Opening Hours</h4>
                     <ul class="list-unstyled">
                       <li>
                         <div class="group-xs"> 
@@ -361,18 +330,18 @@ img {
                 </div>
                 <div class="cell-sm-6 cell-md-5 cell-lg-4 wow fadeInUp" data-wow-delay=".2s">
                   <div class="page-footer-minimal-inner">
-                    <h4>Address</h4>
+                    <h4 style="color:white;" >Address</h4>
                     <ul class="list-unstyled">
                       <li>
                         <dl class="list-desc">
                           <dt><span class="icon icon-sm mdi mdi-map-marker"></span></dt>
-                          <dd><a class="link link-gray-darker" href="https://maps.app.goo.gl/PZvvBL7A1nSfoHb28">No:88, PSM Garden, Pothur, Pammadukulam, Post, Red Hills, Chennai, Tamil Nadu 600052</a></dd>
+                          <dd><a style="color:white;" class="link link-gray-darker" href="https://maps.app.goo.gl/PZvvBL7A1nSfoHb28">No:88, PSM Garden, Pothur, Pammadukulam, Post, Red Hills, Chennai, Tamil Nadu 600052</a></dd>
                         </dl>
                       </li>
                       <li>
                         <dl class="list-desc">
                           <dt><span class="icon icon-sm mdi mdi-phone"></span></dt>
-                          <dd class="text-gray-darker">Call Us: <a class="link link-gray-darker" href="tel:#">+1 (409) 987–5874</a>
+                          <dd class="text-gray-darker">Call Us: <a style="color:white;" class="link link-gray-darker" href="tel:#">+1 (409) 987–5874</a>
                           </dd>
                         </dl>
                       </li>
@@ -383,12 +352,12 @@ img {
                   <div class="login-button-container">
                     {% if user.is_authenticated and user.is_staff %}
                         <!-- If the user is authenticated and is a staff member (admin) -->
-                        <a href="view_bookings" class="button button-effect-ujarak button-lg button-primary button-square">
+                        <a style="color:white;" href="view_bookings" class="button button-effect-ujarak button-lg button-primary button-square">
                             <span>Admin Dashboard</span>
                         </a>
                     {% else %}
                         <!-- If the user is not authenticated or is not a staff member -->
-                        <a href="{% url 'admin:login' %}" class="button button-effect-ujarak button-lg button-secondary button-square">
+                        <a style="color:white;" href="{% url 'admin:login' %}" class="button button-effect-ujarak button-lg button-secondary button-square">
                             <span>Login as Admin</span>
                         </a>
                     {% endif %}
@@ -397,16 +366,13 @@ img {
                 <br>
                 <div style="position:relative;left:1.25cm;">
                 {% if user.is_authenticated and user.is_superuser %}
-                <a href="{% url 'turf_incharge_verification' %}" class="button button-effect-ujarak button-lg button-primary button-square">
+                <a style="color:white;" href="{% url 'turf_incharge_verification' %}" class="button button-effect-ujarak button-lg button-primary button-square">
                 <span>Scan QR</span></a>
                 {% endif %}
-                </div>
 
-            <div>
                 {% if user.is_authenticated and user.is_staff%}
                 <a href="logout" class="btn btn-link" ><button id="logout" type="submit" class="btn btn-link">Logout</button></a>
                 {% endif %}
-            </div>
                 </div>
               </div>
             </div>
