@@ -96,11 +96,11 @@ WSGI_APPLICATION = 'turfproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'verceldb',
-        'USER': 'default',
-        'PASSWORD': 'YUcf24lHLhOT',
-        'HOST': 'ep-fancy-cell-21815219-pooler.us-east-1.postgres.vercel-storage.com',
-	    'PORT': '5432'
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'bB6E6cfFfbDAG6f34A44C44GC2g63C62',
+        'HOST': 'viaduct.proxy.rlwy.net',
+	    'PORT': '23039'
     }
 }
 
