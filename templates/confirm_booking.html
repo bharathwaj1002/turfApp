@@ -2,92 +2,247 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="icon" href="{%static 'assets/images/favicon.png'%}" type="image/x-icon">
+    <link
+      rel="icon"
+      href="{%static 'assets/images/favicon.png'%}"
+      type="image/x-icon"
+    />
     <title>Confirm Booking</title>
     <style>
       body {
-            background-color: #121212;
-            color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-          }
+        background-color: #000;
+        background-image: url("");
+        background-size: cover;
+        background-position: center;
+        color: #d8d8d8;
+        cursor: crosshair;
+        font-family: "Roboto Mono", monospace;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 90vh;
+      }
 
-          .confirm-booking-container {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 20px;
-            border-radius: 8px;
-            background: linear-gradient(135deg, #1f1f1f, #2c2c2c);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease;
-          }
-          .confirm-booking-container:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-          }
-          .confirm-booking-container p {
-            margin: 10px 0;
-      color: #bdbdbd;
-          }
-      .confirm-booking-container h2 {
-            color: #64ffda;
-          }
-    
-          .booking-form {
-            margin-top: 20px;
-          }
-    
-          .confirm-button {
-      background-color: #00e676;
-            color: #121212;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          }
-    
-          .cancel-button {
-      color: #121212;
-            background-color: #ff5252;
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            cursor: pointer;
-          }
-          .cancel-button:hover {
-            background-color: #c9302c;
-          }
-        </style>
+      .confirm-booking-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: rgba(0, 0, 0, 0.8);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        transition: box-shadow 0.3s ease;
+      }
+
+      .confirm-booking-container:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+      }
+
+      @keyframes glitch {
+        0% {
+          clip-path: polygon(50% 0%, 40% 100%, 60% 100%, 50% 0%);
+        }
+        50% {
+          clip-path: polygon(45% 0%, 35% 100%, 65% 100%, 55% 0%);
+        }
+        100% {
+          clip-path: polygon(50% 0%, 40% 100%, 60% 100%, 50% 0%);
+        }
+      }
+
+      /* Neon Rain & Distortion */
+      .confirm-booking-container {
+        background-position: bottom right;
+        animation: neon-rain 5s ease-in-out infinite;
+      }
+
+      @keyframes neon-rain {
+        0% {
+          background-image: url("");
+        }
+        100% {
+          background-image: url("");
+          background-position: bottom left;
+        }
+      }
+
+      .rain-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 100vh;
+        background-color: #ff0000;
+        animation: fall 1s linear infinite;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+      }
+
+      h2 {
+        font-size: 2rem;
+        text-align: center;
+        color: #ff0000;
+        text-shadow: 0 0 4px #ff0000;
+        animation: glitch-text 1s ease-in-out infinite;
+        font-family: "Glitch", sans-serif; /* Replace with your preferred distorted font */
+      }
+
+      @keyframes glitch-text {
+        0% {
+          text-shadow: 0px 0px 2px #ff0000;
+        }
+        25% {
+          text-shadow: 2px 0px 2px #ff0000;
+        }
+        50% {
+          text-shadow: 0px 2px 2px #ff0000;
+        }
+        75% {
+          text-shadow: -2px 0px 2px #ff0000;
+        }
+        100% {
+          text-shadow: 0px -2px 2px #ff0000;
+        }
+      }
+      p,
+      .button-label {
+        /* Apply distorted font to smaller text elements */
+        font-family: "Glitch", sans-serif; /* Replace with your preferred distorted font */
+      }
+
+      .booking-form,
+      .button {
+        display: inline-block;
+        margin: 10px;
+      }
+      .confirm_btn_container {
+        display: flex;
+        justify-content: center;
+      }
+      .cancel_btn_container {
+        display: flex;
+        justify-content: center;
+      }
+      .confirm-button {
+        color: #00ff00;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        background-color: #00e676;
+        color: #121212;
+        cursor: pointer;
+      }
+
+      .cancel-button {
+        color: #00ff00;
+        border: none;
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        background-color: #ff0000;
+        color: #121212;
+        cursor: pointer;
+      }
+
+      .confirm-button:hover {
+        border-color: #00ff00;
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(#00ff00, 0.2); /* Neon pulse for cancel button */
+        animation: neon-pulse 0.5s ease-in-out infinite;
+      }
+
+      .cancel-button:hover {
+        border-color: #ff0000;
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(#00ff00, 0.2); /* Neon pulse for cancel button */
+        animation: neon-pulse 0.5s ease-in-out infinite;
+      }
+
+      @keyframes neon-pulse {
+        0% {
+          box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+        50% {
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+        100% {
+          box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+      }
+
+      /* Bonus: Animated neon lines & custom cursor */
+      .container:before,
+      .container:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: #ff0000;
+        animation: neon-flicker 1s ease-in-out infinite alternate;
+      }
+
+      .container:before {
+        left: 10px;
+      }
+
+      .container:after {
+        right: 10px;
+      }
+
+      @keyframes neon-flicker {
+        0% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.3;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="confirm-booking-container">
-      <h2>Hurray!!! Your Date is Available</h2>
-      <p>Name: {{ name }}</p>
-      <p>Email: {{ email }}</p>
-      <p>Date: {{ date }}</p>
-      <p>Session: {{ session }}</p>
-      <p>Mobile Number: {{ mobile_number }}</p>
-      <strong>Verify your email as you get your tickets only there!!!</strong>
-
-      <form
-        method="post"
-        action="{% if booking and booking.pk %}{% url 'complete_booking' booking_id=booking.pk %}{% else %}{% url 'confirm_booking' name=name date=date session=session mobile_number=mobile_number email=email %}{% endif %}"
-        class="booking-form"
-      >
-        {% csrf_token %}
-        <button type="submit" class="confirm-button">Confirm Booking</button>
-      </form>
-
-      <form method="post" action="{% url 'cancel_booking' %}">
-        {% csrf_token %}
-        <button type="submit" class="cancel-button">Cancel</button>
-      </form>
+    <div class="container">
+        <h2>Hurray!!! Your Date is Available</h2>
+        <strong>Name:</strong> {{ name }}<br />
+        <strong>Date:</strong> {{ date }}<br />
+        <strong>Session:</strong> {{ session }}<br />
+        <strong>Mobile Number:</strong> {{ mobile_number }}<br /><br />
+        <strong>Verify your email as you get your tickets only there!!!</strong>
+        <div class="confirm_btn_container">
+          <form
+            method="post"
+            action="{% if booking and booking.pk %}{% url 'complete_booking' booking_id=booking.pk %}{% else %}{% url 'confirm_booking' name=name date=date session=session mobile_number=mobile_number email=email %}{% endif %}"
+            class="booking-form"
+          >
+            {% csrf_token %}
+            <button type="submit" class="confirm-button">
+              Confirm Booking
+            </button>
+          </form>
+        </div>
+        <div class="cancel_btn_container">
+          <form method="post" action="{% url 'cancel_booking' %}">
+            {% csrf_token %}
+            <button type="submit" class="cancel-button">Cancel</button>
+          </form>
+      </div>
     </div>
   </body>
 </html>
