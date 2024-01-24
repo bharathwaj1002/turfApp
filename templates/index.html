@@ -18,6 +18,24 @@ body {
     background-color: #1a1a1a;
     color: #ffffff;
 }
+.container:before,
+      .container:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: #ff0000;
+        animation: neon-flicker 1s ease-in-out infinite alternate;
+      }
+
+      .container:before {
+        left: 10px;
+      }
+
+      .container:after {
+        right: 10px;
+      }
 .rd-navbar-top-panel, .rd-navbar-top-panel-inner, .rd-navbar-inner, .rd-navbar-aside-right, .rd-navbar, .rd-navbar-original, .rd-navbar-fullwidth{
   background-color: #2b2b2b;
 }
@@ -60,6 +78,7 @@ a:hover {
     </style>
   </head>
   <body>
+    <div class="container">
       <header class="page-header">
         <!-- RD Navbar-->
         <div class="rd-navbar-wrap">
@@ -419,9 +438,8 @@ a:hover {
         </div>
       </div>
     </div>
-    <!-- Javascript-->
     <script src="{%static 'assets/js/core.min.js'%}"></script>
     <script src="{%static 'assets/js/script.js'%}"></script>
-    <!--Coded by Drel-->
+  </div>
   </body>
 </html>
