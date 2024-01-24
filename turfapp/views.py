@@ -138,15 +138,3 @@ def turf_incharge_verification(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
-
-
-
-
-def handle_500(request):
-    error_message = "Uh oh, the cosmos just hiccupped!"
-    distorted_quote = "Just remember, when you’re feeling very small and insignificant, remember something enormous is at work in you all the time: your DNA code. Each molecule is a piece of a star story.” - Neil deGrasse Tyson"
-    context = {
-        "error_message": error_message,
-        "distorted_quote": distorted_quote,
-    }
-    return render(request, "500.html", context)
