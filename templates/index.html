@@ -14,11 +14,12 @@
     <link rel="stylesheet" href="{%static 'assets/css/bootstrap.css'%}">
     <link rel="stylesheet" href="{%static 'assets/css/style.css'%}">
     <style>
-body {
-    background-color: #1a1a1a;
-    color: #ffffff;
-}
-.rd-navbar-top-panel, .rd-navbar-top-panel-inner, .rd-navbar-inner, .rd-navbar-aside-right, .rd-navbar, .rd-navbar-original, .rd-navbar-fullwidth, .rd-navbar, .rd-navbar, .rd-navbar-fullwidth, .rd-navbar--is-stuck{
+      body {
+        margin: 0;
+        background-color: #1a1a1a;
+        color: #ffffff;
+    }
+.rd-navbar-top-panel, .rd-navbar-top-panel-inner, .rd-navbar-inner, .rd-navbar-aside-right, .rd-navbar, .rd-navbar-original, .rd-navbar-fullwidth, .rd-navbar, .rd-navbar, .rd-navbar-fullwidth, .rd-navbar--is-stuck, .rd-navbar-default-with-top-panel, .rd-navbar-fixed, .rd-navbar-panel, .rd-navbar-top-panel, .rd-navbar-collapse, .toggle-original-elements{
   background-color: #2b2b2b;
 }
 .rd-navbar-brand.fullwidth-brand a {
@@ -64,7 +65,7 @@ a:hover {
         <!-- RD Navbar-->
         <div class="rd-navbar-wrap">
           <nav class="rd-navbar rd-navbar-default-with-top-panel" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fullwidth" data-md-stick-up-offset="90px" data-lg-stick-up-offset="150px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
-            <div class="rd-navbar-top-panel rd-navbar-collapse">
+            <div style="background-color: #2b2b2b;" class="rd-navbar-top-panel rd-navbar-collapse">
               <div class="rd-navbar-top-panel-inner">
                 <div class="left-side">
                   <div style="color:white;" class="group"><span class="text-italic">Follow Us:</span>
@@ -101,14 +102,14 @@ a:hover {
                 <div class="rd-navbar-brand mobile-brand"><a class="brand-name" href="index"><img src="{%static 'assets/images/logo-default-314x48.png'%}" alt="" width="314" height="48"/></a></div>
               </div>
               <div class="rd-navbar-aside-right">
-                <div class="rd-navbar-nav-wrap">
+                <div style="background-color: #2b2b2b;" class="rd-navbar-nav-wrap">
                   <div class="rd-navbar-nav-scroll-holder">
                     <ul class="rd-navbar-nav">
                       <li class="active"><a href="index">Home</a>
                       </li>
-                      <li><a style="color:white;" href="about-us">About Us</a>
+                      <li ><a style="color: white;" href="about-us">About Us</a>
                       </li> 
-                      <li><a style="color:white;" href="contacts">Contacts</a>
+                      <li ><a style="color: white;" href="contacts">Contacts</a>
                       </li>
                     </ul>
                   </div>
@@ -362,17 +363,16 @@ a:hover {
                         </a>
                     {% endif %}
                 </div>
-                
                 <br>
                 <div style="position:relative;left:1.25cm;">
-                {% if user.is_authenticated and user.is_superuser %}
-                <a style="color:white;" href="{% url 'turf_incharge_verification' %}" class="button button-effect-ujarak button-lg button-primary button-square">
-                <span>Scan QR</span></a>
-                {% endif %}
-
-                {% if user.is_authenticated and user.is_staff%}
-                <a href="logout" class="btn btn-link" ><button id="logout" type="submit" class="btn btn-link">Logout</button></a>
-                {% endif %}
+                  {% if user.is_authenticated and user.is_superuser %}
+                  <a style="color:white;" href="{% url 'turf_incharge_verification' %}" class="button button-effect-ujarak button-lg button-primary button-square">
+                  <span>Scan QR</span></a>
+                  {% endif %}
+                  <br>
+                  {% if user.is_authenticated and user.is_staff%}
+                  <a href="logout" class="btn btn-link" ><button id="logout" type="submit" class="btn btn-link">Logout</button></a>
+                  {% endif %}
                 </div>
               </div>
             </div>
