@@ -76,9 +76,9 @@ a:hover {
                     </ul>
                   </div>
                 </div>
-                <div class="center-side">
+                <div class="">
                   <!-- RD Navbar Brand-->
-                  <div id="brand-name" class="rd-navbar-brand fullwidth-brand"><a class="brand-name" href="index"><img src="{%static 'assets/images/logo-default-314x48.png'%}" alt="" width="314" height="48"/></a></div>
+                  <div style="position: relative;bottom: .1cm;" id="brand-name" class="rd-navbar-brand fullwidth-brand"><a class="brand-name" href="index"><img src="{%static 'assets/images/logo-default-314x48.png'%}" alt="" width="314" height="48"/></a></div>
                 </div>
                 <div class="right-side">
                   <!-- Contact Info-->
@@ -365,14 +365,16 @@ a:hover {
                 </div>
                 <br>
                 <div style="position:relative;left:1.25cm;">
-                  {% if user.is_authenticated and user.is_superuser %}
-                  <a style="color:white;" href="{% url 'turf_incharge_verification' %}" class="button button-effect-ujarak button-lg button-primary button-square">
-                  <span>Scan QR</span></a>
-                  {% endif %}
+                    {% if user.is_authenticated and user.is_superuser %}
+                    <a style="color:white;" href="{% url 'turf_incharge_verification' %}" class="button button-effect-ujarak button-lg button-primary button-square">
+                    <span>Scan QR</span></a>
+                    {% endif %}
                   <br>
-                  {% if user.is_authenticated and user.is_staff%}
-                  <a href="logout" class="btn btn-link" ><button id="logout" type="submit" class="btn btn-link">Logout</button></a>
-                  {% endif %}
+                  <div style="position: relative;left: 1.5cm"> 
+                    {% if user.is_authenticated and user.is_staff%}
+                    <a href="logout" class="btn btn-link" ><button id="logout" type="submit" class="btn btn-link">Logout</button></a>
+                    {% endif %}
+                  </div>
                 </div>
               </div>
             </div>

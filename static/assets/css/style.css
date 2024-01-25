@@ -7,11 +7,6 @@ html *:last-child {
 	margin-bottom: 0;
 }
 
-#brand-name{
-	position: absolute;
-	left: 37.5%;
-}
-
 #logout {
   color: #000;
   text-decoration: none;
