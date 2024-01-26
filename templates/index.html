@@ -21,6 +21,9 @@
         font-family: "Roboto Mono", monospace;
         padding: 0;
     }
+    #ui-to-top{
+      background-color: #2b2b2b;
+    }
     p {
     font-family: "Glitch", sans-serif;
         }
@@ -244,7 +247,7 @@ a:hover {
                       </div>
               
                       <div class="cell-lg-12 cell-md-4">
-                          <button style="color:white;" class="button button-primary button-square button-block button-effect-ujarak" type="submit"><span>Check Availability</span></button>
+                          <button class="button button-effect-ujarak button-lg button-white-outline button-square" type="submit"><span>Check Availability</span></button>
                       </div>
                   </div>
               </form>
@@ -266,7 +269,7 @@ a:hover {
               </div>
             </div>
             <div class="cell-sm-10 cell-md-8 cell-lg-5 reveal-flex wow fadeInUp" data-wow-delay=".3s">
-              <div class="bg-primary section-wrap-content-var-1">
+              <div style="background-color: #2b2b2b;" class="bg-primary section-wrap-content-var-1">
                 <div class="section-wrap-content-var-1-inner">
                   <h3 style="color: #ff0000;
                   text-shadow: 0 0 2px #ff0000;
@@ -275,11 +278,11 @@ a:hover {
                   Committed to everyone seeking energy and excitement, we offer endless possibilities to unwind and reenergize.<br><br>
                   <div class="group">
                     <dl class="list-desc">
-                      <dt>Weekdays:</dt>
+                      <dt style="color: red;">Weekdays:</dt>
                       <dd><span>8:00–20:00</span></dd>
                     </dl>
                     <dl class="list-desc">
-                      <dt>Weekends:</dt>
+                      <dt style="color: red;">Weekends:</dt>
                       <dd><span>9:00–18:00</span></dd>
                     </dl>
                   </div><a class="button button-effect-ujarak button-lg button-secondary-outline button-square" href="about-us"><span>About us</span></a>
@@ -352,13 +355,13 @@ a:hover {
                         <div class="group-xs"> 
                           <div>
                             <dl class="list-desc">
-                              <dt>Weekdays: </dt>
+                              <dt style="color: red;">Weekdays: </dt>
                               <dd class="text-gray-darker"><span>8:00–20:00</span></dd>
                             </dl>
                           </div>
                           <div>
                             <dl class="list-desc">
-                              <dt>Weekends: </dt>
+                              <dt style="color: red;">Weekends: </dt>
                               <dd class="text-gray-darker"><span>9:00–18:00</span></dd>
                             </dl>
                           </div>
@@ -372,18 +375,18 @@ a:hover {
                     <h4 style="color: #ff0000;
                     text-shadow: 0 0 2px #ff0000;
                     animation: glitch-text 1s ease-in-out infinite;
-                    font-family: "Glitch", jokerman;">Address</h4>
+                    font-family: "Glitch", jokerman;">Contact</h4>
                     <ul class="list-unstyled">
                       <li>
                         <dl class="list-desc">
                           <dt><span class="icon icon-sm mdi mdi-map-marker"></span></dt>
-                          <dd><a style="color:white;" class="link link-gray-darker" href="https://maps.app.goo.gl/PZvvBL7A1nSfoHb28">No:88, PSM Garden, Pothur, Pammadukulam, Post, Red Hills, Chennai, Tamil Nadu 600052</a></dd>
+                          <dd style="color: red;">Address: <a style="color:white;" class="link link-gray-darker" href="https://maps.app.goo.gl/PZvvBL7A1nSfoHb28">No:88, PSM Garden, Pothur, Pammadukulam, Post, Red Hills, Chennai, Tamil Nadu 600052</a></dd>
                         </dl>
                       </li>
                       <li>
                         <dl class="list-desc">
                           <dt><span class="icon icon-sm mdi mdi-phone"></span></dt>
-                          <dd class="text-gray-darker">Call Us: <a style="color:white;" class="link link-gray-darker" href="tel:#">+1 (409) 987–5874</a>
+                          <dd style="color: red;">Call Us: <a style="color:white;" class="link link-gray-darker" href="tel:#">+1 (409) 987–5874</a>
                           </dd>
                         </dl>
                       </li>
@@ -399,7 +402,7 @@ a:hover {
                         </a>
                     {% else %}
                         <!-- If the user is not authenticated or is not a staff member -->
-                        <a style="color:#000;" href="{% url 'admin:login' %}" class="button button-effect-ujarak button-lg button-secondary button-square">
+                        <a class="button button-effect-ujarak button-lg button-white-outline button-square" href="{% url 'admin:login' %}" class="button button-effect-ujarak button-lg button-secondary button-square">
                             <span>Login as Admin</span>
                         </a>
                     {% endif %}
@@ -407,7 +410,7 @@ a:hover {
                 <br>
                 <div style="position:relative;left:1.25cm;">
                     {% if user.is_authenticated and user.is_superuser %}
-                    <a style="color:white;" href="{% url 'turf_incharge_verification' %}" class="button button-effect-ujarak button-lg button-primary button-square">
+                    <a class="button button-effect-ujarak button-lg button-white-outline button-square" href="{% url 'turf_incharge_verification' %}" class="button button-effect-ujarak button-lg button-primary button-square">
                     <span>Scan QR</span></a>
                     {% endif %}
                   <br>
