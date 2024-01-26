@@ -16,6 +16,25 @@
     <style>body {
       background-color: #1a1a1a;
       color: #ffffff;
+      font-family: "Roboto Mono", monospace;
+  }
+  h1{
+    color: #ff0000;
+    text-shadow: 0 0 4px #ff0000;
+    font-family: "Glitch", sans-serif;
+  }
+  h2, h3, h4, h5, p {
+    color: #ff0000;
+    text-shadow: 0 0 4px #ff0000;
+    animation: glitch-text 1s ease-in-out infinite;
+    font-family: "Glitch", sans-serif;
+  }
+  p {
+  font-family: "Glitch", sans-serif;
+      }
+  button:hover{
+    box-shadow: 0 0 10px rgba(#00ff00, 0.2);
+      animation: neon-pulse 0.5s ease-in-out infinite;
   }
   .rd-navbar-top-panel, .rd-navbar-top-panel-inner, .rd-navbar-inner, .rd-navbar-aside-right, .rd-navbar, .rd-navbar-original, .rd-navbar-fullwidth{
       background-color: #2b2b2b;
@@ -136,8 +155,8 @@
             <div class="range range-50 range-md-center">
               <div class="cell-sm-8">
                 <div class="contact-box">
-                  <h3 style="color:white;">Get in Touch</h3>
-                  <p>We are available 24/7 by fax, e-mail or by phone. You can also use our quick contact form to ask a question about our services. We would be pleased to answer your questions.</p>
+                  <h3>Get in Touch</h3><br>
+                  We are available 24/7 by fax, e-mail or by phone. You can also use our quick contact form to ask a question about our services. We would be pleased to answer your questions.
                   <form  class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
                     <div class="range range-sm-bottom spacing-20">
                       <div class="cell-sm-6">
@@ -175,7 +194,7 @@
                 <aside class="contact-box-aside text-left">
                   <div class="range range-50">
                     <div class="cell-xs-6 cell-sm-12">
-                      <p style="color:white;" class="aside-title"> get Social</p>
+                      <h5 class="text-uppercase"> get Social</h5>
                       <hr class="divider divider-left divider-custom">
                       <ul class="list-inline">
                         <li><a class="icon icon-sm icon-gray-3 fa fa-instagram" href="https://www.instagram.com/psm_sports_village"></a></li>
@@ -184,7 +203,7 @@
                       </ul>
                     </div>
                     <div class="cell-xs-6 cell-sm-12">
-                      <p style="color:white;" class="aside-title"> Phone</p>
+                      <h5 class="text-uppercase"> Phone</h5>
                       <hr class="divider divider-left divider-custom">
                       <div class="unit unit-middle unit-horizontal unit-spacing-xs unit-xs-top">
                         <div class="unit__left"><span class="text-middle icon icon-sm mdi mdi-phone icon-primary"></span></div>
@@ -192,7 +211,7 @@
                       </div>
                     </div>
                     <div class="cell-xs-6 cell-sm-12">
-                      <p style="color:white;" class="aside-title"> Address</p>
+                      <h5 class="text-uppercase"> Address</h5>
                       <hr class="divider divider-left divider-custom">
                       <div class="unit unit-middle unit-horizontal unit-spacing-xs unit-xs-top">
                         <div class="unit__left"><span class="text-middle icon icon-sm mdi mdi-map-marker icon-primary"></span></div>
@@ -200,12 +219,12 @@
                       </div>
                     </div>
                     <div class="cell-xs-6 cell-sm-12">
-                      <p style="color:white;" class="aside-title"> opening hours</p>
+                      <h5 class="text-uppercase"> opening hours</h5>
                       <hr class="divider divider-left divider-custom">
                       <div class="unit unit-middle unit-horizontal unit-spacing-xs unit-xs-top">
                         <div class="unit__left"><span class="text-middle icon icon-sm mdi mdi-clock icon-primary"></span></div>
                         <div class="unit__body text-gray-darker">
-                          <p>We work every day 9:00–23:00</p>
+                          We work every day 9:00–23:00
                         </div>
                       </div>
                     </div>
@@ -223,7 +242,7 @@
                 <div class="range range-50">
                   <div class="cell-sm-6 cell-md-3 cell-lg-4 wow fadeInUp" data-wow-delay=".1s">
                     <div class="page-footer-minimal-inner">
-                      <h4 style="color:white;">Opening Hours</h4>
+                      <h4>Opening Hours</h4>
                       <ul class="list-unstyled">
                         <li>
                           <div class="group-xs"> 
@@ -246,7 +265,7 @@
                   </div>
                   <div class="cell-sm-6 cell-md-5 cell-lg-4 wow fadeInUp" data-wow-delay=".2s">
                     <div class="page-footer-minimal-inner">
-                      <h4 style="color:white;">Address</h4>
+                      <h4>Address</h4>
                       <ul class="list-unstyled">
                         <li>
                           <dl class="list-desc">
