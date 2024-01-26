@@ -21,6 +21,19 @@
         font-family: "Roboto Mono", monospace;
         padding: 0;
     }
+    #brand-name-grad{
+    color: #ff7722;
+    background-image: -webkit-linear-gradient(0deg, #ff7722 20%, #ffffff 50%, #59ae35 83%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    }
+    #brand-name{
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
     #ui-to-top{
       background-color: #2000;
     }
@@ -127,7 +140,7 @@ a:hover {
             <div style="background-color: #000;" class="rd-navbar-top-panel rd-navbar-collapse">
               <div class="rd-navbar-top-panel-inner">
                 <div class="left-side">
-                  <div style="color:white;" class="group"><span class="text-italic">Follow Us:</span>
+                  <div style="color: #ff0000;" class="group"><span class="text-italic">Follow Us:</span>
                     <ul class="list-inline">
                       <li><a class="icon icon-sm icon-secondary-5 fa fa-instagram" target="_blank" href="https://www.instagram.com/psm_sports_village"></a></li>
                       <li><a class="icon icon-sm icon-secondary-5 fa fa-facebook" target="_blank" href="#"></a></li>
@@ -135,9 +148,9 @@ a:hover {
                     </ul>
                   </div>
                 </div>
-                <div class="">
+                <div>
                   <!-- RD Navbar Brand-->
-                  <div style="display: flex;justify-content: center;items-align: center;" id="brand-name" class="rd-navbar-brand fullwidth-brand"><a class="brand-name" href="index"><img src="{%static 'assets/images/logo-default-314x48.png'%}" alt="" width="314" height="48"/></a></div>
+                  <div id="brand-name" class="rd-navbar-brand fullwidth-brand"><a class="brand-name" href="index"><h3 id="brand-name-grad">PSM SPORTS VILLAGE</h3></a></div>
                 </div>
                 <div class="right-side">
                   <!-- Contact Info-->
@@ -297,7 +310,9 @@ a:hover {
               <div class="post-video post-video-border">
                 <div class="post-video__image"><img src="{%static 'assets/images/video-bg-1020x525.jpg'%}" alt="" width="1020" height="525"/>
                 </div>
-                <div class="post-video__body"><a class="link-control post-video__control" data-lightgallery="item" href="https://www.youtube.com/watch?v=I5FlP07kdvM"></a></div>
+
+               <!-- <div class="post-video__body"><a class="link-control post-video__control" data-lightgallery="item" href="https://www.youtube.com/watch?v=I5FlP07kdvM"></a></div> -->
+
               </div>
             </div>
             <div class="cell-sm-10 cell-md-8 cell-lg-5 reveal-flex wow fadeInUp" data-wow-delay=".3s">
@@ -317,7 +332,7 @@ a:hover {
                       <dt style="color: #ff0000;">Weekends:</dt>
                       <dd><span>9:00–18:00</span></dd>
                     </dl>
-                  </div><a class="button button-effect-ujarak button-lg button-secondary-outline button-square" href="about-us"><span>About us</span></a>
+                  </div><a class="button button-effect-ujarak button-lg button-secondary-outline button-square" href="about-us"><span>About Us</span></a>
                 </div>
               </div>
             </div>

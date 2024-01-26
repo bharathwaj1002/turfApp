@@ -17,7 +17,20 @@
       background-color: #1a1a1a;
       color: #ffffff;
       font-family: "Roboto Mono", monospace;
-  }  
+  }
+  #brand-name-grad{
+    color: #ff7722;
+    background-image: -webkit-linear-gradient(0deg, #ff7722 20%, #ffffff 50%, #59ae35 83%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    }  
+    #brand-name{
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
   p {
   font-family: "Glitch", sans-serif;
       }
@@ -75,7 +88,7 @@
             <div style="background-color: #000;" class="rd-navbar-top-panel rd-navbar-collapse">
               <div class="rd-navbar-top-panel-inner">
                 <div class="left-side">
-                  <div style="color:white;" class="group"><span class="text-italic">Follow Us:</span>
+                  <div style="color: #ff0000;" class="group"><span class="text-italic">Follow Us:</span>
                     <ul class="list-inline">
                       <li><a class="icon icon-sm icon-secondary-5 fa fa-instagram" href="https://www.instagram.com/psm_sports_village"></a></li>
                       <li><a class="icon icon-sm icon-secondary-5 fa fa-facebook" href="#"></a></li>
@@ -85,7 +98,7 @@
                 </div>
                 <div class="">
                   <!-- RD Navbar Brand-->
-                  <div style="display: flex;justify-content: center;" id="brand-name" class="rd-navbar-brand fullwidth-brand"><a class="brand-name" href="index"><img src="{%static 'assets/images/logo-default-314x48.png'%}" alt="" width="314" height="48"/></a></div>
+                  <div id="brand-name" class="rd-navbar-brand fullwidth-brand"><a class="brand-name" href="index"><h3 id="brand-name-grad">PSM SPORTS VILLAGE</h3></a></div>
                 </div>
                 <div class="right-side">
                   <!-- Contact Info-->
