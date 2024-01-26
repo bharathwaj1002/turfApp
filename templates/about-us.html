@@ -23,11 +23,6 @@
     text-shadow: 0 0 4px #ff0000;
     font-family: "Glitch", sans-serif;
   }
-  h2, h3, h4 {
-    color: #ff0000;
-    text-shadow: 0 0 4px #ff0000;
-    font-family: "Glitch", sans-serif;
-  }
   p {
   font-family: "Glitch", sans-serif;
       }
@@ -36,7 +31,7 @@
       animation: neon-pulse 0.5s ease-in-out infinite;
   }
   .rd-navbar-top-panel, .rd-navbar-top-panel-inner, .rd-navbar-inner, .rd-navbar-aside-right, .rd-navbar, .rd-navbar-original, .rd-navbar-fullwidth{
-    background-color: #2b2b2b;
+    background-color: #000;
   }
   .rd-navbar-brand.fullwidth-brand a {
       color: #00ffcc;
@@ -62,7 +57,7 @@
       color: #ffffff;
   }
   .page-footer-minimal,.page-footer-minimal-inner,.shell-wide {
-      background-color: #2b2b2b;
+      background-color: #000;
       color: #ffffff;
   }
   a {
@@ -73,14 +68,32 @@
   }
   .icon {
       color: #00ffcc;
-  }</style>
+  }
+  @keyframes glitch-text {
+    0% {
+      text-shadow: 0px 0px 2px #ff0000;
+    }
+    25% {
+      text-shadow: 2px 0px 2px #ff0000;
+    }
+    50% {
+      text-shadow: 0px 2px 2px #ff0000;
+    }
+    75% {
+      text-shadow: -2px 0px 2px #ff0000;
+    }
+    100% {
+      text-shadow: 0px -2px 2px #ff0000;
+    }
+  }
+</style>
   </head>
   <body>
       <header class="page-header" style="padding-bottom: 24px">
         <!-- RD Navbar-->
         <div class="rd-navbar-wrap">
           <nav class="rd-navbar rd-navbar-default-with-top-panel" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fullwidth" data-md-stick-up-offset="90px" data-lg-stick-up-offset="150px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
-            <div style="background-color: #2b2b2b;" class="rd-navbar-top-panel rd-navbar-collapse">
+            <div style="background-color: #000;" class="rd-navbar-top-panel rd-navbar-collapse">
               <div class="rd-navbar-top-panel-inner">
                 <div class="left-side">
                   <div style="color:white;" class="group"><span class="text-italic">Follow Us:</span>
@@ -117,7 +130,7 @@
                 <div id="brand-name" class="rd-navbar-brand mobile-brand"><a class="brand-name" href="index"><img src="{% static 'assets/images/logo-default-314x48.png'%}" alt="" width="314" height="48"/></a></div>
               </div>
               <div class="rd-navbar-aside-right">
-                <div style="background-color: #2b2b2b;" class="rd-navbar-nav-wrap">
+                <div style="background-color: #000;" class="rd-navbar-nav-wrap">
                   <div class="rd-navbar-nav-scroll-holder">
                     <ul class="rd-navbar-nav">
                       <li><a style="color:white;" href="/">Home</a>
@@ -139,9 +152,9 @@
         <div class="shell shell-fluid">
           <div class="range range-xs-center">
             <div class="cell-xs-12 cell-xl-11">
-              <h2 style="color:white;" class="text-white">About Us</h2>
+              <h2 style="color: #ffffff">About Us</h2>
               <ul class="breadcrumbs-custom">
-                <li><a href="">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li class="active">About Us</li>
               </ul>
             </div>
@@ -149,7 +162,7 @@
         </div>
       </section>
 
-      <section class="section section-md bg-secondary-4 text-center text-sm-left">
+      <section style="background-color: #000;" class="section section-md bg-secondary-4 text-center text-sm-left">
         <div class="shell">
           <div class="range range-50 range-md-justify range-sm-middle">
             <div class="cell-sm-6 wow fadeInUp" data-wow-delay=".1s">
@@ -159,18 +172,22 @@
               </div>
             </div>
             <div class="cell-sm-6 cell-md-5 wow fadeInUp" data-wow-delay=".2s">
-              <h3 style="">A Few Words About Us</h3>
+              <h3 style="color: #ff0000;
+              text-shadow: 0 0 2px #ff0000;
+              animation: glitch-text 1s ease-in-out infinite;
+              font-family: "Glitch", jokerman;">A Few Words About Us</h3>
               <p>Lorem ipsum dolor sit amet. 33 esse ducimus in ratione similique hic placeat minus non eligendi itaque. Qui reprehenderit facere ea voluptas nostrum ut quos pariatur ut ipsum odio et repudiandae quia non omnis beatae est maxime consequatur. Eum fuga blanditiis ut tenetur consequatur ut quam expedita ea voluptatum iste in molestias dolore ad enim iure id aliquam voluptatem.</p>
               <p>Aut iusto voluptas id error vitae et consequatur nulla. Aut provident vero non ducimus nihil non perspiciatis facere ex eveniet dolor et placeat facere vel incidunt possimus sed praesentium reprehenderit. Eos reiciendis ullam ut quidem ipsa eos accusantium consequatur?</p>
             </div>
           </div>
         </div>
       </section>
-     
-      
-      <section class="section section-md bg-white">
+      <section style="background-color: #000;" class="section section-md bg-white">
         <div class="shell">
-          <h2 style="">Our Team</h2>
+          <h3 style="color: #ff0000;
+          text-shadow: 0 0 2px #ff0000;
+          animation: glitch-text 1s ease-in-out infinite;
+          font-family: "Glitch", jokerman;">Our Team</h3>
           <div class="range range-xs-center range-75">
             <!--team member 1-->
             <div class="cell-sm-6 cell-md-4 wow fadeInUp" data-wow-delay=".1s">
@@ -184,7 +201,7 @@
                     </ul>
                   </div>
                 </div>
-                <div  class="team-caption"><a style="color:white;" class="link team-title" href="#">Theresa Smith</a><span>General Manager</span></div>
+                <div  class="team-caption"><a style="color: #ff0000;text-shadow: 0 0 2px #ff0000;font-family: "Glitch", jokerman;" class="link team-title" href="#">Theresa</a><span style="color: #ffffff">General Manager</span></div>
               </div>
             </div>
             <!--team member 2-->
@@ -199,7 +216,7 @@
                     </ul>
                   </div>
                 </div>
-                <div class="team-caption"><a style="color:white;" class="link team-title" href="#">Albert Mills</a><span>Cosmetologist</span></div>
+                <div class="team-caption"><a style="color: #ff0000;text-shadow: 0 0 2px #ff0000;font-family: "Glitch", jokerman;" class="link team-title" href="#">Albert Mills</a><span style="color: #ffffff">Cosmetologist</span></div>
               </div>
             </div>
             <!--team member 3-->
@@ -214,7 +231,7 @@
                     </ul>
                   </div>
                 </div>
-                <div class="team-caption"><a style="color:white;" class="link team-title" href="#">Sandra Adams</a><span>Receptionist</span></div>
+                <div class="team-caption"><a style="color: #ff0000;text-shadow: 0 0 2px #ff0000;font-family: "Glitch", jokerman;" class="link team-title" href="#">Sandra Adams</a><span style="color: #ffffff">Receptionist</span></div>
               </div>
             </div>
           </div>
@@ -228,19 +245,22 @@
               <div class="range range-50">
                 <div class="cell-sm-6 cell-md-3 cell-lg-4 wow fadeInUp" data-wow-delay=".1s">
                   <div class="page-footer-minimal-inner">
-                    <h4 style="">Opening Hours</h4>
+                    <h4 style="color: #ff0000;
+                    text-shadow: 0 0 2px #ff0000;
+                    animation: glitch-text 1s ease-in-out infinite;
+                    font-family: "Glitch", jokerman;">Opening Hours</h4>
                     <ul class="list-unstyled">
                       <li>
                         <div class="group-xs"> 
                           <div>
                             <dl class="list-desc">
-                              <dt>Weekdays: </dt>
+                              <dt style="color: #ff0000;">Weekdays: </dt>
                               <dd class="text-gray-darker"><span>8:00–20:00</span></dd>
                             </dl>
                           </div>
                           <div>
                             <dl class="list-desc">
-                              <dt>Weekends: </dt>
+                              <dt style="color: #ff0000;">Weekends: </dt>
                               <dd class="text-gray-darker"><span>9:00–18:00</span></dd>
                             </dl>
                           </div>
@@ -251,18 +271,21 @@
                 </div>
                 <div class="cell-sm-6 cell-md-5 cell-lg-4 wow fadeInUp" data-wow-delay=".2s">
                   <div class="page-footer-minimal-inner">
-                    <h4 style="">Address</h4>
+                    <h4 style="color: #ff0000;
+                    text-shadow: 0 0 2px #ff0000;
+                    animation: glitch-text 1s ease-in-out infinite;
+                    font-family: "Glitch", jokerman;">Contact</h4>
                     <ul class="list-unstyled">
                       <li>
                         <dl class="list-desc">
                           <dt><span class="icon icon-sm mdi mdi-map-marker"></span></dt>
-                          <dd><a style="color:white;" class="link link-gray-darker" href="https://maps.app.goo.gl/PZvvBL7A1nSfoHb28">No:88, PSM Garden, Pothur, Pammadukulam, Post, Red Hills, Chennai, Tamil Nadu 600052</a></dd>
+                          <dd style="color: #ff0000;">Address: <a style="color:white;" class="link link-gray-darker" href="https://maps.app.goo.gl/PZvvBL7A1nSfoHb28">No:88, PSM Garden, Pothur, Pammadukulam, Post, Red Hills, Chennai, Tamil Nadu 600052</a></dd>
                         </dl>
                       </li>
                       <li>
                         <dl class="list-desc">
                           <dt><span class="icon icon-sm mdi mdi-phone"></span></dt>
-                          <dd class="text-gray-darker">Call Us: <a style="color:white;" class="link link-gray-darker" href="tel:#">+1 (409) 987–5874</a>
+                          <dd style="color: #ff0000;">Call Us: <a style="color:white;" class="link link-gray-darker" href="tel:#">+1 (409) 987–5874</a>
                           </dd>
                         </dl>
                       </li>

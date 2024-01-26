@@ -17,18 +17,7 @@
       background-color: #1a1a1a;
       color: #ffffff;
       font-family: "Roboto Mono", monospace;
-  }
-  h1{
-    color: #ff0000;
-    text-shadow: 0 0 4px #ff0000;
-    font-family: "Glitch", sans-serif;
-  }
-  h2, h3, h4, h5, p {
-    color: #ff0000;
-    text-shadow: 0 0 4px #ff0000;
-    animation: glitch-text 1s ease-in-out infinite;
-    font-family: "Glitch", sans-serif;
-  }
+  }  
   p {
   font-family: "Glitch", sans-serif;
       }
@@ -37,33 +26,17 @@
       animation: neon-pulse 0.5s ease-in-out infinite;
   }
   .rd-navbar-top-panel, .rd-navbar-top-panel-inner, .rd-navbar-inner, .rd-navbar-aside-right, .rd-navbar, .rd-navbar-original, .rd-navbar-fullwidth{
-      background-color: #2b2b2b;
+      background-color: #000;
   }
   .rd-navbar-brand.fullwidth-brand a {
       color: #00ffcc;
   }
-  .swiper-slide {
-      background-color: #000000;
-      color: #00ffcc;
-  }
-  .hotel-booking-form {
-      background-color: #2b2b2b;
-      color: #ffffff;
-  }
-  .form-input,
-  .form-label {
-      color: #ffffff;
-  }
-  .button.button-primary {
-      background-color: #00ffcc;
-      color: #000000;
-  }
   .section {
-      background-color: #1a1a1a;
+      background-color: #000;
       color: #ffffff;
   }
-  .page-footer-minimal,.page-footer-minimal-inner,.shell-wide {
-      background-color: #2b2b2b;
+  .page-footer-minimal, .page-footer-minimal-inner, .shell-wide {
+      background-color: #000;
       color: #ffffff;
   }
   a {
@@ -74,14 +47,32 @@
   }
   .icon {
       color: #00ffcc;
-  }</style>
+  }
+  @keyframes glitch-text {
+    0% {
+      text-shadow: 0px 0px 2px #ff0000;
+    }
+    25% {
+      text-shadow: 2px 0px 2px #ff0000;
+    }
+    50% {
+      text-shadow: 0px 2px 2px #ff0000;
+    }
+    75% {
+      text-shadow: -2px 0px 2px #ff0000;
+    }
+    100% {
+      text-shadow: 0px -2px 2px #ff0000;
+    }
+  }
+</style>
   </head>
   <body>
       <header class="page-header" style="padding-bottom: 24px">
         <!-- RD Navbar-->
         <div class="rd-navbar-wrap">
           <nav class="rd-navbar rd-navbar-default-with-top-panel" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fullwidth" data-md-stick-up-offset="90px" data-lg-stick-up-offset="150px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
-            <div style="background-color: #2b2b2b;" class="rd-navbar-top-panel rd-navbar-collapse">
+            <div style="background-color: #000;" class="rd-navbar-top-panel rd-navbar-collapse">
               <div class="rd-navbar-top-panel-inner">
                 <div class="left-side">
                   <div style="color:white;" class="group"><span class="text-italic">Follow Us:</span>
@@ -118,7 +109,7 @@
                 <div class="rd-navbar-brand mobile-brand"><a class="brand-name" href="index"><img src="{% static 'assets/images/logo-default-314x48.png'%}" alt="" width="314" height="48"/></a></div>
               </div>
               <div class="rd-navbar-aside-right">
-                <div style="background-color: #2b2b2b;" class="rd-navbar-nav-wrap">
+                <div style="background-color: #000;" class="rd-navbar-nav-wrap">
                   <div class="rd-navbar-nav-scroll-holder">
                     <ul class="rd-navbar-nav">
                       <li><a style="color:white;" href="/">Home</a>
@@ -155,36 +146,36 @@
             <div class="range range-50 range-md-center">
               <div class="cell-sm-8">
                 <div class="contact-box">
-                  <h3>Get in Touch</h3><br>
+                  <h3 style="color: #ff0000;text-shadow: 0 0 4px #ff0000;animation: glitch-text 1s ease-in-out infinite;font-family: "Glitch", sans-serif;">Get in Touch</h3><br>
                   We are available 24/7 by fax, e-mail or by phone. You can also use our quick contact form to ask a question about our services. We would be pleased to answer your questions.
                   <form  class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
                     <div class="range range-sm-bottom spacing-20">
                       <div class="cell-sm-6">
                         <div class="form-wrap">
-                          <input class="form-input" id="contact-first-name" type="text" name="name" data-constraints="@Required">
+                          <input style="color: #000" class="form-input" id="contact-first-name" type="text" name="name" data-constraints="@Required">
                           <label style="color: #000" class="form-label" for="contact-first-name">Your Name</label>
                         </div>
                       </div>
                       <div class="cell-sm-6">
                         <div class="form-wrap">
-                          <input class="form-input" id="contact-last-name" type="text" name="phone" data-constraints="@Numeric">
+                          <input style="color: #000" class="form-input" id="contact-last-name" type="text" name="phone" data-constraints="@Numeric">
                           <label style="color: #000" class="form-label" for="contact-last-name">Phone</label>
                         </div>
                       </div>
                       <div class="cell-xs-12">
                         <div class="form-wrap">
-                          <textarea class="form-input" id="contact-message" name="message" data-constraints="@Required"></textarea>
+                          <textarea style="color: #000" class="form-input" id="contact-message" name="message" data-constraints="@Required"></textarea>
                           <label style="color: #000" class="form-label" for="contact-message">Your Message</label>
                         </div>
                       </div>
                       <div class="cell-sm-6">
                         <div class="form-wrap">
-                          <input class="form-input" id="contact-email" type="email" name="email" data-constraints="@Email @Required">
+                          <input style="color: #000" class="form-input" id="contact-email" type="email" name="email" data-constraints="@Email @Required">
                           <label style="color: #000" class="form-label" for="contact-email">E-mail</label>
                         </div>
                       </div>
                       <div class="cell-sm-6">
-                        <button style="color: white;" class="button button-primary button-square button-block button-effect-ujarak" type="submit"><span>send message</span></button>
+                        <button style="color: white;" class="button button-effect-ujarak button-lg button-white-outline button-square" type="submit"><span>send message</span></button>
                       </div>
                     </div>
                   </form>
@@ -194,7 +185,7 @@
                 <aside class="contact-box-aside text-left">
                   <div class="range range-50">
                     <div class="cell-xs-6 cell-sm-12">
-                      <h5 class="text-uppercase"> get Social</h5>
+                      <h5 style="color: #ff0000;text-shadow: 0 0 4px #ff0000;animation: glitch-text 1s ease-in-out infinite;font-family: "Glitch", sans-serif;" class="text-uppercase"> get Social</h5>
                       <hr class="divider divider-left divider-custom">
                       <ul class="list-inline">
                         <li><a class="icon icon-sm icon-gray-3 fa fa-instagram" href="https://www.instagram.com/psm_sports_village"></a></li>
@@ -203,7 +194,7 @@
                       </ul>
                     </div>
                     <div class="cell-xs-6 cell-sm-12">
-                      <h5 class="text-uppercase"> Phone</h5>
+                      <h5 style="color: #ff0000;text-shadow: 0 0 4px #ff0000;animation: glitch-text 1s ease-in-out infinite;font-family: "Glitch", sans-serif;" class="text-uppercase"> Phone</h5>
                       <hr class="divider divider-left divider-custom">
                       <div class="unit unit-middle unit-horizontal unit-spacing-xs unit-xs-top">
                         <div class="unit__left"><span class="text-middle icon icon-sm mdi mdi-phone icon-primary"></span></div>
@@ -211,7 +202,7 @@
                       </div>
                     </div>
                     <div class="cell-xs-6 cell-sm-12">
-                      <h5 class="text-uppercase"> Address</h5>
+                      <h5 style="color: #ff0000;text-shadow: 0 0 4px #ff0000;animation: glitch-text 1s ease-in-out infinite;font-family: "Glitch", sans-serif;" class="text-uppercase"> Address</h5>
                       <hr class="divider divider-left divider-custom">
                       <div class="unit unit-middle unit-horizontal unit-spacing-xs unit-xs-top">
                         <div class="unit__left"><span class="text-middle icon icon-sm mdi mdi-map-marker icon-primary"></span></div>
@@ -219,7 +210,7 @@
                       </div>
                     </div>
                     <div class="cell-xs-6 cell-sm-12">
-                      <h5 class="text-uppercase"> opening hours</h5>
+                      <h5 style="color: #ff0000;text-shadow: 0 0 4px #ff0000;animation: glitch-text 1s ease-in-out infinite;font-family: "Glitch", sans-serif;" class="text-uppercase"> opening hours</h5>
                       <hr class="divider divider-left divider-custom">
                       <div class="unit unit-middle unit-horizontal unit-spacing-xs unit-xs-top">
                         <div class="unit__left"><span class="text-middle icon icon-sm mdi mdi-clock icon-primary"></span></div>
@@ -242,19 +233,22 @@
                 <div class="range range-50">
                   <div class="cell-sm-6 cell-md-3 cell-lg-4 wow fadeInUp" data-wow-delay=".1s">
                     <div class="page-footer-minimal-inner">
-                      <h4>Opening Hours</h4>
+                      <h4 style="color: #ff0000;
+                      text-shadow: 0 0 2px #ff0000;
+                      animation: glitch-text 1s ease-in-out infinite;
+                      font-family: "Glitch", jokerman;">Opening Hours</h4>
                       <ul class="list-unstyled">
                         <li>
                           <div class="group-xs"> 
                             <div>
                               <dl class="list-desc">
-                                <dt>Weekdays: </dt>
+                                <dt style="color: #ff0000;">Weekdays: </dt>
                                 <dd class="text-gray-darker"><span>8:00–20:00</span></dd>
                               </dl>
                             </div>
                             <div>
                               <dl class="list-desc">
-                                <dt>Weekends: </dt>
+                                <dt style="color: #ff0000;">Weekends: </dt>
                                 <dd class="text-gray-darker"><span>9:00–18:00</span></dd>
                               </dl>
                             </div>
@@ -265,18 +259,21 @@
                   </div>
                   <div class="cell-sm-6 cell-md-5 cell-lg-4 wow fadeInUp" data-wow-delay=".2s">
                     <div class="page-footer-minimal-inner">
-                      <h4>Address</h4>
+                      <h4 style="color: #ff0000;
+                      text-shadow: 0 0 2px #ff0000;
+                      animation: glitch-text 1s ease-in-out infinite;
+                      font-family: "Glitch", jokerman;">Contact</h4>
                       <ul class="list-unstyled">
                         <li>
                           <dl class="list-desc">
                             <dt><span class="icon icon-sm mdi mdi-map-marker"></span></dt>
-                            <dd><a style="color:white;" class="link link-gray-darker" href="#">No:88, PSM Garden, Pothur, Pammadukulam, Post, Red Hills, Chennai, Tamil Nadu 600052</a></dd>
+                            <dd style="color: #ff0000;">Address: <a style="color:white;" class="link link-gray-darker" href="#">No:88, PSM Garden, Pothur, Pammadukulam, Post, Red Hills, Chennai, Tamil Nadu 600052</a></dd>
                           </dl>
                         </li>
                         <li>
                           <dl class="list-desc">
                             <dt><span class="icon icon-sm mdi mdi-phone"></span></dt>
-                            <dd class="text-gray-darker">Call Us: <a style="color:white;" class="link link-gray-darker" href="tel:#">+1 (409) 987–5874</a>
+                            <dd style="color: #ff0000;">Call Us: <a style="color:white;" class="link link-gray-darker" href="tel:#">+1 (409) 987–5874</a>
                             </dd>
                           </dl>
                         </li>

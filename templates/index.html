@@ -22,7 +22,7 @@
         padding: 0;
     }
     #ui-to-top{
-      background-color: #2b2b2b;
+      background-color: #2000;
     }
     p {
     font-family: "Glitch", sans-serif;
@@ -32,7 +32,7 @@
         animation: neon-pulse 0.5s ease-in-out infinite;
     }
 .rd-navbar-top-panel, .rd-navbar-top-panel-inner, .rd-navbar-inner, .rd-navbar-aside-right, .rd-navbar, .rd-navbar-original, .rd-navbar-fullwidth, .rd-navbar, .rd-navbar, .rd-navbar-fullwidth, .rd-navbar--is-stuck, .rd-navbar-default-with-top-panel, .rd-navbar-fixed, .rd-navbar-panel, .rd-navbar-top-panel, .rd-navbar-collapse, .toggle-original-elements{
-  background-color: #2b2b2b;
+  background-color: #000;
 }
 .rd-navbar-brand.fullwidth-brand a {
     color: #00ffcc;
@@ -42,7 +42,7 @@
     color: #00ffcc;
 }
 .hotel-booking-form {
-    background-color: #2b2b2b;
+    background-color: #000;
     color: #ffffff;
 }
 .form-input,
@@ -58,7 +58,7 @@
     color: #ffffff;
 }
 .page-footer-minimal,.page-footer-minimal-inner,.shell-wide {
-    background-color: #2b2b2b;
+    background-color: #000;
     color: #ffffff;
 }
 a {
@@ -124,7 +124,7 @@ a:hover {
         <!-- RD Navbar-->
         <div class="rd-navbar-wrap">
           <nav class="rd-navbar rd-navbar-default-with-top-panel" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fullwidth" data-md-stick-up-offset="90px" data-lg-stick-up-offset="150px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
-            <div style="background-color: #2b2b2b;" class="rd-navbar-top-panel rd-navbar-collapse">
+            <div style="background-color: #000;" class="rd-navbar-top-panel rd-navbar-collapse">
               <div class="rd-navbar-top-panel-inner">
                 <div class="left-side">
                   <div style="color:white;" class="group"><span class="text-italic">Follow Us:</span>
@@ -161,7 +161,7 @@ a:hover {
                 <div class="rd-navbar-brand mobile-brand"><a class="brand-name" href="index"><img src="{%static 'assets/images/logo-default-314x48.png'%}" alt="" width="314" height="48"/></a></div>
               </div>
               <div class="rd-navbar-aside-right">
-                <div style="background-color: #2b2b2b;" class="rd-navbar-nav-wrap">
+                <div style="background-color: #000;" class="rd-navbar-nav-wrap">
                   <div class="rd-navbar-nav-scroll-holder">
                     <ul class="rd-navbar-nav">
                       <li class="active"><a href="/">Home</a>
@@ -261,7 +261,7 @@ a:hover {
                           <div class="form-wrap">
                               <label style="color: #000" class="form-label form-label-icon" for="date-in"><span class=""></span><span></span></label>
                               <input style="color: #000" class="form-input" id="date-in" data-time-picker="date" type="date" name="date" data-constraints="@Required" required>
-                          </div>
+                      </div>
                       </div>
                       <div class="cell-lg-12 cell-md-4 cell-sm-6">
                           <p class="text-uppercase">Session</p>
@@ -277,8 +277,9 @@ a:hover {
                       </div>
               
                       <div class="cell-lg-12 cell-md-4">
-                          <button class="button button-effect-ujarak button-lg button-white-outline button-square" type="submit"><span>Check Availability</span></button>
+                          <button type="submit" class="button button-effect-ujarak button-lg button-white-outline button-square"><span>Check Availability</span></button>
                       </div>
+
                   </div>
               </form>
               
@@ -287,8 +288,9 @@ a:hover {
           </div>
         </div>
       </section>
+      <hr class="divider divider-left divider-custom">
       <!-- About us-->
-      <section class="section section-md bg-white text-center text-sm-left">
+      <section style="background-color: #000;" class="section section-md bg-white text-center text-sm-left">
         <div class="shell-wide">
           <div class="range range-50 range-xs-center overflow-hidden">
             <div class="cell-sm-10 cell-md-8 cell-lg-7 wow fadeInUp" data-wow-delay=".1s">
@@ -299,7 +301,7 @@ a:hover {
               </div>
             </div>
             <div class="cell-sm-10 cell-md-8 cell-lg-5 reveal-flex wow fadeInUp" data-wow-delay=".3s">
-              <div style="background-color: #2b2b2b;" class="bg-primary section-wrap-content-var-1">
+              <div style="background-color: #000;" class="bg-primary section-wrap-content-var-1">
                 <div class="section-wrap-content-var-1-inner">
                   <h3 style="color: #ff0000;
                   text-shadow: 0 0 2px #ff0000;
@@ -324,7 +326,7 @@ a:hover {
       </section>
 
       <!-- Portfolio-->
-      <section class="section section-md bg-white text-center text-sm-left">
+      <section style="background-color: #000;" class="section section-md bg-white text-center text-sm-left">
         <div class="shell-wide">
           <div class="range range-10 range-middle">
             <div class="cell-sm-6">
@@ -367,7 +369,6 @@ a:hover {
           </div>
         </div>
       </section>
-      
       <!-- Page Footer-->
       <footer class="page-footer text-left text-sm-left">
         <div class="shell-wide">
@@ -455,46 +456,7 @@ a:hover {
           </div>
         </div>
       </footer>
-    </div>
-    <!-- PANEL-->
-    <!-- END PANEL-->
-    <!-- Global Mailform Output-->
-    <div class="snackbars" id="form-output-global"></div>
-    <!-- PhotoSwipe Gallery-->
-    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="pswp__bg"></div>
-      <div class="pswp__scroll-wrap">
-        <div class="pswp__container">
-          <div class="pswp__item"></div>
-          <div class="pswp__item"></div>
-          <div class="pswp__item"></div>
-        </div>
-        <div class="pswp__ui pswp__ui--hidden">
-          <div class="pswp__top-bar">
-            <div class="pswp__counter"></div>
-            <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-            <button class="pswp__button pswp__button--share" title="Share"></button>
-            <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-            <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-            <div class="pswp__preloader">
-              <div class="pswp__preloader__icn">
-                <div class="pswp__preloader__cut">
-                  <div class="pswp__preloader__donut"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-            <div class="pswp__share-tooltip"></div>
-          </div>
-          <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-          <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
-          <div class="pswp__caption">
-            <div class="pswp__caption__cent"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </div> 
     <script src="{%static 'assets/js/core.min.js'%}"></script>
     <script src="{%static 'assets/js/script.js'%}"></script>
   </body>
