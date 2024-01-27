@@ -55,22 +55,13 @@ def confirm_booking(request, name, date, session, mobile_number, email):
         booking = Booking.objects.create(name=name, date=selected_date, session=session, mobile_number=mobile_number, email=email)
         return redirect('complete_booking', booking_id=booking.pk)
     
-
-    order_amount = 10000
-    order_currency = "INR"
-    
-    payment_order = client.order.create(dict(amount = order_amount,  currency = order_currency, payment_capture= 1))
-    payment_order_id = payment_order['id']
-    
     context = {
         'booking': booking,
          'name': name,
          'date': date,
          'session': session,
          'mobile_number': mobile_number,
-         'email': email,
-         'api_key': RAZORPAY_API_KEY,
-         'order_id': payment_order_id
+         'email': email
     }
     return render(request, 'confirm_booking.html',context)
 
