@@ -13347,7 +13347,7 @@ html:not(.lt-ie10) .not-animated {
 	bottom: 0;
 	right: 0;
 	box-shadow: 0 0 12px 1px rgba(0, 0, 0, 0.25);
-	background: #fff;
+	background: #000;
 }
 
 .rd-navbar-fixed .rd-navbar-panel > * {
