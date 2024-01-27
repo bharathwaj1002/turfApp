@@ -56,7 +56,8 @@ MIDDLEWARE = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "*"
+    "https://turfapp-production.up.railway.app",
+    "https://turfapp-8tfq.onrender.com"
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
