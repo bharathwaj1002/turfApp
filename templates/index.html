@@ -462,7 +462,10 @@ a:hover {
                   <br>
                   <div style="position: relative;left: 1.5cm"> 
                     {% if user.is_authenticated and user.is_staff%}
-                    <br><button id="logout" class="logout-button" href="logout" type="submit" class="btn btn-link">Logout</button>
+                    <form action="logout">
+                      {% csrf_token %}
+                    <br><button id="logout" class="logout-button" type="submit" class="btn btn-link">Logout</button>
+                    </form>
                     {% endif %}
                   </div>
                 </div>
