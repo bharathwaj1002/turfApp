@@ -7,6 +7,7 @@
       href="{%static 'assets/images/favicon.png'%}"
       type="image/x-icon"
     />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirm Booking</title>
     <style>
       body {
@@ -219,29 +220,78 @@
   </head>
   <body>
     <div class="container">
-        <h2>Hurray!!! Your Date is Available</h2>
-        <strong>Name:</strong> {{ name }}<br />
-        <strong>Date:</strong> {{ date }}<br />
-        <strong>Session:</strong> {{ session }}<br />
-        <strong>Mobile Number:</strong> {{ mobile_number }}<br /><br />
-        <strong>Verify your email as you get your tickets only there!!!</strong>
-        <div class="confirm_btn_container">
-          <form
-            method="post"
-            action="{% if booking and booking.pk %}{% url 'complete_booking' booking_id=booking.pk %}{% else %}{% url 'confirm_booking' name=name date=date session=session mobile_number=mobile_number email=email %}{% endif %}"
-            class="booking-form"
-          >
-            {% csrf_token %}
-            <button type="submit" class="confirm-button">
-              Confirm Booking
-            </button>
-          </form>
-        </div>
-        <div class="cancel_btn_container">
-          <form method="post" action="{% url 'cancel_booking' %}">
-            {% csrf_token %}
-            <button type="submit" class="cancel-button">Cancel</button>
-          </form>
+      <h2>Hurray!!! Your Date is Available</h2>
+      <strong>Name:</strong> {{ name }}<br />
+      <strong>Date:</strong> {{ date }}<br />
+      <strong>Session:</strong> {{ session }}<br />
+      <strong>Mobile Number:</strong> {{ mobile_number }}<br /><br />
+      <strong>Verify your email as you get your tickets only there!!!</strong>
+      <div class="confirm_btn_container">
+        <form
+          method="post"
+          action="{% if booking and booking.pk %}{% url 'complete_booking' booking_id=booking.pk %}{% else %}{% url 'confirm_booking' name=name date=date session=session mobile_number=mobile_number email=email %}{% endif %}"
+          class="booking-form"
+        >
+          {% csrf_token %}
+          <button id="rzp-button1" type="submit" class="confirm-button">
+            Confirm Booking
+          </button>
+        </form>
+      </div>
+      <div class="cancel_btn_container">
+        <form method="post" action="{% url 'cancel_booking' %}">
+          {% csrf_token %}
+          <button type="submit" class="cancel-button">Cancel</button>
+        </form>
+
+
+
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "{{api_key}}", // Enter the Key ID generated from the Dashboard
+    "amount": "10000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme", //your business name
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "{{order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature)
+    },
+    "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
+        "name": "Gaurav", //your customer's name
+        "email": "test@testing.com", 
+        "contact": "917871203344"  //Provide the customer's phone number for better conversion rates 
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+
+
+
+
       </div>
     </div>
   </body>

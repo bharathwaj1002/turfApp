@@ -7,12 +7,14 @@ from django.views.decorators.http import require_POST
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from .forms import BookingForm
+from turfproject.settings import RAZORPAY_API_KEY, RAZORPAY_SECRET
 from io import BytesIO
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.core.files import File
 import qrcode
+import razorpay
 
 # Create your views here.
 def index(request):
@@ -44,7 +46,7 @@ def check_availability(request):
         return HttpResponse(f"Sorry, the turf is not available for {name} on {date} ({session}).")
 
 
-
+client = razorpay.Client(auth=(RAZORPAY_API_KEY, RAZORPAY_SECRET))
 def confirm_booking(request, name, date, session, mobile_number, email):
     selected_date = datetime.strptime(date, '%Y-%m-%d').date()
     booking = None
@@ -52,8 +54,25 @@ def confirm_booking(request, name, date, session, mobile_number, email):
     if request.method == 'POST':
         booking = Booking.objects.create(name=name, date=selected_date, session=session, mobile_number=mobile_number, email=email)
         return redirect('complete_booking', booking_id=booking.pk)
+    
 
-    return render(request, 'confirm_booking.html', {'booking': booking, 'name': name, 'date': date, 'session': session, 'mobile_number': mobile_number, 'email':email})
+    order_amount = 10000
+    order_currency = "INR"
+    
+    payment_order = client.order.create(dict(amount = order_amount,  currency = order_currency, payment_capture= 1))
+    payment_order_id = payment_order['id']
+    
+    context = {
+        'booking': booking,
+         'name': name,
+         'date': date,
+         'session': session,
+         'mobile_number': mobile_number,
+         'email': email,
+         'api_key': RAZORPAY_API_KEY,
+         'order_id': payment_order_id
+    }
+    return render(request, 'confirm_booking.html',context)
 
 
 
@@ -91,7 +110,7 @@ def complete_booking(request, booking_id):
     email.attach('booking_qr.png', qr_img_io.read(), 'image/png')
 
     # Send email
-    email.send()
+    #email.send()
 
     return render(request, 'complete_booking.html', {'booking': booking})
 
