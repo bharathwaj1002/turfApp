@@ -26,6 +26,13 @@
         justify-content: center;
         height: 90vh;
       }
+      .details-container{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        margin: .5cm;
+      }
 
       .retry-booking-container {
         max-width: 600px;
@@ -119,17 +126,49 @@
       p,
       .button-label {
         /* Apply distorted font to smaller text elements */
-        font-family: "Glitch", sans-serif; /* Replace with your preferred distorted font */
+        font-family: "Glitch", sans-serif;
       }
-
-      .booking-form,
-      .button {
-        display: inline-block;
-        margin: 10px;̀
+      h3{	
+        color: #ff7722;
+        font-size: 1.5em;
+        font-weight: bolder;
+        background-image: -webkit-linear-gradient(0deg, #ff7722 20%, #ffffff 50%, #59ae35 83%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        text-fill-color: transparent;
+        -webkit-text-fill-color: transparent;
+        margin: .5cm;
       }
       .retry_btn_container {
         display: flex;
         justify-content: center;
+      }
+      .retry-button {
+        color: #00ff00;
+        margin-bottom: .5cm;
+        margin-top: .5cm;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        background-color: #00e676;
+        color: #121212;
+        cursor: pointer;
+      }
+      .retry-button:hover {
+        border-color: #00ff00;
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(#00ff00, 0.2); /* Neon pulse for cancel button */
+        animation: neon-pulse 0.5s ease-in-out infinite;
+      }
+      .message{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        bottom: 2cm;
       }
       @keyframes neon-pulse {
         0% {
@@ -143,6 +182,7 @@
         }
       }
 
+      /* Bonus: Animated neon lines & custom cursor */
       .container:before,
       .container:after {
         content: "";
@@ -177,15 +217,18 @@
   </head>
   <body>
     <div class="container">
-      <h2>OOPS!!! Your Date is not Available</h2>
-      <p>{{ name }}</p><br />
-      <p>{{ date }}</p>
-      <p>{{ session }}</p>
+        <div class="message">
+      <h2>OOPS!!! Sorry</h2><h3>{{name}}</h3><h2>Your Date is not Available</h2>
+        </div>
+        <div class="details-container">
+      <strong>Date:</strong> {{ date }}<br><br>
+      <strong>Session:</strong> {{ session }}
       <div class="retry_btn_container">
         <form method="post" action="/">
           {% csrf_token %}
           <button type="submit" class="retry-button">Retry</button>
         </form>
+    </div>
       </div>
     </div>
   </body>

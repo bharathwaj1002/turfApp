@@ -38,11 +38,6 @@ def contacts(request):
 
 
 
-def no_availability(request):
-    return render(request,'no_availability.html')
-
-
-
 @require_POST
 def check_availability(request):
     name = request.POST.get('name')
@@ -54,7 +49,18 @@ def check_availability(request):
     if not Booking.objects.filter(date=selected_date, session=session).exists():
         return redirect('confirm_booking', name=name, date=selected_date, session=session, mobile_number=mobile_number, email=email)
     else:
-        return redirect('no_availability',name=name, date=selected_date, session=session)
+        return redirect('no_availability', name=name, date=selected_date, session=session)
+
+
+
+def no_availability(request, name, date, session):
+    context = {
+         'name': name,
+         'date': date,
+         'session': session,
+    }
+    return render(request,'no_availability.html', context)
+
 
 
 client = razorpay.Client(auth=(RAZORPAY_API_KEY, RAZORPAY_SECRET))
