@@ -7,8 +7,11 @@
       href="{%static 'assets/images/favicon.png'%}"
       type="image/x-icon"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirm Booking</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
     <style>
       body {
         background-color: #000;
@@ -122,7 +125,7 @@
       .booking-form,
       .button {
         display: inline-block;
-        margin: 10px;
+        margin: 10px;̀
       }
       .confirm_btn_container {
         display: flex;
@@ -132,8 +135,10 @@
         display: flex;
         justify-content: center;
       }
-      .confirm-button {
+      .razorpay-payment-button {
         color: #00ff00;
+        margin-bottom: .5cm;
+        margin-top: .5cm;
         border: none;
         padding: 10px 20px;
         font-size: 16px;
@@ -159,7 +164,7 @@
         cursor: pointer;
       }
 
-      .confirm-button:hover {
+      .razorpay-payment-button:hover {
         border-color: #00ff00;
         transform: scale(1.05);
         box-shadow: 0 0 10px rgba(#00ff00, 0.2); /* Neon pulse for cancel button */
@@ -227,17 +232,27 @@
       <strong>Mobile Number:</strong> {{ mobile_number }}<br /><br />
       <strong>Verify your email as you get your tickets only there!!!</strong>
       <div class="confirm_btn_container">
-        <form
-          method="post"
-          action="{% if booking and booking.pk %}{% url 'complete_booking' booking_id=booking.pk %}{% else %}{% url 'confirm_booking' name=name date=date session=session mobile_number=mobile_number email=email %}{% endif %}"
-          class="booking-form"
-        >
+        <form action="{% url 'handle_razorpay_payment' name=name date=date session=session mobile_number=mobile_number email=email%}" method="POST">
           {% csrf_token %}
-          <button id="rzp-button1" type="submit" class="confirm-button">
-            Confirm Booking
-          </button>
-        </form>
+          <script
+              src="https://checkout.razorpay.com/v1/checkout.js"
+              data-key={{api_key}}
+              data-amount={{amount}}
+              data-currency="INR"
+              data-order_id={{order_id}}
+              data-buttontext="Confirm and proceed to payment"
+              data-name="Brand_Name"
+              data-description="Payment for Brand_Name"
+              data-image="{%static 'assets/images/favicon.png'%}"
+              data-prefill.name={{name}}
+              data-prefill.email={{email}}
+              data-theme.color="#F37254"
+              data-callback="handleRazorpayPayment"
+          ></script>
+          <input type="hidden" custom="Hidden Element" name="hidden"/>
+          </form>
       </div>
+
       <div class="cancel_btn_container">
         <form method="post" action="{% url 'cancel_booking' %}">
           {% csrf_token %}
@@ -245,5 +260,37 @@
         </form>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    function handleRazorpayPayment(response) {
+        $.ajax({
+            type: 'POST',
+            url: '{% url "handle_razorpay_payment" name=name date=date session=session mobile_number=mobile_number email=email %}',
+            data: {
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+                booking_id: '{{ booking.pk }}'  // Replace with the actual booking ID
+            },
+            success: function(data) {
+                if (data.status === 'success') {
+                    var bookingId = data.booking_id;
+                    var redirectUrl = "{% url 'complete_booking' booking_id=0 %}".replace('0', bookingId);
+                    window.location.href = redirectUrl;
+                } else {
+                    // Handle payment failure
+                    window.location.href = "{% url 'payment_failed' %}";
+                }
+            },
+            error: function() {
+                // Handle error
+                window.location.href = "{% url 'payment_failed' %}";
+            }
+        });
+    }
+</script>
+
   </body>
-</html>
+
+  </html>

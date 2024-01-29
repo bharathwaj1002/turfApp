@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import User , auth
 from .models import Booking
 from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
+
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from .forms import BookingForm
@@ -15,6 +17,10 @@ from django.utils.html import strip_tags
 from django.core.files import File
 import qrcode
 import razorpay
+import logging
+from django.urls import reverse
+from django.http import JsonResponse
+logger = logging.getLogger(__name__)
 
 # Create your views here.
 def index(request):
@@ -32,6 +38,11 @@ def contacts(request):
 
 
 
+def no_availability(request):
+    return render(request,'no_availability.html')
+
+
+
 @require_POST
 def check_availability(request):
     name = request.POST.get('name')
@@ -43,27 +54,83 @@ def check_availability(request):
     if not Booking.objects.filter(date=selected_date, session=session).exists():
         return redirect('confirm_booking', name=name, date=selected_date, session=session, mobile_number=mobile_number, email=email)
     else:
-        return HttpResponse(f"Sorry, the turf is not available for {name} on {date} ({session}).")
+        return redirect('no_availability',name=name, date=selected_date, session=session)
 
 
 client = razorpay.Client(auth=(RAZORPAY_API_KEY, RAZORPAY_SECRET))
 def confirm_booking(request, name, date, session, mobile_number, email):
-    selected_date = datetime.strptime(date, '%Y-%m-%d').date()
-    booking = None
-
-    if request.method == 'POST':
-        booking = Booking.objects.create(name=name, date=selected_date, session=session, mobile_number=mobile_number, email=email)
-        return redirect('complete_booking', booking_id=booking.pk)
+    data = {
+    "amount": 50000,
+    "currency": "INR",
+    "payment_capture": "1"
+}
+    payment_order = client.order.create(data=data)
+    order_id = payment_order['id']
     
     context = {
-        'booking': booking,
          'name': name,
          'date': date,
          'session': session,
          'mobile_number': mobile_number,
-         'email': email
+         'email': email,
+         'amount': 500,
+         'api_key': RAZORPAY_API_KEY,
+         'order_id': order_id
     }
     return render(request, 'confirm_booking.html',context)
+
+
+
+def verify_razorpay_payment(razorpay_order_id, razorpay_payment_id, razorpay_signature):
+    razorpay_key_id = RAZORPAY_API_KEY
+    razorpay_key_secret = RAZORPAY_SECRET
+
+    client = razorpay.Client(auth=(razorpay_key_id, razorpay_key_secret))
+
+    try:
+        # Verify the payment
+        params_dict = {
+            'razorpay_order_id': razorpay_order_id,
+            'razorpay_payment_id': razorpay_payment_id,
+            'razorpay_signature': razorpay_signature,
+        }
+
+        client.utility.verify_payment_signature(params_dict)
+
+        # Payment verification successful
+        return True
+
+    except Exception as e:
+        return False
+    
+    
+    
+@csrf_exempt
+def handle_razorpay_payment(request,name, date, session, mobile_number, email):
+    if request.method == 'POST':
+        razorpay_order_id = request.POST.get('razorpay_order_id')
+        razorpay_payment_id = request.POST.get('razorpay_payment_id')
+        razorpay_signature = request.POST.get('razorpay_signature')
+        
+        
+        if verify_razorpay_payment(razorpay_order_id, razorpay_payment_id, razorpay_signature):  
+            selected_date = datetime.strptime(date, '%Y-%m-%d').date()          
+            booking = Booking.objects.create(name=name, date=selected_date, session=session, mobile_number=mobile_number, email=email)
+            
+            
+            return redirect('complete_booking', booking_id=booking.pk)
+    return JsonResponse({'status': 'error'})
+
+
+
+def payment(request):
+    return render(request, 'payment.html')
+
+
+
+
+def payment_failed(request):
+    return render(request, 'payment_failed.html')
 
 
 
