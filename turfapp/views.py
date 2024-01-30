@@ -161,7 +161,7 @@ def complete_booking(request, booking_id):
 
     # Create and email
     subject = 'Booking Confirmation'
-    to_email = [booking.email]  # Replace with the actual field name storing the customer's email
+    to_email = [booking.email,'b22203005@gmail.com']  # Replace with the actual field name storing the customer's email
 
     # Render email template
     html_message = render_to_string('booking_confirmation_email.html', {'booking': booking})
