@@ -229,7 +229,8 @@
       <strong>Name:</strong> {{ name }}<br />
       <strong>Date:</strong> {{ date }}<br />
       <strong>Session:</strong> {{ session }}<br />
-      <strong>Mobile Number:</strong> {{ mobile_number }}<br /><br />
+      <strong>Mobile Number:</strong> {{ mobile_number }}<br />
+      <strong>Email:</strong> {{ email }}<br /><br />
       <strong>Verify your email as you get your tickets only there!!!</strong>
       <div class="confirm_btn_container">
         <form action="{% url 'handle_razorpay_payment' name=name date=date session=session mobile_number=mobile_number email=email%}" method="POST">

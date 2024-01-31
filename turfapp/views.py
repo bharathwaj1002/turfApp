@@ -5,7 +5,6 @@ from django.contrib.auth.models import User , auth
 from .models import Booking
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
-
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from .forms import BookingForm
@@ -57,7 +56,7 @@ def no_availability(request, name, date, session):
     context = {
          'name': name,
          'date': date,
-         'session': session,
+         'session': session
     }
     return render(request,'no_availability.html', context)
 
