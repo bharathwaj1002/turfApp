@@ -2003,7 +2003,7 @@ h4 + .form-comment {
 	transform: translateY(45%);
 }
 
-.hotel-booking-form {
+.turf-booking-form {
 	width: 100%;
 	text-align: left;
 	padding: 30px 20px 30px;
@@ -2011,42 +2011,42 @@ h4 + .form-comment {
 	background: #e3e3e3;
 }
 
-.hotel-booking-form h3 {
+.turf-booking-form h3 {
 	color: inherit;
 }
 
-.hotel-booking-form .form-label {
+.turf-booking-form .form-label {
 	left: 22px;
 	letter-spacing: .05em;
 }
 
-.hotel-booking-form .form-input {
+.turf-booking-form .form-input {
 	padding-left: 22px;
 	background-color: #fff;
 }
 
-.hotel-booking-form .select2-container .select2-choice {
+.turf-booking-form .select2-container .select2-choice {
 	padding-left: 0;
 	padding-right: 0;
 	background: #fff;
 }
 
-.hotel-booking-form .select2-arrow b:before {
+.turf-booking-form .select2-arrow b:before {
 	color: #cbcbcb;
 }
 
-.hotel-booking-form .button {
+.turf-booking-form .button {
 	margin-top: 10px;
 }
 
 @media (min-width: 480px) {
-	.hotel-booking-form {
+	.turf-booking-form {
 		padding: 70px 50px 60px;
 	}
 }
 
 @media (min-width: 1200px) {
-	.hotel-booking-form .button {
+	.turf-booking-form .button {
 		font-size: 18px;
 		line-height: 20px;
 		font-weight: 700;
@@ -2054,11 +2054,11 @@ h4 + .form-comment {
 	}
 }
 
-.hotel-booking-form * + .rd-mailform {
+.turf-booking-form * + .rd-mailform {
 	margin-top: 20px;
 }
 
-.hotel-booking-form * + .form-wrap {
+.turf-booking-form * + .form-wrap {
 	margin-top: 5px;
 }
 
@@ -3382,7 +3382,7 @@ dl {
 	border-radius: 4px;
 }
 
-.loader .hotel-sign {
+.loader .turf-sign {
 	padding: .25em 0;
 	position: absolute;
 	right: -1.5em;
@@ -3397,7 +3397,7 @@ dl {
 	animation: neon 3s infinite ease;
 }
 
-.loader .hotel-sign span {
+.loader .turf-sign span {
 	line-height: 1;
 }
 
@@ -24314,7 +24314,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 	content: "\f235";
 }
 
-.fa-hotel:before,
+.fa-turf:before,
 .fa-bed:before {
 	content: "\f236";
 }
@@ -27935,7 +27935,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 	content: "\f3d5";
 }
 
-.mdi-hotel:before {
+.mdi-turf:before {
 	content: "\f3d6";
 }
 
@@ -31111,17 +31111,17 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 @font-face {
-	font-family: 'Hotel Regular';
-	src: url("../fonts/Hotel-Regular.eot?78320982");
-	src: url("../fonts/Hotel-Regular.eot?78320982#iefix") format("embedded-opentype"), url("../fonts/Hotel-Regular.woff?78320982") format("woff"), url("../fonts/Hotel-Regular.ttf?78320982") format("truetype"), url("../fonts/Hotel-Regular.svg?78320982#hotel") format("svg");
+	font-family: 'turf Regular';
+	src: url("../fonts/turf-Regular.eot?78320982");
+	src: url("../fonts/turf-Regular.eot?78320982#iefix") format("embedded-opentype"), url("../fonts/turf-Regular.woff?78320982") format("woff"), url("../fonts/turf-Regular.ttf?78320982") format("truetype"), url("../fonts/turf-Regular.svg?78320982#turf") format("svg");
 	font-weight: normal;
 	font-style: normal;
 }
 
-[class^="hotel-icon-"]:before,
-[class*=" hotel-icon-"]:before,
-.hotel-ico {
-	font-family: "Hotel Regular";
+[class^="turf-icon-"]:before,
+[class*=" turf-icon-"]:before,
+.turf-ico {
+	font-family: "turf Regular";
 	font-weight: 400;
 	font-style: normal;
 	font-size: inherit;
@@ -31130,135 +31130,135 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.hotel-icon-01:before {
+.turf-icon-01:before {
 	content: '\e800';
 }
 
-.hotel-icon-02:before {
+.turf-icon-02:before {
 	content: '\e801';
 }
 
-.hotel-icon-03:before {
+.turf-icon-03:before {
 	content: '\e802';
 }
 
-.hotel-icon-04:before {
+.turf-icon-04:before {
 	content: '\e803';
 }
 
-.hotel-icon-05:before {
+.turf-icon-05:before {
 	content: '\e804';
 }
 
-.hotel-icon-06:before {
+.turf-icon-06:before {
 	content: '\e805';
 }
 
-.hotel-icon-07:before {
+.turf-icon-07:before {
 	content: '\e806';
 }
 
-.hotel-icon-09:before {
+.turf-icon-09:before {
 	content: '\e807';
 }
 
-.hotel-icon-08:before {
+.turf-icon-08:before {
 	content: '\e808';
 }
 
-.hotel-icon-10:before {
+.turf-icon-10:before {
 	content: '\e809';
 }
 
-.hotel-icon-11:before {
+.turf-icon-11:before {
 	content: '\e80a';
 }
 
-.hotel-icon-12:before {
+.turf-icon-12:before {
 	content: '\e80b';
 }
 
-.hotel-icon-13:before {
+.turf-icon-13:before {
 	content: '\e80c';
 }
 
-.hotel-icon-14:before {
+.turf-icon-14:before {
 	content: '\e80d';
 }
 
-.hotel-icon-16:before {
+.turf-icon-16:before {
 	content: '\e80e';
 }
 
-.hotel-icon-15:before {
+.turf-icon-15:before {
 	content: '\e80f';
 }
 
-.hotel-icon-17:before {
+.turf-icon-17:before {
 	content: '\e810';
 }
 
-.hotel-icon-18:before {
+.turf-icon-18:before {
 	content: '\e811';
 }
 
-.hotel-icon-19:before {
+.turf-icon-19:before {
 	content: '\e812';
 }
 
-.hotel-icon-20:before {
+.turf-icon-20:before {
 	content: '\e813';
 }
 
-.hotel-icon-33:before {
+.turf-icon-33:before {
 	content: '\e814';
 }
 
-.hotel-icon-32:before {
+.turf-icon-32:before {
 	content: '\e815';
 }
 
-.hotel-icon-31:before {
+.turf-icon-31:before {
 	content: '\e816';
 }
 
-.hotel-icon-30:before {
+.turf-icon-30:before {
 	content: '\e817';
 }
 
-.hotel-icon-29:before {
+.turf-icon-29:before {
 	content: '\e818';
 }
 
-.hotel-icon-28:before {
+.turf-icon-28:before {
 	content: '\e819';
 }
 
-.hotel-icon-27:before {
+.turf-icon-27:before {
 	content: '\e81a';
 }
 
-.hotel-icon-26:before {
+.turf-icon-26:before {
 	content: '\e81b';
 }
 
-.hotel-icon-25:before {
+.turf-icon-25:before {
 	content: '\e81c';
 }
 
-.hotel-icon-24:before {
+.turf-icon-24:before {
 	content: '\e81d';
 }
 
-.hotel-icon-23:before {
+.turf-icon-23:before {
 	content: '\e81e';
 }
 
-.hotel-icon-22:before {
+.turf-icon-22:before {
 	content: '\e81f';
 }
 
-.hotel-icon-21:before {
+.turf-icon-21:before {
 	content: '\e820';
 }
 
