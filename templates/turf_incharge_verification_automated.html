@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="{%static 'assets/images/favicon.png'%}" type="image/x-icon">
+    <meta charset="UTF-8">
+    <title>QR VERIFICATION</title>
+    <script src="https://cdn.rawgit.com/serratus/quaggaJS/0.12.1/dist/quagga.min.js"></script>
+</head>
+<body>
+    <div id="interactive" class="viewport"></div>
+    <script>
+        Quagga.init({
+            inputStream: {
+                name: "Live",
+                type: "LiveStream",
+                target: document.querySelector('#interactive'),
+                constraints: {
+                    width: 480,
+                    height: 320,
+                },
+            },
+            decoder: {
+                readers: ['code_128_reader'],
+            },
+        }, function (err) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            Quagga.start();
+        });
+
+        Quagga.onDetected(function (result) {
+            let content = result.codeResult.code;
+            window.location.href = '/verify_booking/' + encodeURIComponent(content);
+        });
+    </script>
+</body>
