@@ -194,7 +194,7 @@ def verify_booking(request, booking_data):
     
     
     
-def turf_incharge_verification_automated(request, booking_data):
+def turf_incharge_verification_automated(request):
     return render(request, 'turf_incharge_verification_automated.html')
 
 
