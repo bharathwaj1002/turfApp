@@ -195,12 +195,7 @@ def verify_booking(request, booking_data):
     
     
 def turf_incharge_verification_automated(request, booking_data):
-    try:
-        booking_id = int(booking_data.split(":")[1].strip())
-        booking = Booking.objects.get(id=booking_id)
-        return render(request, 'verification_result.html', {'booking': booking})
-    except Booking.DoesNotExist:
-        return render(request, 'verification_result.html', {'booking_not_found': True})
+    return render(request, 'turf_incharge_verification_automated.html')
 
 
 
