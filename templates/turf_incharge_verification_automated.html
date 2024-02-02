@@ -6,18 +6,24 @@
     <meta charset="UTF-8">
     <title>QR VERIFICATION</title>
     <script src="https://cdn.rawgit.com/serratus/quaggaJS/0.12.1/dist/quagga.min.js"></script>
+    <style>
+        body{
+            background-color: #000;
+        }
+    </style>
 </head>
 <body>
-    <div id="interactive" class="viewport"></div>
+    <div id="scanner" class="viewport"></div>
     <script>
         Quagga.init({
             inputStream: {
                 name: "Live",
                 type: "LiveStream",
-                target: document.querySelector('#interactive'),
+                target: document.querySelector('#scanner'),
                 constraints: {
                     width: 480,
                     height: 320,
+                    facingMode: "environment",
                 },
             },
             decoder: {
@@ -30,8 +36,10 @@
             }
             Quagga.start();
         });
+        
 
         Quagga.onDetected(function (result) {
+            console.log(result);
             let content = result.codeResult.code;
             window.location.href = '/verify_booking/' + encodeURIComponent(content);
         });
