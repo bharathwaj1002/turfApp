@@ -153,7 +153,6 @@ def complete_booking(request, booking_id):
     qr_img = qr.make_image(fill_color="black", back_color="white")
 
     # Convert the QR code image to BytesIO for attaching to the email
-    from io import BytesIO
     qr_img_io = BytesIO()
     qr_img.save(qr_img_io, format='PNG')
     qr_img_io.seek(0)
