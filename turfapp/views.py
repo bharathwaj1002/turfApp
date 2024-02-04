@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import User , auth
 from .models import Booking
@@ -7,7 +6,6 @@ from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
-from .forms import BookingForm
 from turfproject.settings import RAZORPAY_API_KEY, RAZORPAY_SECRET
 from io import BytesIO
 from django.core.mail import EmailMessage
@@ -17,7 +15,6 @@ from django.core.files import File
 import qrcode
 import razorpay
 import logging
-from django.urls import reverse
 from django.http import JsonResponse
 logger = logging.getLogger(__name__)
 
@@ -218,9 +215,9 @@ def view_bookings(request):
 @user_passes_test(is_superuser)
 def turf_incharge_verification(request):
     return render(request,'turf_incharge_verification.html')
-    
-    
-    
+
+
+
 def logout(request):
     auth.logout(request)
     return redirect('/')
