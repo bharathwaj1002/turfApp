@@ -1,474 +1,590 @@
 {% load static %}
 <!DOCTYPE html>
 <html class="wide wow-animation dark-theme" lang="en">
-  <head>
-    <!-- Site Title-->
-    <title>Home</title>
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <link rel="icon" href="{%static 'assets/images/favicon.png'%}" type="image/x-icon">
-    <!-- Stylesheets-->
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700,400italic%7CPoppins:300,400,500,700">
-    <link rel="stylesheet" href="{%static 'assets/css/bootstrap.css'%}">
-    <link rel="stylesheet" href="{%static 'assets/css/style.css'%}">
-    <style>
-      body {
-        margin: 0;
-        background-color: #1a1a1a;
-        color: #ffffff;
-        font-family: "Roboto Mono", monospace;
-        padding: 0;
+
+<head>
+  <!-- Site Title-->
+  <title>Home</title>
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport"
+    content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <link rel="icon" href="{%static 'assets/images/favicon.png'%}" type="image/x-icon">
+  <!-- Stylesheets-->
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css?family=Lato:400,700,400italic%7CPoppins:300,400,500,700">
+  <link rel="stylesheet" href="{%static 'assets/css/bootstrap.css'%}">
+  <link rel="stylesheet" href="{%static 'assets/css/style.css'%}">
+  <style>
+    body {
+      background-color: #000;
+      color: #ffffff;
     }
-    #brand-name-grad{
-    color: #ff7722;
-    background-image: -webkit-linear-gradient(0deg, #ff7722 20%, #ffffff 50%, #59ae35 83%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    text-fill-color: transparent;
-    -webkit-text-fill-color: transparent;
+
+    #brand-name-grad {
+      color: #ff7722;
+      background-image: -webkit-linear-gradient(0deg, #ff7722 20%, #ffffff 50%, #59ae35 83%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      text-fill-color: transparent;
+      -webkit-text-fill-color: transparent;
     }
-    #brand-name{
+
+    #brand-name {
       position: absolute;
       left: 50%;
-      transform: translate(-50%,-50%);
+      transform: translate(-50%, -50%);
     }
-    #ui-to-top{
+
+    #ui-to-top {
       background-color: #2000;
     }
-    p {
-    font-family: "Glitch", sans-serif;
-        }
-.rd-navbar-top-panel, .rd-navbar-top-panel-inner, .rd-navbar-inner, .rd-navbar-aside-right, .rd-navbar, .rd-navbar-original, .rd-navbar-fullwidth, .rd-navbar, .rd-navbar, .rd-navbar-fullwidth, .rd-navbar--is-stuck, .rd-navbar-default-with-top-panel, .rd-navbar-fixed, .rd-navbar-panel, .rd-navbar-top-panel, .rd-navbar-collapse, .toggle-original-elements{
-  background-color: #000;
-}
-.rd-navbar-brand.fullwidth-brand a {
-    color: #00ffcc;
-}
-.swiper-slide {
-    background-color: #000000;
-    color: #00ffcc;
-}
-.turf-booking-form {
-    background-color: #000;
-    color: #ffffff;
-}
-.form-input,
-.form-label {
-    color: #ffffff;
-}
-.button.button-primary {
-    background-color: #00ffcc;
-    color: #000000;
-}
-.section {
-    background-color: #1a1a1a;
-    color: #ffffff;
-}
-.page-footer-minimal,.page-footer-minimal-inner,.shell-wide {
-    background-color: #000;
-    color: #ffffff;
-}
-a {
-    color: #00ffcc;
-}
-a:hover {
-    color: #ffcc00;
-}
-.icon {
-    color: #00ffcc;
-}
-.logout-button {
-  color: #00ff00;
-  border: none;
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  background-color: #ff0000;
-  color: #121212;
-  cursor: pointer;
-}
-.logout-button:hover {
-  border-color: #ff0000;
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(#00ff00, 0.2); /* Neon pulse for cancel button */
-  animation: neon-pulse 0.5s ease-in-out infinite;
-}
-@keyframes glitch-text {
-  0% {
-    text-shadow: 0px 0px 2px #ff0000;
-  }
-  25% {
-    text-shadow: 2px 0px 2px #ff0000;
-  }
-  50% {
-    text-shadow: 0px 2px 2px #ff0000;
-  }
-  75% {
-    text-shadow: -2px 0px 2px #ff0000;
-  }
-  100% {
-    text-shadow: 0px -2px 2px #ff0000;
-  }
-}
-@keyframes neon-pulse {
-  0% {
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-  }
-  100% {
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-  }
-}
-    </style>
-  </head>
-  <body>
-      <header class="page-header">
-        <!-- RD Navbar-->
-        <div class="rd-navbar-wrap">
-          <nav class="rd-navbar rd-navbar-default-with-top-panel" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fullwidth" data-md-stick-up-offset="90px" data-lg-stick-up-offset="150px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
-            <div style="background-color: #000;" class="rd-navbar-top-panel rd-navbar-collapse">
-              <div class="rd-navbar-top-panel-inner">
-                <div class="left-side">
-                  <div style="color: #ff0000;" class="group"><span class="text-italic">Follow Us:</span>
-                    <ul class="list-inline">
-                      <li><a class="icon icon-sm icon-secondary-5 fa fa-instagram" target="_blank" href="https://www.instagram.com/"></a></li>
-                      <li><a class="icon icon-sm icon-secondary-5 fa fa-facebook" target="_blank" href="#"></a></li>
-                      <li><a class="icon icon-sm icon-secondary-5 fa fa-youtube" target="_blank" href="https://www.youtube.com/"></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div>
-                  <!-- RD Navbar Brand-->
-                  <div id="brand-name" class="rd-navbar-brand fullwidth-brand"><a class="brand-name" href="/"><h3 id="brand-name-grad">BRAND NAME</h3></a></div>
-                </div>
-                <div class="right-side">
-                  <!-- Contact Info-->
-                  <div class="contact-info">
-                    <div class="unit unit-middle unit-horizontal unit-spacing-xs">
-                      <div class="unit__left"><span class="icon icon-primary text-middle mdi mdi-phone"></span></div>
-                      <div class="unit__body"><a style="color:white;" class="text-middle" href="tel:#">+1 (409) 987–5874</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="rd-navbar-inner">
-              <!-- RD Navbar Panel-->
-              <div class="rd-navbar-panel">
-                <!-- RD Navbar Toggle-->
-                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
-                <!-- RD Navbar collapse toggle-->
-                <button class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></button>
-                <!-- RD Navbar Brand-->
-                <div class="rd-navbar-brand mobile-brand"><a class="brand-name" href="/"><h3 id="brand-name-grad">BRAND NAME</h3></a></div>
-              </div>
-              <div style="background-color: #000;" class="rd-navbar-aside-right">
-                <div style="background-color: #000;" class="rd-navbar-nav-wrap">
-                  <div class="rd-navbar-nav-scroll-holder">
-                    <ul class="rd-navbar-nav">
-                      <li class="active"><a href="/">Home</a></li>
-                      <li ><a style="color: white;" href="about-us">About Us</a></li> 
-                      <li ><a style="color: white;" href="contacts">Contacts</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </header>
 
-      <section class="section">
-        <div class="shell-wide">
-          <div class="range range-30 range-xs-center">
-            <div class="cell-lg-8 cell-xl-9">
-              <!-- Classic slider-->
-              <section class="section">
-                <!-- Swiper -->
-                <div class="swiper-container swiper-slider swiper-style-2" data-loop="false" data-autoplay="5500" data-simulate-touch="false" data-slide-effect="slide" data-direction="vertical">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide" data-slide-bg="{%static 'assets/images/slide-01.png'%}">
-                      <div class="swiper-slide-caption">
-                        <div class="shell text-sm-left">
-                          <h1 data-caption-animate="slideInDown" data-caption-delay="100">Your Ideal Retreat</h1>
-                          <div class="slider-subtitle-group">
-                            <div class="decoration-line" data-caption-animate="slideInDown" data-caption-delay="400"></div>
-                            <h4 data-caption-animate="slideInLeft" data-caption-delay="700">Enjoy the world of relaxation</h4>
-                            <h3 data-caption-animate="slideInLeft" data-caption-delay="800">and tranquility!</h3>
-                          </div><a class="button button-effect-ujarak button-lg button-white-outline button-square" href="about-us" data-caption-animate="slideInLeft" data-caption-delay="1150"><span>learn more</span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="swiper-slide" data-slide-bg="{%static 'assets/images/slide-02.png'%}">
-                      <div class="swiper-slide-caption">
-                        <div class="shell text-sm-left">
-                          <h1 data-caption-animate="slideInDown" data-caption-delay="100">Relax & Unwind</h1>
-                          <div class="slider-subtitle-group">
-                            <div class="decoration-line" data-caption-animate="slideInDown" data-caption-delay="400"></div>
-                            <h4 data-caption-animate="slideInLeft" data-caption-delay="700">Experience the luxurious level</h4>
-                            <h3 data-caption-animate="slideInLeft" data-caption-delay="800">of cricketing!</h3>
-                          </div><a class="button button-effect-ujarak button-lg button-white-outline button-square" href="about-us" data-caption-animate="slideInLeft" data-caption-delay="1150"><span>learn more</span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="swiper-slide" data-slide-bg="{%static 'assets/images/slide-03.png'%}">
-                      <div class="swiper-slide-caption">
-                        <div class="shell text-sm-left">
-                          <h1 data-caption-animate="slideInDown" data-caption-delay="100">Revitalize & Relax</h1>
-                          <div class="slider-subtitle-group"> 
-                            <div class="decoration-line" data-caption-animate="slideInDown" data-caption-delay="400"></div>
-                            <h4 data-caption-animate="slideInLeft" data-caption-delay="700">Indulge in our top-notch</h4>
-                            <h3 data-caption-animate="slideInLeft" data-caption-delay="800">cricket turf!</h3>
-                          </div><a class="button button-effect-ujarak button-lg button-white-outline button-square" href="about-us" data-caption-animate="slideInLeft" data-caption-delay="1150"><span>learn more</span></a>
-                        </div>
-                      </div>
+    p {
+      font-family: "Glitch", sans-serif;
+    }
+
+    .rd-navbar-top-panel,
+    .rd-navbar-top-panel-inner,
+    .rd-navbar-inner,
+    .rd-navbar-aside-right,
+    .rd-navbar,
+    .rd-navbar-original,
+    .rd-navbar-fullwidth,
+    .rd-navbar,
+    .rd-navbar,
+    .rd-navbar-fullwidth,
+    .rd-navbar--is-stuck,
+    .rd-navbar-default-with-top-panel,
+    .rd-navbar-fixed,
+    .rd-navbar-panel,
+    .rd-navbar-top-panel,
+    .rd-navbar-collapse,
+    .toggle-original-elements {
+      background-color: #000;
+    }
+
+    .rd-navbar-brand.fullwidth-brand a {
+      color: #00ffcc;
+    }
+
+    .swiper-slide {
+      background-color: #000000;
+      color: #00ffcc;
+    }
+
+    .turf-booking-form {
+      background-color: #000;
+      color: #ffffff;
+    }
+
+    .form-input,
+    .form-label {
+      color: #ffffff;
+    }
+
+    .button.button-primary {
+      background-color: #00ffcc;
+      color: #000000;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      color: #ffffff;
+    }
+
+    .page-footer-minimal,
+    .page-footer-minimal-inner,
+    .shell-wide {
+      background-color: #000;
+      color: #ffffff;
+    }
+
+    a {
+      color: #00ffcc;
+    }
+
+    a:hover {
+      color: #ffcc00;
+    }
+
+    .icon {
+      color: #00ffcc;
+    }
+
+    .logout-button {
+      color: #00ff00;
+      border: none;
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      background-color: #ff0000;
+      color: #121212;
+      cursor: pointer;
+    }
+
+    .logout-button:hover {
+      border-color: #ff0000;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(#00ff00, 0.2);
+      /* Neon pulse for cancel button */
+      animation: neon-pulse 0.5s ease-in-out infinite;
+    }
+
+    @keyframes glitch-text {
+      0% {
+        text-shadow: 0px 0px 2px #ff0000;
+      }
+
+      25% {
+        text-shadow: 2px 0px 2px #ff0000;
+      }
+
+      50% {
+        text-shadow: 0px 2px 2px #ff0000;
+      }
+
+      75% {
+        text-shadow: -2px 0px 2px #ff0000;
+      }
+
+      100% {
+        text-shadow: 0px -2px 2px #ff0000;
+      }
+    }
+
+    @keyframes neon-pulse {
+      0% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+      }
+
+      50% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+      }
+
+      100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="page-header">
+    <!-- RD Navbar-->
+    <div class="rd-navbar-wrap">
+      <nav class="rd-navbar rd-navbar-default-with-top-panel" data-layout="rd-navbar-fixed"
+        data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed"
+        data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fullwidth" data-md-stick-up-offset="90px"
+        data-lg-stick-up-offset="150px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true"
+        data-lg-stick-up="true">
+        <div style="background-color: #000;" class="rd-navbar-top-panel rd-navbar-collapse">
+          <div class="rd-navbar-top-panel-inner">
+            <div class="left-side">
+              <div style="color: #ff0000;" class="group"><span class="text-italic">Follow Us:</span>
+                <ul class="list-inline">
+                  <li><a class="icon icon-sm icon-secondary-5 fa fa-instagram" target="_blank"
+                      href="https://www.instagram.com/"></a></li>
+                  <li><a class="icon icon-sm icon-secondary-5 fa fa-facebook" target="_blank" href="#"></a></li>
+                  <li><a class="icon icon-sm icon-secondary-5 fa fa-youtube" target="_blank"
+                      href="https://www.youtube.com/"></a></li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <!-- RD Navbar Brand-->
+              <div id="brand-name" class="rd-navbar-brand fullwidth-brand"><a class="brand-name" href="/">
+                  <h3 id="brand-name-grad">BRAND NAME</h3>
+                </a></div>
+            </div>
+            <div class="right-side">
+              <!-- Contact Info-->
+              <div class="contact-info">
+                <div class="unit unit-middle unit-horizontal unit-spacing-xs">
+                  <div class="unit__left"><span class="icon icon-primary text-middle mdi mdi-phone"></span></div>
+                  <div class="unit__body"><a style="color:white;" class="text-middle" href="tel:#">+1 (409) 987–5874</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rd-navbar-inner">
+          <!-- RD Navbar Panel-->
+          <div class="rd-navbar-panel">
+            <!-- RD Navbar Toggle-->
+            <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+            <!-- RD Navbar collapse toggle-->
+            <button class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></button>
+            <!-- RD Navbar Brand-->
+            <div class="rd-navbar-brand mobile-brand"><a class="brand-name" href="/">
+                <h3 id="brand-name-grad">BRAND NAME</h3>
+              </a></div>
+          </div>
+          <div style="background-color: #000;" class="rd-navbar-aside-right">
+            <div style="background-color: #000;" class="rd-navbar-nav-wrap">
+              <div class="rd-navbar-nav-scroll-holder">
+                <ul class="rd-navbar-nav">
+                  <li class="active"><a href="/">Home</a></li>
+                  <li><a style="color: white;" href="about-us">About Us</a></li>
+                  <li><a style="color: white;" href="contacts">Contacts</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="shell-wide">
+      <div class="range range-30 range-xs-center">
+        <div class="cell-lg-8 cell-xl-9">
+          <!-- Classic slider-->
+          <section class="section">
+            <!-- Swiper -->
+            <div class="swiper-container swiper-slider swiper-style-2" data-loop="false" data-autoplay="5500"
+              data-simulate-touch="false" data-slide-effect="slide" data-direction="vertical">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide" data-slide-bg="{%static 'assets/images/slide-01.png'%}">
+                  <div class="swiper-slide-caption">
+                    <div class="shell text-sm-left">
+                      <h1 data-caption-animate="slideInDown" data-caption-delay="100">Your Ideal Retreat</h1>
+                      <div class="slider-subtitle-group">
+                        <div class="decoration-line" data-caption-animate="slideInDown" data-caption-delay="400"></div>
+                        <h4 data-caption-animate="slideInLeft" data-caption-delay="700">Enjoy the world of relaxation
+                        </h4>
+                        <h3 data-caption-animate="slideInLeft" data-caption-delay="800">and tranquility!</h3>
+                      </div><a class="button button-effect-ujarak button-lg button-white-outline button-square"
+                        href="about-us" data-caption-animate="slideInLeft" data-caption-delay="1150"><span>learn
+                          more</span></a>
                     </div>
                   </div>
-                  <div class="swiper-pagination"></div>
                 </div>
-              </section>
+                <div class="swiper-slide" data-slide-bg="{%static 'assets/images/slide-02.png'%}">
+                  <div class="swiper-slide-caption">
+                    <div class="shell text-sm-left">
+                      <h1 data-caption-animate="slideInDown" data-caption-delay="100">Relax & Unwind</h1>
+                      <div class="slider-subtitle-group">
+                        <div class="decoration-line" data-caption-animate="slideInDown" data-caption-delay="400"></div>
+                        <h4 data-caption-animate="slideInLeft" data-caption-delay="700">Experience the luxurious level
+                        </h4>
+                        <h3 data-caption-animate="slideInLeft" data-caption-delay="800">of cricketing!</h3>
+                      </div><a class="button button-effect-ujarak button-lg button-white-outline button-square"
+                        href="about-us" data-caption-animate="slideInLeft" data-caption-delay="1150"><span>learn
+                          more</span></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide" data-slide-bg="{%static 'assets/images/slide-03.png'%}">
+                  <div class="swiper-slide-caption">
+                    <div class="shell text-sm-left">
+                      <h1 data-caption-animate="slideInDown" data-caption-delay="100">Revitalize & Relax</h1>
+                      <div class="slider-subtitle-group">
+                        <div class="decoration-line" data-caption-animate="slideInDown" data-caption-delay="400"></div>
+                        <h4 data-caption-animate="slideInLeft" data-caption-delay="700">Indulge in our top-notch</h4>
+                        <h3 data-caption-animate="slideInLeft" data-caption-delay="800">cricket turf!</h3>
+                      </div><a class="button button-effect-ujarak button-lg button-white-outline button-square"
+                        href="about-us" data-caption-animate="slideInLeft" data-caption-delay="1150"><span>learn
+                          more</span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
             </div>
-            <div class="cell-lg-4 cell-xl-3 reveal-lg-flex">
-              <div class="turf-booking-form">
-                <h3 style="color: #ff0000;
+          </section>
+        </div>
+        <div class="cell-lg-4 cell-xl-3 reveal-lg-flex">
+          <div class="turf-booking-form">
+            <h3 style="color: #ff0000;
                 text-shadow: 0 0 4px #ff0000;
                 animation: glitch-text 1s ease-in-out infinite;
-                font-family: "Glitch", sans-serif;">Book a Match</h3>
-                <!-- Booking Form -->
-                <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="check_availability">
-                  {% csrf_token %}
-                  <div class="range range-sm-bottom spacing-20">
-                      <div class="cell-lg-12 cell-md-4">
-                          <p class="text-uppercase">Your Name</p>
-                          <div class="form-wrap">
-                              <input style="color: #000" class="form-input" id="contact-first-name" type="text" name="name" data-constraints="@Required" required>
-                              <label class="form-label" for="contact-first-name">Your Full Name</label>
-                          </div>
-                          <p class="text-uppercase">Email</p>
-                          <div class="form-wrap">
-                              <input style="color: #000" class="form-input" id="contact-email" type="email" name="email" data-constraints="@Required" required>
-                              <label class="form-label" for="contact-email">Email</label>
-                          </div>
-                          <p class="text-uppercase">Mobile Number</p>
-                          <div class="form-wrap">
-                              <input style="color: #000" class="form-input" id="contact-mobile-number" type="text" name="mobile_number" data-constraints="@Required" pattern="\d{1,10}" required>
-                              <label class="form-label" for="contact-mobile-number">Mobile number</label>
-                          </div>
-                      </div>
-                      <div class="cell-lg-12 cell-md-4 cell-sm-6">
-                          <p class="text-uppercase">Date</p>
-                          <div class="form-wrap">
-                              <label style="color: #000" class="form-label form-label-icon" for="date-in"><span class=""></span><span></span></label>
-                              <input style="color: #000" class="form-input" id="date-in" data-time-picker="date" type="date" name="date" data-constraints="@Required" required>
-                      </div>
-                      </div>
-                      <div class="cell-lg-12 cell-md-4 cell-sm-6">
-                          <p class="text-uppercase">Session</p>
-                          <div class="form-wrap">
-                              <label style="color: #000" class="form-label form-label-icon" for="date-out"><span class=""></span><span></span></label>
-                              <select style="color: #000" name='session' class="form-input select-filter" data-minimum-results-search="" data-placeholder="" data-constraints="@Required" required>
-                                  <option>&nbsp;</option>
-                                  <option value="Morning">Morning</option>
-                                  <option value="Evening">Evening</option>
-                                  <option value="Night">Night</option>
-                              </select>
-                          </div>
-                      </div>
-              
-                      <div class="cell-lg-12 cell-md-4">
-                          <button type="submit" class="button button-effect-ujarak button-lg button-white-outline button-square"><span>Check Availability</span></button>
-                      </div>
-
+                font-family: " Glitch", sans-serif;">Book a Match</h3>
+            <!-- Booking Form -->
+            <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post"
+              action="check_availability">
+              {% csrf_token %}
+              <div class="range range-sm-bottom spacing-20">
+                <div class="cell-lg-12 cell-md-4">
+                  <p class="text-uppercase">Your Name</p>
+                  <div class="form-wrap">
+                    <input style="color: #000" class="form-input" id="contact-first-name" type="text" name="name"
+                      data-constraints="@Required" required>
+                    <label class="form-label" for="contact-first-name">Your Full Name</label>
                   </div>
-              </form>
-              
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <hr class="divider divider-left divider-custom">
-      <!-- About us-->
-      <section style="background-color: #000;" class="section section-md bg-white text-center text-sm-left">
-        <div class="shell-wide">
-          <div class="range range-50 range-xs-center overflow-hidden">
-            <div class="cell-sm-10 cell-md-8 cell-lg-7 wow fadeInUp" data-wow-delay=".1s">
-              <div class="post-video post-video-border">
-                <div class="post-video__image"><img src="{%static 'assets/images/video-bg-1020x525.jpg'%}" alt="" width="1020" height="525"/>
+                  <p class="text-uppercase">Email</p>
+                  <div class="form-wrap">
+                    <input style="color: #000" class="form-input" id="contact-email" type="email" name="email"
+                      data-constraints="@Required" required>
+                    <label class="form-label" for="contact-email">Email</label>
+                  </div>
+                  <p class="text-uppercase">Mobile Number</p>
+                  <div class="form-wrap">
+                    <input style="color: #000" class="form-input" id="contact-mobile-number" type="text"
+                      name="mobile_number" data-constraints="@Required" pattern="\d{1,10}" required>
+                    <label class="form-label" for="contact-mobile-number">Mobile number</label>
+                  </div>
+                </div>
+                <div class="cell-lg-12 cell-md-4 cell-sm-6">
+                  <p class="text-uppercase">Date</p>
+                  <div class="form-wrap">
+                    <label style="color: #000" class="form-label form-label-icon" for="date-in"><span
+                        class=""></span><span></span></label>
+                    <input style="color: #000" class="form-input" id="date-in" data-time-picker="date" type="date"
+                      name="date" data-constraints="@Required" required>
+                  </div>
+                </div>
+                <div class="cell-lg-12 cell-md-4 cell-sm-6">
+                  <p class="text-uppercase">Session</p>
+                  <div class="form-wrap">
+                    <label style="color: #000" class="form-label form-label-icon" for="date-out"><span
+                        class=""></span><span></span></label>
+                    <select style="color: #000" name='session' class="form-input select-filter"
+                      data-minimum-results-search="" data-placeholder="" data-constraints="@Required" required>
+                      <option>&nbsp;</option>
+                      <option value="Morning">Morning</option>
+                      <option value="Evening">Evening</option>
+                      <option value="Night">Night</option>
+                    </select>
+                  </div>
                 </div>
 
-               <!-- <div class="post-video__body"><a class="link-control post-video__control" data-lightgallery="item" href="https://www.youtube.com/watch?v=I5FlP07kdvM"></a></div> -->
+                <div class="cell-lg-12 cell-md-4">
+                  <button type="submit"
+                    class="button button-effect-ujarak button-lg button-white-outline button-square"><span>Check
+                      Availability</span></button>
+                </div>
 
               </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="divider divider-left divider-custom">
+  <!-- About us-->
+  <section style="background-color: #000;" class="section section-md bg-white text-center text-sm-left">
+    <div class="shell-wide">
+      <div class="range range-50 range-xs-center overflow-hidden">
+        <div class="cell-sm-10 cell-md-8 cell-lg-7 wow fadeInUp" data-wow-delay=".1s">
+          <div class="post-video post-video-border">
+            <div class="post-video__image"><img src="{%static 'assets/images/video-bg-1020x525.jpg'%}" alt=""
+                width="1020" height="525" />
             </div>
-            <div class="cell-sm-10 cell-md-8 cell-lg-5 reveal-flex wow fadeInUp" data-wow-delay=".3s">
-              <div style="background-color: #000;" class="bg-primary section-wrap-content-var-1">
-                <div class="section-wrap-content-var-1-inner">
-                  <h3 style="color: #ff0000;
+
+            <!-- <div class="post-video__body"><a class="link-control post-video__control" data-lightgallery="item" href="https://www.youtube.com/watch?v=I5FlP07kdvM"></a></div> -->
+
+          </div>
+        </div>
+        <div class="cell-sm-10 cell-md-8 cell-lg-5 reveal-flex wow fadeInUp" data-wow-delay=".3s">
+          <div style="background-color: #000;" class="bg-primary section-wrap-content-var-1">
+            <div class="section-wrap-content-var-1-inner">
+              <h3 style="color: #ff0000;
                   text-shadow: 0 0 2px #ff0000;
                   animation: glitch-text 1s ease-in-out infinite;
-                  font-family: "Glitch", jokerman;">About Us</h3><br>
-                  Committed to everyone seeking energy and excitement, we offer endless possibilities to unwind and reenergize.<br><br>
-                  <div class="group">
-                    <dl class="list-desc">
-                      <dt style="color: #ff0000;">Weekdays:</dt>
-                      <dd><span>8:00–20:00</span></dd>
-                    </dl>
-                    <dl class="list-desc">
-                      <dt style="color: #ff0000;">Weekends:</dt>
-                      <dd><span>9:00–18:00</span></dd>
-                    </dl>
-                  </div><a class="button button-effect-ujarak button-lg button-secondary-outline button-square" href="about-us"><span>About Us</span></a>
-                </div>
-              </div>
+                  font-family: " Glitch", jokerman;">About Us</h3><br>
+              Committed to everyone seeking energy and excitement, we offer endless possibilities to unwind and
+              reenergize.<br><br>
+              <div class="group">
+                <dl class="list-desc">
+                  <dt style="color: #ff0000;">Weekdays:</dt>
+                  <dd><span>8:00–20:00</span></dd>
+                </dl>
+                <dl class="list-desc">
+                  <dt style="color: #ff0000;">Weekends:</dt>
+                  <dd><span>9:00–18:00</span></dd>
+                </dl>
+              </div><a class="button button-effect-ujarak button-lg button-secondary-outline button-square"
+                href="about-us"><span>About Us</span></a>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <!-- Portfolio-->
-      <section style="background-color: #000;" class="section section-md bg-white text-center text-sm-left">
-        <div class="shell-wide">
-          <div class="range range-10 range-middle">
-            <div class="cell-sm-6">
-              <h3 style="color: #ff0000;
+  <!-- Portfolio-->
+  <section style="background-color: #000;" class="section section-md bg-white text-center text-sm-left">
+    <div class="shell-wide">
+      <div class="range range-10 range-middle">
+        <div class="cell-sm-6">
+          <h3 style="color: #ff0000;
               text-shadow: 0 0 4px #ff0000;
               animation: glitch-text 1s ease-in-out infinite;
-              font-family: "Glitch", sans-serif;">Our Gallery</h3>
-            </div>
+              font-family: " Glitch", sans-serif;">Our Gallery</h3>
+        </div>
+      </div>
+      <hr>
+      <div class="isotope-wrap">
+        <!-- Isotope Content-->
+        <div class="row isotope" data-isotope-layout="masonry" data-isotope-group="gallery" data-lightgallery="group">
+          <div class="col-xs-12 col-sm-6 col-md-3 grid-sizer"></div>
+          <div class="col-xs-12 col-sm-6 col-md-3 isotope-item wow fadeInUp" data-filter="Category 1"
+            data-wow-delay=".1s"><a class="portfolio-item thumbnail-classic"
+              href="{%static 'assets/images/gallery-1-533x800_original.png'%}" data-size="533x800"
+              data-lightgallery="item"><img src="{%static 'assets/images/gallery-1-420x584.png'%}" alt="" width="420"
+                height="584" />
+              <figure></figure>
+              <div class="caption"></span></div>
+            </a>
           </div>
-          <hr>
-          <div class="isotope-wrap">
-            <!-- Isotope Content-->
-            <div class="row isotope" data-isotope-layout="masonry" data-isotope-group="gallery" data-lightgallery="group">
-              <div class="col-xs-12 col-sm-6 col-md-3 grid-sizer"></div>
-              <div class="col-xs-12 col-sm-6 col-md-3 isotope-item wow fadeInUp" data-filter="Category 1" data-wow-delay=".1s"><a class="portfolio-item thumbnail-classic" href="{%static 'assets/images/gallery-1-533x800_original.png'%}" data-size="533x800" data-lightgallery="item"><img src="{%static 'assets/images/gallery-1-420x584.png'%}" alt="" width="420" height="584"/>
-                  <figure></figure>
-                  <div class="caption"></span></div></a>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-3 isotope-item wow fadeInUp" data-filter="Category 1" data-wow-delay=".2s"><a class="portfolio-item thumbnail-classic" href="{%static 'assets/images/gallery-2-1199x800_original.png'%}" data-size="1199x800" data-lightgallery="item"><img src="{%static 'assets/images/gallery-2-420x278.png'%}" alt="" width="420" height="278"/>
-                  <figure></figure>
-                  <div class="caption"></div></a>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-3 isotope-item wow fadeInUp" data-filter="Category 1" data-wow-delay=".4s"><a class="portfolio-item thumbnail-classic" href="{%static 'assets/images/gallery-3-584x800_original.png'%}" data-size="584x800" data-lightgallery="item"><img src="{%static 'assets/images/gallery-3-420x584.png'%}" alt="" width="420" height="584"/>
-                  <figure></figure>
-                  <div class="caption"></div></a>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-3 isotope-item wow fadeInUp" data-filter="Category 1" data-wow-delay=".5s"><a class="portfolio-item thumbnail-classic" href="{%static 'assets/images/gallery-4-1200x800_original.png'%}" data-size="1200x800" data-lightgallery="item"><img src="{%static 'assets/images/gallery-4-420x278.png'%}" alt="" width="420" height="278"/>
-                  <figure></figure>
-                  <div class="caption"></div></a>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-3 isotope-item wow fadeInUp" data-filter="Category 1" data-wow-delay=".3s"><a class="portfolio-item thumbnail-classic" href="{%static 'assets/images/gallery-5-1200x800_original.png'%}" data-size="1200x800" data-lightgallery="item"><img src="{%static 'assets/images/gallery-5-420x278.png'%}" alt="" width="420" height="278"/>
-                  <figure></figure>
-                  <div class="caption"></div></a>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-3 isotope-item wow fadeInUp" data-filter="Category 1" data-wow-delay=".6s"><a class="portfolio-item thumbnail-classic" href="{%static 'assets/images/gallery-6-1200x798_original.png'%}" data-size="1200x798" data-lightgallery="item"><img src="{%static 'assets/images/gallery-6-420x278.png'%}" alt="" width="420" height="278"/>
-                  <figure></figure>
-                  <div class="caption"></div></a>
-              </div>
-            </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 isotope-item wow fadeInUp" data-filter="Category 1"
+            data-wow-delay=".2s"><a class="portfolio-item thumbnail-classic"
+              href="{%static 'assets/images/gallery-2-1199x800_original.png'%}" data-size="1199x800"
+              data-lightgallery="item"><img src="{%static 'assets/images/gallery-2-420x278.png'%}" alt="" width="420"
+                height="278" />
+              <figure></figure>
+              <div class="caption"></div>
+            </a>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 isotope-item wow fadeInUp" data-filter="Category 1"
+            data-wow-delay=".4s"><a class="portfolio-item thumbnail-classic"
+              href="{%static 'assets/images/gallery-3-584x800_original.png'%}" data-size="584x800"
+              data-lightgallery="item"><img src="{%static 'assets/images/gallery-3-420x584.png'%}" alt="" width="420"
+                height="584" />
+              <figure></figure>
+              <div class="caption"></div>
+            </a>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 isotope-item wow fadeInUp" data-filter="Category 1"
+            data-wow-delay=".5s"><a class="portfolio-item thumbnail-classic"
+              href="{%static 'assets/images/gallery-4-1200x800_original.png'%}" data-size="1200x800"
+              data-lightgallery="item"><img src="{%static 'assets/images/gallery-4-420x278.png'%}" alt="" width="420"
+                height="278" />
+              <figure></figure>
+              <div class="caption"></div>
+            </a>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 isotope-item wow fadeInUp" data-filter="Category 1"
+            data-wow-delay=".3s"><a class="portfolio-item thumbnail-classic"
+              href="{%static 'assets/images/gallery-5-1200x800_original.png'%}" data-size="1200x800"
+              data-lightgallery="item"><img src="{%static 'assets/images/gallery-5-420x278.png'%}" alt="" width="420"
+                height="278" />
+              <figure></figure>
+              <div class="caption"></div>
+            </a>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 isotope-item wow fadeInUp" data-filter="Category 1"
+            data-wow-delay=".6s"><a class="portfolio-item thumbnail-classic"
+              href="{%static 'assets/images/gallery-6-1200x798_original.png'%}" data-size="1200x798"
+              data-lightgallery="item"><img src="{%static 'assets/images/gallery-6-420x278.png'%}" alt="" width="420"
+                height="278" />
+              <figure></figure>
+              <div class="caption"></div>
+            </a>
           </div>
         </div>
-      </section>
-      <!-- Page Footer-->
-      <footer class="page-footer text-left text-sm-left">
+      </div>
+    </div>
+  </section>
+  <!-- Page Footer-->
+  <footer class="page-footer text-left text-sm-left">
+    <div class="shell-wide">
+      <div class="page-footer-minimal">
         <div class="shell-wide">
-          <div class="page-footer-minimal">
-            <div class="shell-wide">
-              <div class="range range-50">
-                <div class="cell-sm-6 cell-md-3 cell-lg-4 wow fadeInUp" data-wow-delay=".1s">
-                  <div class="page-footer-minimal-inner">
-                    <h4 style="color: #ff0000;
+          <div class="range range-50">
+            <div class="cell-sm-6 cell-md-3 cell-lg-4 wow fadeInUp" data-wow-delay=".1s">
+              <div class="page-footer-minimal-inner">
+                <h4 style="color: #ff0000;
                     text-shadow: 0 0 2px #ff0000;
                     animation: glitch-text 1s ease-in-out infinite;
-                    font-family: "Glitch", jokerman;">Opening Hours</h4>
-                    <ul class="list-unstyled">
-                      <li>
-                        <div class="group-xs"> 
-                          <div>
-                            <dl class="list-desc">
-                              <dt style="color: #ff0000;">Weekdays: </dt>
-                              <dd class="text-gray-darker"><span>8:00–20:00</span></dd>
-                            </dl>
-                          </div>
-                          <div>
-                            <dl class="list-desc">
-                              <dt style="color: #ff0000;">Weekends: </dt>
-                              <dd class="text-gray-darker"><span>9:00–18:00</span></dd>
-                            </dl>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="cell-sm-6 cell-md-5 cell-lg-4 wow fadeInUp" data-wow-delay=".2s">
-                  <div class="page-footer-minimal-inner">
-                    <h4 style="color: #ff0000;
+                    font-family: " Glitch", jokerman;">Opening Hours</h4>
+                <ul class="list-unstyled">
+                  <li>
+                    <div class="group-xs">
+                      <div>
+                        <dl class="list-desc">
+                          <dt style="color: #ff0000;">Weekdays: </dt>
+                          <dd class="text-gray-darker"><span>8:00–20:00</span></dd>
+                        </dl>
+                      </div>
+                      <div>
+                        <dl class="list-desc">
+                          <dt style="color: #ff0000;">Weekends: </dt>
+                          <dd class="text-gray-darker"><span>9:00–18:00</span></dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="cell-sm-6 cell-md-5 cell-lg-4 wow fadeInUp" data-wow-delay=".2s">
+              <div class="page-footer-minimal-inner">
+                <h4 style="color: #ff0000;
                     text-shadow: 0 0 2px #ff0000;
                     animation: glitch-text 1s ease-in-out infinite;
-                    font-family: "Glitch", jokerman;">Contact</h4>
-                    <ul class="list-unstyled">
-                      <li>
-                        <dl class="list-desc">
-                          <dt><span class="icon icon-sm mdi mdi-map-marker"></span></dt>
-                          <dd style="color: #ff0000;">Address: <a style="color:white;" class="link link-gray-darker" href="">No:80, XXX Garden, XXX, XXX, XXX, XXX, XXX, XXX 6000XX</a></dd>
-                        </dl>
-                      </li>
-                      <li>
-                        <dl class="list-desc">
-                          <dt><span class="icon icon-sm mdi mdi-phone"></span></dt>
-                          <dd style="color: #ff0000;">Call Us: <a style="color:white;" class="link link-gray-darker" href="tel:#">+1 (409) 987–5874</a>
-                          </dd>
-                        </dl>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div style="position:relative;left:2cm;top:1cm;">
-                  <div class="login-button-container">
-                    {% if user.is_authenticated and user.is_staff %}
-                        <!-- If the user is authenticated and is a staff member (admin) -->
-                        <a class="button button-effect-ujarak button-lg button-white-outline button-square" href="view_bookings" class="button button-effect-ujarak button-lg button-primary button-square">
-                            <span>Admin Dashboard</span>
-                        </a>
-                    {% else %}
-                        <!-- If the user is not authenticated or is not a staff member -->
-                        <a class="button button-effect-ujarak button-lg button-white-outline button-square" href="{% url 'admin:login' %}" class="button button-effect-ujarak button-lg button-secondary button-square">
-                            <span>Login as Admin</span>
-                        </a>
-                    {% endif %}
-                </div>
+                    font-family: " Glitch", jokerman;">Contact</h4>
+                <ul class="list-unstyled">
+                  <li>
+                    <dl class="list-desc">
+                      <dt><span class="icon icon-sm mdi mdi-map-marker"></span></dt>
+                      <dd style="color: #ff0000;">Address: <a style="color:white;" class="link link-gray-darker"
+                          href="">No:80, XXX Garden, XXX, XXX, XXX, XXX, XXX, XXX 6000XX</a></dd>
+                    </dl>
+                  </li>
+                  <li>
+                    <dl class="list-desc">
+                      <dt><span class="icon icon-sm mdi mdi-phone"></span></dt>
+                      <dd style="color: #ff0000;">Call Us: <a style="color:white;" class="link link-gray-darker"
+                          href="tel:#">+1 (409) 987–5874</a>
+                      </dd>
+                    </dl>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div style="position:relative;left:2cm;top:1cm;">
+              <div class="login-button-container">
+                {% if user.is_authenticated and user.is_staff %}
+                <!-- If the user is authenticated and is a staff member (admin) -->
+                <a class="button button-effect-ujarak button-lg button-white-outline button-square" href="view_bookings"
+                  class="button button-effect-ujarak button-lg button-primary button-square">
+                  <span>Admin Dashboard</span>
+                </a>
+                {% else %}
+                <!-- If the user is not authenticated or is not a staff member -->
+                <a class="button button-effect-ujarak button-lg button-white-outline button-square"
+                  href="{% url 'admin:login' %}"
+                  class="button button-effect-ujarak button-lg button-secondary button-square">
+                  <span>Login as Admin</span>
+                </a>
+                {% endif %}
+              </div>
+              <br>
+              <div style="position:relative;left:1.25cm;">
+                {% if user.is_authenticated and user.is_superuser %}
+                <a class="button button-effect-ujarak button-lg button-white-outline button-square"
+                  href="{% url 'turf_incharge_verification' %}"
+                  class="button button-effect-ujarak button-lg button-primary button-square">
+                  <span>Scan QR</span></a>
+                {% endif %}
                 <br>
-                <div style="position:relative;left:1.25cm;">
-                    {% if user.is_authenticated and user.is_superuser %}
-                    <a class="button button-effect-ujarak button-lg button-white-outline button-square" href="{% url 'turf_incharge_verification' %}" class="button button-effect-ujarak button-lg button-primary button-square">
-                    <span>Scan QR</span></a>
-                    {% endif %}
-                  <br>
-                  <div style="position: relative;left: 1.5cm"> 
-                    {% if user.is_authenticated and user.is_staff%}
-                    <form action="logout">
-                      {% csrf_token %}
+                <div style="position: relative;left: 1.5cm">
+                  {% if user.is_authenticated and user.is_staff%}
+                  <form action="logout">
+                    {% csrf_token %}
                     <br><button id="logout" class="logout-button" type="submit" class="btn btn-link">Logout</button>
-                    </form>
-                    {% endif %}
-                  </div>
+                  </form>
+                  {% endif %}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </footer>
-    </div> 
-    <script src="{%static 'assets/js/core.min.js'%}"></script>
-    <script src="{%static 'assets/js/script.js'%}"></script>
-  </body>
+      </div>
+  </footer>
+  </div>
+  <script src="{%static 'assets/js/core.min.js'%}"></script>
+  <script src="{%static 'assets/js/script.js'%}"></script>
+</body>
+
 </html>
