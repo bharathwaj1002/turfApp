@@ -88,7 +88,9 @@ body {
 	font-weight: 400;
 	line-height: 1.71429;
 	color: #9b9b9b;
-	background-color: #fff;
+	background-color: #000;
+	padding: 0;
+	margin-right: 0;
 }
 
 mark {
