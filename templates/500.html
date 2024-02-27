@@ -86,11 +86,37 @@
         0% {
           clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
         }
-        2      
+      }  
+  .loader-wrapper {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #242f3f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 50%;                       /******** <- Remove this line *********/
+  border: 4px solid #Fff;
+  animation: loader 2s infinite ease;
+}
   </style>
 
 </head>
 <body>
+
+  <div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+  </div>
+
   <div class="cosmic-glitch">
     <div class="portal-container">
       <div class="glitching-portal">
@@ -114,5 +140,11 @@
       <p class="distorted-quote">“Just remember, when you’re feeling very small and insignificant, remember something enormous is at work in you all the time: your DNA code. Each molecule is a piece of a star story.” - Neil deGrasse Tyson</p>
     </div>
   </div>
+
+  <script>
+    $(window).on("load", function () {
+      $(".loader-wrapper").fadeOut("slow");
+    });
+  </script>
 </body>
 </html>

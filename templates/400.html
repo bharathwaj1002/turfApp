@@ -1,46 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cosmic Decoder Error: 400</title>
   <style>
     .cosmic-decoder {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes portal-pulse {
+      0% {
+        transform: scale(1);
       }
-      
-      /* Reuse existing portal code from 500 page */
-      .glitching-portal, .portal-container img, .glitching-effects, .crackle, .sparks, .data-fragments {
-        /* Adapt styles as needed for a different look */
+
+      50% {
+        transform: scale(1.1);
       }
-      
-      .navigation {
-        /* Same styling as previous pages */
+
+      100% {
+        transform: scale(1);
       }
-      
-      @keyframes portal-pulse {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.1);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
-      
-      .glitching-portal {
-        animation: portal-pulse 2s infinite;
-      }      
+    }
+
+    .glitching-portal {
+      animation: portal-pulse 2s infinite;
+    }
+    
+  .loader-wrapper {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #242f3f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 50%;                       /******** <- Remove this line *********/
+  border: 4px solid #Fff;
+  animation: loader 2s infinite ease;
+}
   </style>
-  
+
 </head>
+
 <body>
+
+  <div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+  </div>
+
   <div class="cosmic-decoder">
     <div class="portal-container">
       <div class="glitching-portal">
@@ -62,5 +84,13 @@
       <a href="/help">Cosmic Decoder Help Guide</a>
     </div>
   </div>
+
+
+  <script>
+    $(window).on("load", function () {
+        $(".loader-wrapper").fadeOut("slow");
+      });
+  </script>
 </body>
+
 </html>

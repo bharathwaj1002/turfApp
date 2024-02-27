@@ -96,9 +96,35 @@
         margin-left: 10px;
       }
                  
+  .loader-wrapper {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #242f3f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 50%;                       /******** <- Remove this line *********/
+  border: 4px solid #Fff;
+  animation: loader 2s infinite ease;
+}
   </style>
 </head>
 <body>
+
+  <div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+  </div>
+
   <div class="lost-portal">
     <div class="portal-container">
       <div class="broken-portal">
@@ -122,5 +148,12 @@
       <p class="quote">"Space is big. You just won't believe how vastly, hugely, mind-bogglingly big it is. I mean, you may think it's a long way down the road to the chemist's, but that's just peanuts to space." - Douglas Adams</p>
     </div>
   </div>
+
+
+  <script>
+    $(window).on("load", function () {
+      $(".loader-wrapper").fadeOut("slow");
+    });
+  </script>
 </body>
 </html>

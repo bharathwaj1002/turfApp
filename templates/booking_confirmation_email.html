@@ -7,6 +7,11 @@
     <link rel="icon" href="{%static 'assets/images/favicon.png'%}" type="image/x-icon">
 </head>
 <body>
+
+  <div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+  </div>
+
     <h2>Booking Confirmed!</h2>
     <p>Thank you for booking.</p>
     <p>Your booking details are as follows:</p>
@@ -14,5 +19,11 @@
     <strong>Date:</strong> {{ booking.date }}<br>
     <strong>Session:</strong> {{ booking.session }}<br>
     <strong>Mobile Number:</strong> {{ booking.mobile_number }}
+
+    <script>
+        $(window).on("load", function () {
+            $(".loader-wrapper").fadeOut("slow");
+        });
+    </script>
 </body>
 </html>

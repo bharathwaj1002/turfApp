@@ -221,3 +221,5 @@ def turf_incharge_verification(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+

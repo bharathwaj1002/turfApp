@@ -124,7 +124,7 @@
       .booking-form,
       .button {
         display: inline-block;
-        margin: 10px;̀
+        margin: 10px;
       }
       .confirm_btn_container {
         display: flex;
@@ -220,9 +220,35 @@
           opacity: 0.3;
         }
       }
-    </style>
+    .loader-wrapper {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #242f3f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 50%;                       /******** <- Remove this line *********/
+  border: 4px solid #Fff;
+  animation: loader 2s infinite ease;
+}
+  </style>
   </head>
   <body>
+
+  <div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+  </div>
+
     <div class="container">
       <h2>Hurray!!! Your Date is Available</h2>
       <strong>Name:</strong> {{ name }}<br />
@@ -290,7 +316,11 @@
         });
     }
 </script>
-
+<script>
+  $(window).on("load", function () {
+    $(".loader-wrapper").fadeOut("slow");
+  });
+</script>
   </body>
 
   </html>
