@@ -117,7 +117,7 @@ def handle_razorpay_payment(request,name, date, session, mobile_number, email):
         
         if verify_razorpay_payment(razorpay_order_id, razorpay_payment_id, razorpay_signature):  
             selected_date = datetime.strptime(date, '%Y-%m-%d').date()          
-            booking = Booking.objects.create(name=name, date=selected_date, session=session, mobile_number=mobile_number, email=email)
+            booking = Booking.objects.create(name=name , date=selected_date, session=session, mobile_number=mobile_number, email=email)
             
             
             return redirect('complete_booking', booking_id=booking.pk)

@@ -1,225 +1,244 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
-    <link
-      rel="icon"
-      href="{%static 'assets/images/favicon.png'%}"
-      type="image/x-icon"
-    />
-    <title>Confirm Booking</title>
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <style>
-      body {
-        background-color: #000;
-        background-size: cover;
-        background-position: center;
-        color: #d8d8d8;
-        cursor: crosshair;
-        font-family: "Roboto Mono", monospace;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 90vh;
+
+<head>
+  <link rel="icon" href="{%static 'assets/images/favicon.png'%}" type="image/x-icon" />
+  <title>Confirm Booking</title>
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport"
+    content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: #000;
+      background-size: cover;
+      background-position: center;
+      color: #d8d8d8;
+      cursor: crosshair;
+      font-family: "Roboto Mono", monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 90vh;
+    }
+
+    .confirm-booking-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .confirm-booking-container:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    }
+
+    @keyframes glitch {
+      0% {
+        clip-path: polygon(50% 0%, 40% 100%, 60% 100%, 50% 0%);
       }
 
-      .confirm-booking-container {
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 20px;
-        border-radius: 8px;
-        background-color: rgba(0, 0, 0, 0.8);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        transition: box-shadow 0.3s ease;
+      50% {
+        clip-path: polygon(45% 0%, 35% 100%, 65% 100%, 55% 0%);
       }
 
-      .confirm-booking-container:hover {
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+      100% {
+        clip-path: polygon(50% 0%, 40% 100%, 60% 100%, 50% 0%);
+      }
+    }
+
+    /* Neon Rain & Distortion */
+    .confirm-booking-container {
+      background-position: bottom right;
+      animation: neon-rain 5s ease-in-out infinite;
+    }
+
+    @keyframes neon-rain {
+      0% {
+        background-image: url("");
       }
 
-      @keyframes glitch {
-        0% {
-          clip-path: polygon(50% 0%, 40% 100%, 60% 100%, 50% 0%);
-        }
-        50% {
-          clip-path: polygon(45% 0%, 35% 100%, 65% 100%, 55% 0%);
-        }
-        100% {
-          clip-path: polygon(50% 0%, 40% 100%, 60% 100%, 50% 0%);
-        }
+      100% {
+        background-image: url("");
+        background-position: bottom left;
+      }
+    }
+
+    .rain-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 100vh;
+      background-color: #ff0000;
+      animation: fall 1s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
       }
 
-      /* Neon Rain & Distortion */
-      .confirm-booking-container {
-        background-position: bottom right;
-        animation: neon-rain 5s ease-in-out infinite;
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      color: #ff0000;
+      text-shadow: 0 0 4px #ff0000;
+      animation: glitch-text 1s ease-in-out infinite;
+      font-family: "Glitch", sans-serif;
+      /* Replace with your preferred distorted font */
+    }
+
+    @keyframes glitch-text {
+      0% {
+        text-shadow: 0px 0px 2px #ff0000;
       }
 
-      @keyframes neon-rain {
-        0% {
-          background-image: url("");
-        }
-        100% {
-          background-image: url("");
-          background-position: bottom left;
-        }
+      25% {
+        text-shadow: 2px 0px 2px #ff0000;
       }
 
-      .rain-line {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 1px;
-        height: 100vh;
-        background-color: #ff0000;
-        animation: fall 1s linear infinite;
+      50% {
+        text-shadow: 0px 2px 2px #ff0000;
       }
 
-      @keyframes fall {
-        0% {
-          transform: translateY(0);
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(100vh);
-          opacity: 0;
-        }
+      75% {
+        text-shadow: -2px 0px 2px #ff0000;
       }
 
-      h2 {
-        font-size: 2rem;
-        text-align: center;
-        color: #ff0000;
-        text-shadow: 0 0 4px #ff0000;
-        animation: glitch-text 1s ease-in-out infinite;
-        font-family: "Glitch", sans-serif; /* Replace with your preferred distorted font */
+      100% {
+        text-shadow: 0px -2px 2px #ff0000;
+      }
+    }
+
+    p,
+    .button-label {
+      /* Apply distorted font to smaller text elements */
+      font-family: "Glitch", sans-serif;
+      /* Replace with your preferred distorted font */
+    }
+
+    .booking-form,
+    .button {
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .confirm_btn_container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .cancel_btn_container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .razorpay-payment-button {
+      color: #00ff00;
+      margin-bottom: .5cm;
+      margin-top: .5cm;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      background-color: #00e676;
+      color: #121212;
+      cursor: pointer;
+    }
+
+    .cancel-button {
+      color: #00ff00;
+      border: none;
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      background-color: #ff0000;
+      color: #121212;
+      cursor: pointer;
+    }
+
+    .razorpay-payment-button:hover {
+      border-color: #00ff00;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(#00ff00, 0.2);
+      /* Neon pulse for cancel button */
+      animation: neon-pulse 0.5s ease-in-out infinite;
+    }
+
+    .cancel-button:hover {
+      border-color: #ff0000;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(#00ff00, 0.2);
+      /* Neon pulse for cancel button */
+      animation: neon-pulse 0.5s ease-in-out infinite;
+    }
+
+    @keyframes neon-pulse {
+      0% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
       }
 
-      @keyframes glitch-text {
-        0% {
-          text-shadow: 0px 0px 2px #ff0000;
-        }
-        25% {
-          text-shadow: 2px 0px 2px #ff0000;
-        }
-        50% {
-          text-shadow: 0px 2px 2px #ff0000;
-        }
-        75% {
-          text-shadow: -2px 0px 2px #ff0000;
-        }
-        100% {
-          text-shadow: 0px -2px 2px #ff0000;
-        }
-      }
-      p,
-      .button-label {
-        /* Apply distorted font to smaller text elements */
-        font-family: "Glitch", sans-serif; /* Replace with your preferred distorted font */
+      50% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
       }
 
-      .booking-form,
-      .button {
-        display: inline-block;
-        margin: 10px;
+      100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
       }
-      .confirm_btn_container {
-        display: flex;
-        justify-content: center;
-      }
-      .cancel_btn_container {
-        display: flex;
-        justify-content: center;
-      }
-      .razorpay-payment-button {
-        color: #00ff00;
-        margin-bottom: .5cm;
-        margin-top: .5cm;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        text-align: center;
-        text-decoration: none;
-        border-radius: 5px;
-        background-color: #00e676;
-        color: #121212;
-        cursor: pointer;
+    }
+
+    /* Bonus: Animated neon lines & custom cursor */
+    .container:before,
+    .container:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background-color: #ff0000;
+      animation: neon-flicker 1s ease-in-out infinite alternate;
+    }
+
+    .container:before {
+      left: 10px;
+    }
+
+    .container:after {
+      right: 10px;
+    }
+
+    @keyframes neon-flicker {
+      0% {
+        opacity: 0.3;
       }
 
-      .cancel-button {
-        color: #00ff00;
-        border: none;
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 16px;
-        text-align: center;
-        text-decoration: none;
-        border-radius: 5px;
-        background-color: #ff0000;
-        color: #121212;
-        cursor: pointer;
+      50% {
+        opacity: 1;
       }
 
-      .razorpay-payment-button:hover {
-        border-color: #00ff00;
-        transform: scale(1.05);
-        box-shadow: 0 0 10px rgba(#00ff00, 0.2); /* Neon pulse for cancel button */
-        animation: neon-pulse 0.5s ease-in-out infinite;
+      100% {
+        opacity: 0.3;
       }
+    }
 
-      .cancel-button:hover {
-        border-color: #ff0000;
-        transform: scale(1.05);
-        box-shadow: 0 0 10px rgba(#00ff00, 0.2); /* Neon pulse for cancel button */
-        animation: neon-pulse 0.5s ease-in-out infinite;
-      }
-
-      @keyframes neon-pulse {
-        0% {
-          box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-        }
-        50% {
-          box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-        }
-        100% {
-          box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-        }
-      }
-
-      /* Bonus: Animated neon lines & custom cursor */
-      .container:before,
-      .container:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background-color: #ff0000;
-        animation: neon-flicker 1s ease-in-out infinite alternate;
-      }
-
-      .container:before {
-        left: 10px;
-      }
-
-      .container:after {
-        right: 10px;
-      }
-
-      @keyframes neon-flicker {
-        0% {
-          opacity: 0.3;
-        }
-        50% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0.3;
-        }
-      }
     .loader-wrapper {
       width: 100%;
       height: 100%;
@@ -242,85 +261,70 @@
       background-color: #000000;
     }
   </style>
-  </head>
-  <body>
+</head>
 
-  <div class="loader-wrapper">
-    <span class="loader"><span class="loader-inner"></span></span>
-  </div>
+<body>
 
-    <div class="container">
-      <h2>Hurray!!! Your Date is Available</h2>
-      <strong>Name:</strong> {{ name }}<br />
-      <strong>Date:</strong> {{ date }}<br />
-      <strong>Session:</strong> {{ session }}<br />
-      <strong>Mobile Number:</strong> {{ mobile_number }}<br />
-      <strong>Email:</strong> {{ email }}<br /><br />
-      <strong>Verify your email as you get your tickets only there!!!</strong>
-      <div class="confirm_btn_container">
-        <form action="{% url 'handle_razorpay_payment' name=name date=date session=session mobile_number=mobile_number email=email%}" method="POST">
-          {% csrf_token %}
-          <script
-              src="https://checkout.razorpay.com/v1/checkout.js"
-              data-key={{api_key}}
-              data-amount={{amount}}
-              data-currency="INR"
-              data-order_id={{order_id}}
-              data-buttontext="Confirm and proceed to payment"
-              data-name="Brand_Name"
-              data-description="Payment for Brand_Name"
-              data-image="{%static 'assets/images/favicon.png'%}"
-              data-prefill.name={{name}}
-              data-prefill.email={{email}}
-              data-theme.color="#2b2b2b"
-              data-callback="handleRazorpayPayment"
-          ></script>
-          <input type="hidden" custom="Hidden Element" name="hidden"/>
-          </form>
-      </div>
-
-      <div class="cancel_btn_container">
-        <form method="post" action="{% url 'cancel_booking' %}">
-          {% csrf_token %}
-          <button type="submit" class="cancel-button">Cancel</button>
-        </form>
-      </div>
+  <div class="container">
+    <h2>Hurray!!! Your Date is Available</h2>
+    <strong>Name:</strong> {{ name }}<br />
+    <strong>Date:</strong> {{ date }}<br />
+    <strong>Session:</strong> {{ session }}<br />
+    <strong>Mobile Number:</strong> {{ mobile_number }}<br />
+    <strong>Email:</strong> {{ email }}<br /><br />
+    <strong>Verify your email as you get your tickets only there!!!</strong>
+    <div class="confirm_btn_container">
+      <form
+        action="{% url 'handle_razorpay_payment' name=name date=date session=session mobile_number=mobile_number email=email%}"
+        method="POST">
+        {% csrf_token %}
+        <script src="https://checkout.razorpay.com/v1/checkout.js" data-key={{api_key}} data-amount={{amount}}
+          data-currency="INR" data-order_id={{order_id}} data-buttontext="Confirm and proceed to payment"
+          data-name="Brand_Name" data-description="Payment for Brand_Name"
+          data-image="{%static 'assets/images/favicon.png'%}" data-prefill.name={{name}} data-prefill.email={{email}}
+          data-theme.color="#2b2b2b" data-callback="handleRazorpayPayment"></script>
+        <input type="hidden" custom="Hidden Element" name="hidden" />
+      </form>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-<script>
+    <div class="cancel_btn_container">
+      <form method="post" action="{% url 'cancel_booking' %}">
+        {% csrf_token %}
+        <button type="submit" class="cancel-button">Cancel</button>
+      </form>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  <script>
     function handleRazorpayPayment(response) {
-        $.ajax({
-            type: 'POST',
-            url: '{% url "handle_razorpay_payment" name=name date=date session=session mobile_number=mobile_number email=email %}',
-            data: {
-                razorpay_order_id: response.razorpay_order_id,
-                razorpay_payment_id: response.razorpay_payment_id,
-                razorpay_signature: response.razorpay_signature,
-                booking_id: '{{ booking.pk }}'  // Replace with the actual booking ID
-            },
-            success: function(data) {
-                if (data.status === 'success') {
-                    var bookingId = data.booking_id;
-                    var redirectUrl = "{% url 'complete_booking' booking_id=0 %}".replace('0', bookingId);
-                    window.location.href = redirectUrl;
-                } else {
-                    // Handle payment failure
-                    window.location.href = "{% url 'payment_failed' %}";
-                }
-            },
-            error: function() {
-                // Handle error
-                window.location.href = "{% url 'payment_failed' %}";
-            }
-        });
+      $.ajax({
+        type: 'POST',
+        url: '{% url "handle_razorpay_payment" name=name date=date session=session mobile_number=mobile_number email=email %}',
+        data: {
+          razorpay_order_id: response.razorpay_order_id,
+          razorpay_payment_id: response.razorpay_payment_id,
+          razorpay_signature: response.razorpay_signature,
+          booking_id: '{{ booking.pk }}'  // Replace with the actual booking ID
+        },
+        success: function (data) {
+          if (data.status === 'success') {
+            var bookingId = data.booking_id;
+            var redirectUrl = "{% url 'complete_booking' booking_id=0 %}".replace('0', bookingId);
+            window.location.href = redirectUrl;
+          } else {
+            // Handle payment failure
+            window.location.href = "{% url 'payment_failed' %}";
+          }
+        },
+        error: function () {
+          // Handle error
+          window.location.href = "{% url 'payment_failed' %}";
+        }
+      });
     }
-</script>
-<script>
-  $(window).on("load", function () {
-    $(".loader-wrapper").fadeOut("slow");
-  });
-</script>
-  </body>
+  </script>
 
-  </html>
+</body>
+
+</html>

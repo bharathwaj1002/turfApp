@@ -96,12 +96,8 @@ WSGI_APPLICATION = 'turfproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'g*FE4f4d4g45fDAaAC3bbGcD5-1dCfD2',
-        'HOST': 'viaduct.proxy.rlwy.net',
-	    'PORT': '12847'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
